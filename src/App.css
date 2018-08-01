@@ -1,32 +1,29 @@
-.App {
-  text-align: center;
-}
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+/* For desktop, tablets and ipads*/
+@media only screen and (min-device-width: 768px) {
+    .App {
+      text-align: center;
+      margin-left: 70px;
+      margin-right: 70px;
+    }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+    .bp3-navbar {
+        min-width: 1100px;
+    }
 
-.App-title {
-  font-size: 1.5em;
-}
+    .menu-bar-desktop {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+    }
 
-.App-intro {
-  font-size: large;
-}
+    .menuOptions {
+        width: calc((100% - 40px) / 6);
+    }
 
-.menuOptions {
-    width: calc(100% / 6);
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    .bp3-navbar-divider {
+        height: 40px;
+    }
 }

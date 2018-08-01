@@ -20,7 +20,7 @@ class App extends Component {
 
 	render() {
 		return (
-            <div className="App" style={{marginLeft: "70px", marginRight: "70px"}}>
+            <div className="App">
     			<Header pageStructure={this.state.pageStructure}/>
                 <Main />
     		</div>

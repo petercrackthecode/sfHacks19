@@ -11,31 +11,41 @@ export default class Header extends Component {
 		super(props);
 	}
 
-	renderMenuItems = (key) => {
+	renderMenuItems = (page, key) => {
 		return (
-			<MenuItem key={key} text={key} />
+			<MenuItem key={key} text={key} href={"/" + page + "#" + key}/>
 		);
 	}
 
 	renderDesktopMenuOptions = (key) => {
+		const page = key;
 		return (
 			this.props.pageStructure[key].length > 0
 			? <div className="menuOptions" key={key}><Popover
-				content={
-					<Menu>
-						{ this.props.pageStructure[key].map(this.renderMenuItems) }
-					</Menu>
+					content={
+						<Menu>
+							{ this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
+						</Menu>
+					}
+					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER}>
+					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
+				</Popover>
+				<span className="bp3-navbar-divider" style={{float: "right"}}></span>
+			</div>
+			: <div className="menuOptions" key={key}>
+				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
+				{
+					key !== "Blog"
+					? <span className="bp3-navbar-divider" style={{float: "right"}}></span>
+					: <div></div>
 				}
-				position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER}>
-					<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} >{key}</a>
-			</Popover></div>
-			: <div className="menuOptions" key={key}><a className="bp3-button bp3-minimal bp3-large" href={"/" + key} >{key}</a></div>
+			</div>
 		);
 	}
 
 	render() {
 		return (
-			<nav className="bp3-navbar" style={{minHeight: "160px"}}>
+			<nav className="bp3-navbar" style={{minHeight: "180px", padding: "20px"}}>
 				<div style={{margin: "0 auto", minHeight: "100px"}}>
 					<div className="bp3-navbar-group bp3-align-left" style={{position: "relative"}}>
 						<img src={logo} alt="logo" style={{width: "186px", height: "100px", position: "absolute", top: "0px"}}/>
