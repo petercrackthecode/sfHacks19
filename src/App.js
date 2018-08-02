@@ -22,6 +22,7 @@ class App extends Component {
 		return (
             <div className="App">
     			<Header pageStructure={this.state.pageStructure}/>
+                <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey"}}></div>
                 <Main />
     		</div>
         );

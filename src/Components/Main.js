@@ -14,9 +14,10 @@ export default class Main extends Component {
 
 	render() {
 		return(
-			<div>
+			<div className="Main">
 				<Route exact path="/" component={Home} />
 				<Route path="/Home" component={Home} />
+				<Route path="/Seeds Vietnam" component={Home} />
 				<Route path="/Seeds ACT" component={SeedsACT} />
 				<Route path="/SheCodes" component={SheCodes} />
 				<Route path="/Essay Editing" component={EssayEditing} />
