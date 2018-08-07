@@ -5,8 +5,8 @@
 @media only screen and (min-device-width: 768px) {
     .App {
       text-align: center;
-      margin-left: 70px;
-      margin-right: 70px;
+      margin-left: 100px;
+      margin-right: 100px;
     }
 
     .bp3-navbar {
@@ -15,6 +15,10 @@
 
     .Main {
         min-width: 1100px;
+        background-color: rgb(255, 255, 255);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
     }
 
     .lightBar {
@@ -48,5 +52,372 @@
     @keyframes flash {
         0% { opacity: .3; }
         100% { opacity: 1; }
+    }
+
+    .sectionTitle {
+        font-size: 23px;
+        font-family: "Georgia", serif;
+        letter-spacing: .3rem;
+        padding-top: 30px;
+    }
+
+    .sectionContent {
+        font-size: 17px;
+        font-family: Verdana, Geneva, sans-serif;
+        line-height: 1.5em;
+        padding: 0px 30px 30px 30px;
+    }
+
+    .pageDivider {
+        display:block;
+        content:'';
+        background: inherit;
+        box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    .pageDivider[data-color="green"] {
+        box-shadow: -50px 50px 0 green, 50px -50px 0 green;
+    }
+
+    .pageDivider[data-color="white"] {
+        box-shadow: -50px 50px 0 white, 50px -50px 0 white;
+    }
+
+    .pageDivider[data-color="orange"] {
+        box-shadow: -50px 50px 0 orange, 50px -50px 0 orange;
+    }
+
+    [data-color="green"] {
+        background-color: green;
+        color: white;
+    }
+
+    [data-color="white"] {
+        background-color: white;
+        color: black;
+    }
+
+    [data-color="orange"] {
+        background-color: orange;
+        color: black;
+    }
+}
+
+/* For Galaxy S5/6/7/8, iPhone 6/7/8/X */
+@media only screen and (min-device-width : 330px) and (max-device-width : 410px){
+    .App {
+      text-align: center;
+    }
+
+    .bp3-navbar {
+    }
+
+    .Main {
+        background-color: rgb(255, 255, 255);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
+    }
+
+    .lightBar {
+    }
+
+    .menu-bar-desktop {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+    }
+
+    .menuOptions {
+        width: calc((100% - 40px) / 6);
+    }
+
+    .bp3-navbar-divider {
+        height: 40px;
+    }
+
+    .pagePeek-desktop .flash:hover {
+        opacity: 1;
+        -webkit-animation: flash 1s;
+        animation: flash 1s;
+    }
+
+    @-webkit-keyframes flash {
+        0% { opacity: .3; }
+        100% { opacity: 1; }
+    }
+    @keyframes flash {
+        0% { opacity: .3; }
+        100% { opacity: 1; }
+    }
+
+    .sectionTitle {
+        font-size: 23px;
+        font-family: "Georgia", serif;
+        letter-spacing: .3rem;
+        padding-top: 30px;
+    }
+
+    .sectionContent {
+        font-size: 17px;
+        font-family: Verdana, Geneva, sans-serif;
+        line-height: 1.5em;
+        padding: 0px 30px 30px 30px;
+    }
+
+    .pageDivider {
+        display:block;
+        content:'';
+        background: inherit;
+        box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    .pageDivider[data-color="green"] {
+        box-shadow: -50px 50px 0 green, 50px -50px 0 green;
+    }
+
+    .pageDivider[data-color="white"] {
+        box-shadow: -50px 50px 0 white, 50px -50px 0 white;
+    }
+
+    .pageDivider[data-color="orange"] {
+        box-shadow: -50px 50px 0 orange, 50px -50px 0 orange;
+    }
+
+    [data-color="green"] {
+        background-color: green;
+        color: white;
+    }
+
+    [data-color="white"] {
+        background-color: white;
+        color: black;
+    }
+
+    [data-color="orange"] {
+        background-color: orange;
+        color: black;
+    }
+}
+
+/* For iPhone 6/7/8 PLUS, Pixel 2/2XL */
+@media only screen and (min-device-width : 410px) and (max-device-width : 767px){
+    .App {
+      text-align: center;
+    }
+
+    .bp3-navbar {
+    }
+
+    .Main {
+        background-color: rgb(255, 255, 255);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
+    }
+
+    .lightBar {
+    }
+
+    .menu-bar-desktop {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+    }
+
+    .menuOptions {
+        width: calc((100% - 40px) / 6);
+    }
+
+    .bp3-navbar-divider {
+        height: 40px;
+    }
+
+    .pagePeek-desktop .flash:hover {
+        opacity: 1;
+        -webkit-animation: flash 1s;
+        animation: flash 1s;
+    }
+
+    @-webkit-keyframes flash {
+        0% { opacity: .3; }
+        100% { opacity: 1; }
+    }
+    @keyframes flash {
+        0% { opacity: .3; }
+        100% { opacity: 1; }
+    }
+
+    .sectionTitle {
+        font-size: 23px;
+        font-family: "Georgia", serif;
+        letter-spacing: .3rem;
+        padding-top: 30px;
+    }
+
+    .sectionContent {
+        font-size: 17px;
+        font-family: Verdana, Geneva, sans-serif;
+        line-height: 1.5em;
+        padding: 0px 30px 30px 30px;
+    }
+
+    .pageDivider {
+        display:block;
+        content:'';
+        background: inherit;
+        box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    .pageDivider[data-color="green"] {
+        box-shadow: -50px 50px 0 green, 50px -50px 0 green;
+    }
+
+    .pageDivider[data-color="white"] {
+        box-shadow: -50px 50px 0 white, 50px -50px 0 white;
+    }
+
+    .pageDivider[data-color="orange"] {
+        box-shadow: -50px 50px 0 orange, 50px -50px 0 orange;
+    }
+
+    [data-color="green"] {
+        background-color: green;
+        color: white;
+    }
+
+    [data-color="white"] {
+        background-color: white;
+        color: black;
+    }
+
+    [data-color="orange"] {
+        background-color: orange;
+        color: black;
+    }
+}
+
+/* For iPhone 5S and all other smaller screen devices */
+@media only screen and (max-device-width : 320px){
+    .App {
+      text-align: center;
+    }
+
+    .bp3-navbar {
+    }
+
+    .Main {
+        background-color: rgb(255, 255, 255);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
+    }
+
+    .lightBar {
+    }
+
+    .menu-bar-desktop {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+    }
+
+    .menuOptions {
+        width: calc((100% - 40px) / 6);
+    }
+
+    .bp3-navbar-divider {
+        height: 40px;
+    }
+
+    .pagePeek-desktop .flash:hover {
+        opacity: 1;
+        -webkit-animation: flash 1s;
+        animation: flash 1s;
+    }
+
+    @-webkit-keyframes flash {
+        0% { opacity: .3; }
+        100% { opacity: 1; }
+    }
+    @keyframes flash {
+        0% { opacity: .3; }
+        100% { opacity: 1; }
+    }
+
+    .sectionTitle {
+        font-size: 23px;
+        font-family: "Georgia", serif;
+        letter-spacing: .3rem;
+        padding-top: 30px;
+    }
+
+    .sectionContent {
+        font-size: 17px;
+        font-family: Verdana, Geneva, sans-serif;
+        line-height: 1.5em;
+        padding: 0px 30px 30px 30px;
+    }
+
+    .pageDivider {
+        display:block;
+        content:'';
+        background: inherit;
+        box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    .pageDivider[data-color="green"] {
+        box-shadow: -50px 50px 0 green, 50px -50px 0 green;
+    }
+
+    .pageDivider[data-color="white"] {
+        box-shadow: -50px 50px 0 white, 50px -50px 0 white;
+    }
+
+    .pageDivider[data-color="orange"] {
+        box-shadow: -50px 50px 0 orange, 50px -50px 0 orange;
+    }
+
+    [data-color="green"] {
+        background-color: green;
+        color: white;
+    }
+
+    [data-color="white"] {
+        background-color: white;
+        color: black;
+    }
+
+    [data-color="orange"] {
+        background-color: orange;
+        color: black;
     }
 }

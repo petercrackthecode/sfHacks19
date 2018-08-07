@@ -45,7 +45,7 @@ export default class Header extends Component {
 
 	render() {
 		return (
-			<nav className="bp3-navbar" style={{minHeight: "180px", padding: "20px"}}>
+			<nav className="bp3-navbar" style={{minHeight: "180px", padding: "20px", boxShadow: "0 0 0 0"}}>
 				<div style={{margin: "0 auto", minHeight: "100px"}}>
 					<div className="bp3-navbar-group bp3-align-left" style={{position: "relative"}}>
 						<img src={logo} alt="logo" style={{width: "186px", height: "100px", position: "absolute", top: "0px"}}/>
