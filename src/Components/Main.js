@@ -22,7 +22,7 @@ export default class Main extends Component {
 				<Route path="/SheCodes" component={SheCodes} />
 				<Route path="/Essay Editing" component={EssayEditing} />
 				<Route path="/About &amp; Contact" component={AboutContact} />
-				<Route path="/Blog" component={Blog} />
+				<Route path="/Blog/:id/:title" component={Blog} />
 			</div>
 		);
 	}
