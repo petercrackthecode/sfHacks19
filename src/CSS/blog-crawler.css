@@ -1,12 +1,12 @@
 .blog-crawler {
-    margin: 0 auto;
+    margin: 0 0 20px 0;
     white-space: nowrap;
     overflow: hidden;
     border: 1px black solid;
     border-radius: 5px;
     height: 110px;
     padding: 5px;
-    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .blog-item > * {

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 import "../CSS/blog-crawler.css";
 
-import seedsVietnam_banner from "../Images/seedsVietnamBanner.jpg";
-
 export default class BlogCrawler extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +11,6 @@ export default class BlogCrawler extends Component {
         };
         this.default_delay = 5000;
         this.delay = 5000;
-        this.temp = 0;
         this.timeout = null;
     }
 
