@@ -1,0 +1,18 @@
+.align-center div {
+    text-align: center;
+}
+.align-left div {
+    text-align: left;
+}
+.align-right div {
+    text-align: right;
+}
+.align-justify div {
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+}
+
+.code {
+    background-color: #a66321;
+}

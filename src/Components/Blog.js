@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import firebase from "./firebase.js";
-import FileViewer from "react-file-viewer";
-import mammoth from "mammoth";
+// import mammoth from "mammoth";
 
 import "../CSS/blog.css";
 
@@ -12,6 +11,7 @@ export default class Blog extends Component {
 
 	}
 
+
 	componentWillMount() {
         const storage = firebase.storage().ref("blogs/0001/");
         storage.child("content_0001.docx").getDownloadURL()
@@ -19,18 +19,10 @@ export default class Blog extends Component {
             console.log(url);
             // This can be downloaded directly:
             var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
+            xhr.responseType = 'text';
             xhr.onload = (event) => {
                 var document = xhr.response;
                 console.log(document);
-                mammoth.convertToHtml({arrayBuffer: document})
-                    .then((result) => {
-                        var html = result.value; // The generated HTML
-                        console.log(html);
-                        var messages = result.messages; // Any messages, such as warnings during conversion
-                        this.refs["fileview"].innerHTML = html;
-                    })
-                    .done();
             };
             xhr.open('GET', url);
             xhr.send();

@@ -1,20 +1,27 @@
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
+#root {
+
+}
+
 /* For desktop, tablets and ipads*/
 @media only screen and (min-device-width: 768px) {
     .App {
-      text-align: center;
-      margin-left: 100px;
-      margin-right: 100px;
+        text-align: center;
+        min-width: 1100px;
+        max-width: 1300px;
+        margin: 0 auto;
     }
 
     .bp3-navbar {
         min-width: 1100px;
+        max-width: 1300px;
     }
 
     .Main {
         min-width: 1100px;
+        max-width: 1300px;
         background-color: rgb(255, 255, 255);
         padding: 15px;
         border-radius: 10px;
@@ -23,6 +30,7 @@
 
     .lightBar {
         min-width: 1100px;
+        max-width: 1300px;
     }
 
     .menu-bar-desktop {
@@ -46,12 +54,20 @@
     }
 
     @-webkit-keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
     @keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .sectionTitle {
@@ -69,8 +85,8 @@
     }
 
     .pageDivider {
-        display:block;
-        content:'';
+        display: block;
+        content: '';
         background: inherit;
         box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
         position: absolute;
@@ -111,9 +127,9 @@
 }
 
 /* For Galaxy S5/6/7/8, iPhone 6/7/8/X */
-@media only screen and (min-device-width : 330px) and (max-device-width : 410px){
+@media only screen and (min-device-width: 330px) and (max-device-width: 410px) {
     .App {
-      text-align: center;
+        text-align: center;
     }
 
     .bp3-navbar {
@@ -150,12 +166,20 @@
     }
 
     @-webkit-keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
     @keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .sectionTitle {
@@ -173,8 +197,8 @@
     }
 
     .pageDivider {
-        display:block;
-        content:'';
+        display: block;
+        content: '';
         background: inherit;
         box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
         position: absolute;
@@ -215,9 +239,9 @@
 }
 
 /* For iPhone 6/7/8 PLUS, Pixel 2/2XL */
-@media only screen and (min-device-width : 410px) and (max-device-width : 767px){
+@media only screen and (min-device-width: 410px) and (max-device-width: 767px) {
     .App {
-      text-align: center;
+        text-align: center;
     }
 
     .bp3-navbar {
@@ -254,12 +278,20 @@
     }
 
     @-webkit-keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
     @keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .sectionTitle {
@@ -277,8 +309,8 @@
     }
 
     .pageDivider {
-        display:block;
-        content:'';
+        display: block;
+        content: '';
         background: inherit;
         box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
         position: absolute;
@@ -319,9 +351,9 @@
 }
 
 /* For iPhone 5S and all other smaller screen devices */
-@media only screen and (max-device-width : 320px){
+@media only screen and (max-device-width: 320px) {
     .App {
-      text-align: center;
+        text-align: center;
     }
 
     .bp3-navbar {
@@ -358,12 +390,20 @@
     }
 
     @-webkit-keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
     @keyframes flash {
-        0% { opacity: .3; }
-        100% { opacity: 1; }
+        0% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .sectionTitle {
@@ -381,8 +421,8 @@
     }
 
     .pageDivider {
-        display:block;
-        content:'';
+        display: block;
+        content: '';
         background: inherit;
         box-shadow: -50px 50px 0 #db3f34, 50px -50px 0 #3498db;
         position: absolute;
