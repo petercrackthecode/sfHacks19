@@ -38,7 +38,7 @@ export default class HeaderStyleDropdown extends Component {
     render() {
         return (
             <Popover content={this.renderMenuOptions()} position={Position.BOTTOM}>
-                <Button className="bp3-large" text={this.state.button_text}/>
+                <Button className="bp3-large" text={this.state.button_text} style={{minWidth: "200px"}}/>
             </Popover>
         );
     }

@@ -14,5 +14,6 @@
 }
 
 .code {
-    background-color: #a66321;
+    font-family: Consolas,monaco,monospace;
+    background-color: #d8e1e8;
 }

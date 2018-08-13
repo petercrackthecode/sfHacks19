@@ -233,3 +233,12 @@
 .text-editor-button-div > *, .text-editor-block-style > * {
     padding: 10px;
 }
+
+.text-editor-save {
+    padding: 10px;
+    height: 60px;
+}
+
+.text-editor-save button {
+    float: right;
+}

@@ -1,68 +1,125 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 import {Button, ButtonGroup} from "@blueprintjs/core";
-import {Editor, EditorState, RichUtils, Modifier} from 'draft-js';
+import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, KeyBindingUtil} from "draft-js";
 
-import BlockStyleToolbar, { getBlockStyle, getBlockMap, customStyleMap } from "./BlockStyles/BlockStyleToolbar.js";
+import BlockStyleToolbar from "./BlockStyles/BlockStyleToolbar.js";
 import ExtendedRichUtils from "./BlockStyles/ExtendedRichUtils.js";
+import {mediaBlockRenderer} from "./BlockStyles/entities/MediaBlockRenderer.js";
+import {hyperlinkDecorator} from "./BlockStyles/plugins/HyperLinkPlugin.js";
 
-import '../CSS/text-editor.css';
-import '../CSS/custom-block-style.css';
+import {customStyleMap,
+        getBlockStyle,
+        getBlockMap,
+        customKeyBindingFn,
+        handleKeyCommand} from "./BlockStyles/HelperFn.js";
+
+import "../CSS/text-editor.css";
+import "../CSS/custom-block-style.css";
 
 export default class TextEditor extends Component {
 	constructor(props) {
 		super(props);
         this.state = {
             editorState: EditorState.createEmpty(),
-        }
+        };
 	}
 
     onChange = (editorState) => {
         this.setState({editorState: editorState});
     };
 
-    handleKeyCommand = (command, editorState) => {
-        const newState = RichUtils.handleKeyCommand(editorState, command);
-        if (newState) {
-            this.onChange(newState);
-            return 'handled';
+    handleKeyCommand = (command) => {
+        if (command === "add-hyperlink") {
+            this.handleHyperLinkClick();
+            return "handled";
         }
-        return 'not-handled';
+        if (command === "bold-text") {
+            this.handleBoldClick();
+            return "handled";
+        }
+        if (command === "italicize-text") {
+            this.handleItalicClick();
+            return "handled";
+        }
+        if (command === "underline-text") {
+            this.handleUnderlineClick();
+            return "handled";
+        }
+        console.log(command + " not-handled");
+        return "not-handled";
     };
+
     handleBoldClick = () => {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
     };
     handleItalicClick = () => {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC"));
     };
     handleUnderlineClick = () => {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'UNDERLINE'));
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE"));
+    };
+    handleHighlightClick = () => {
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "HIGHLIGHT"));
     };
     handleAlignLeftClick = () => {
-        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, 'LEFT'));
+        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, "LEFT"));
     };
     handleAlignCenterClick = () => {
-        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, 'CENTER'));
+        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, "CENTER"));
     };
     handleAlignRightClick = () => {
-        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, 'RIGHT'));
+        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, "RIGHT"));
     };
     handleAlignJustifyClick = () => {
-        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, 'JUSTIFY'));
+        this.onChange(ExtendedRichUtils.toggleAlignment(this.state.editorState, "JUSTIFY"));
+    };
+    handleHyperLinkClick = () => {
+        const editorState = this.state.editorState;
+        const selection = editorState.getSelection();
+        const link = window.prompt("Paste the link -");
+        if (!link) {
+            this.onChange(RichUtils.toggleLink(editorState, selection, null));
+            return "handled";
+        }
+        const content = editorState.getCurrentContent();
+        const contentWithEntity = content.createEntity("LINK", "MUTABLE", { url: link });
+        let newEditorState = EditorState.createEmpty(hyperlinkDecorator);
+        newEditorState = EditorState.push(newEditorState, contentWithEntity, "create-entity");
+        const entityKey = contentWithEntity.getLastCreatedEntityKey();
+        this.onChange(RichUtils.toggleLink(newEditorState, selection, entityKey))
+    };
+    handleMediaClick = () => {
+        const editorState = this.state.editorState;
+        const urlValue = window.prompt("Paste Image Link");
+        const contentState = editorState.getCurrentContent();
+        const contentStateWithEntity = contentState.createEntity(
+            "image",
+            "IMMUTABLE",
+            { src: urlValue }
+        );
+        const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+        const newEditorState = EditorState.set(
+            editorState,
+            { currentContent: contentStateWithEntity },
+            "create-entity"
+        );
+        this.setState({editorState: AtomicBlockUtils.insertAtomicBlock(
+                                        newEditorState,
+                                        entityKey,
+                                        " ")});
     };
 
     handleTab = (e) => {
         e.preventDefault();
-
         let currentState = this.state.editorState;
         let newContentState = Modifier.replaceText(
             currentState.getCurrentContent(),
             currentState.getSelection(),
             "    "
         );
-
         this.setState({
-            editorState: EditorState.push(currentState, newContentState, 'insert-characters')
+            editorState: EditorState.push(currentState, newContentState, "insert-characters")
         });
     };
 
@@ -83,12 +140,17 @@ export default class TextEditor extends Component {
                         <Button className="bp3-icon-bold bp3-large" tabIndex="-1" onClick={this.handleBoldClick}/>
                         <Button className="bp3-icon-italic bp3-large" tabIndex="-1" onClick={this.handleItalicClick}/>
                         <Button className="bp3-icon-underline bp3-large" tabIndex="-1" onClick={this.handleUnderlineClick}/>
+                        <Button className="bp3-icon-highlight bp3-large" tabIndex="-1" onClick={this.handleHighlightClick}/>
                     </ButtonGroup>
                     <ButtonGroup>
                         <Button className="bp3-icon-align-left bp3-large" tabIndex="-1" onClick={this.handleAlignLeftClick}/>
                         <Button className="bp3-icon-align-center bp3-large" tabIndex="-1" onClick={this.handleAlignCenterClick}/>
                         <Button className="bp3-icon-align-right bp3-large" tabIndex="-1" onClick={this.handleAlignRightClick}/>
                         <Button className="bp3-icon-align-justify bp3-large" tabIndex="-1" onClick={this.handleAlignJustifyClick}/>
+                    </ButtonGroup>
+                    <ButtonGroup>
+                        <Button className="bp3-icon-link bp3-large" tabIndex="-1" onClick={this.handleHyperLinkClick}/>
+                        <Button className="bp3-icon-media bp3-large" tabIndex="-1" onClick={this.handleMediaClick}/>
                     </ButtonGroup>
                 </div>
                 <div className="text-editor-block-style">
@@ -104,10 +166,15 @@ export default class TextEditor extends Component {
                         onChange={this.onChange}
                         handleKeyCommand={this.handleKeyCommand}
                         blockStyleFn={getBlockStyle}
+                        blockRendererFn={mediaBlockRenderer}
                         blockRenderMap={getBlockMap()}
                         onTab={this.handleTab}
                         customStyleMap={customStyleMap}
+                        keyBindingFn={customKeyBindingFn}
                     />
+                </div>
+                <div className="text-editor-save">
+                    <Button className="bp3-large" text="Save and Upload..." onClick={this.props.save}/>
                 </div>
             </div>
         );
