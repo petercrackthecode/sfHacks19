@@ -1,0 +1,29 @@
+.site-media-browser {
+    overflow: auto;
+    position: relative;
+    height: 350px;
+}
+
+.site-media-browser .bp3-card:hover {
+    cursor: pointer;
+    background-color: #ced9e0;
+}
+
+.site-media-browser .bp3-card[data-selected="true"] {
+    background-color: deepskyblue;
+}
+
+.site-media-browser .detail-viewer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    height: 70px;
+    width: 70%;
+}
+
+.site-media-browser .submit-selection {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}

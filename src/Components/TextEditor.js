@@ -1,7 +1,12 @@
 import React, {Component} from "react";
 
-import {Button, ButtonGroup} from "@blueprintjs/core";
-import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, KeyBindingUtil} from "draft-js";
+import {Button, ButtonGroup, Overlay} from "@blueprintjs/core";
+import {Card, Tab, Tabs} from "@blueprintjs/core";
+import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, KeyBindingUtil, convertToRaw, convertFromRaw} from "draft-js";
+
+import SiteMediaUploader from "./SiteMediaManager/SiteMediaUploader.js";
+import SiteMediaBrowser from "./SiteMediaManager/SiteMediaBrowser.js";
+import GoogleImageBrowser from "./SiteMediaManager/GoogleImageBrowser.js";
 
 import BlockStyleToolbar from "./BlockStyles/BlockStyleToolbar.js";
 import ExtendedRichUtils from "./BlockStyles/ExtendedRichUtils.js";
@@ -22,6 +27,7 @@ export default class TextEditor extends Component {
 		super(props);
         this.state = {
             editorState: EditorState.createEmpty(),
+            addMediaOverlay: false,
         };
 	}
 
@@ -89,14 +95,32 @@ export default class TextEditor extends Component {
         const entityKey = contentWithEntity.getLastCreatedEntityKey();
         this.onChange(RichUtils.toggleLink(newEditorState, selection, entityKey))
     };
-    handleMediaClick = () => {
+    renderAddMediaOverlay = () => {
+        return(
+            <Overlay
+                     isOpen={this.state.addMediaOverlay}
+                     onClose={() => this.setState({addMediaOverlay: false})}>
+                <Card className="add-media-manager">
+                    <Tabs id="AddSiteMedia" defaultSelectedTabId="site-media-browser" large={true}>
+                        <Tab id="site-media-uploader" title="From Site" panel={<SiteMediaUploader />}/>
+                        <Tab id="site-media-browser" title="From Site" panel={<SiteMediaBrowser embed={this.insertMedia}/>}/>
+                        <Tab id="google-image" title="From Google Image" panel={<GoogleImageBrowser />} />
+                        <Tabs.Expander />
+                    </Tabs>
+                </Card>
+            </Overlay>
+        );
+    };
+
+    insertMedia = (url) => {
+        this.setState({addMediaOverlay: false});
+
         const editorState = this.state.editorState;
-        const urlValue = window.prompt("Paste Image Link");
         const contentState = editorState.getCurrentContent();
         const contentStateWithEntity = contentState.createEntity(
             "image",
             "IMMUTABLE",
-            { src: urlValue }
+            { src: url }
         );
         const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
         const newEditorState = EditorState.set(
@@ -132,6 +156,14 @@ export default class TextEditor extends Component {
         this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle));
     };
 
+    onSave = () => {
+        let contentState = this.state.editorState.getCurrentContent();
+        if (contentState.getPlainText().trim() === "") return;
+
+        const data = convertToRaw(contentState);
+        this.props.save(data);
+    };
+
     render() {
         return(
             <div className="text-editor">
@@ -150,7 +182,7 @@ export default class TextEditor extends Component {
                     </ButtonGroup>
                     <ButtonGroup>
                         <Button className="bp3-icon-link bp3-large" tabIndex="-1" onClick={this.handleHyperLinkClick}/>
-                        <Button className="bp3-icon-media bp3-large" tabIndex="-1" onClick={this.handleMediaClick}/>
+                        <Button className="bp3-icon-media bp3-large" tabIndex="-1" onClick={() => this.setState({addMediaOverlay: true})}/>
                     </ButtonGroup>
                 </div>
                 <div className="text-editor-block-style">
@@ -174,8 +206,10 @@ export default class TextEditor extends Component {
                     />
                 </div>
                 <div className="text-editor-save">
-                    <Button className="bp3-large" text="Save and Upload..." onClick={this.props.save}/>
+                    <Button className="bp3-large" text="Save and Upload..." onClick={this.onSave}/>
                 </div>
+
+                { this.state.addMediaOverlay ? this.renderAddMediaOverlay() : null }
             </div>
         );
     }

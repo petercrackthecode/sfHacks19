@@ -242,3 +242,12 @@
 .text-editor-save button {
     float: right;
 }
+
+.add-media-manager {
+    width: 60%;
+    height: 450px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+}

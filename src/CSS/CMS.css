@@ -1,0 +1,26 @@
+.blog-cms {
+    min-width: 1200px;
+}
+
+.blog-cms .bp3-tab-panel {
+    margin: 0px;
+    position: relative;
+    padding: 10px;
+    min-width: 1170px;
+    border: 1px #0f9960 solid;
+}
+
+.blog-cms .bp3-tab {
+    padding: 7px;
+    min-width: 170px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.blog-cms .bp3-tab[aria-expanded="true"] {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    color: black;
+}

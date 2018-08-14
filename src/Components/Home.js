@@ -27,20 +27,18 @@ export default class Home extends Component {
     };
 
     componentDidMount = () => {
-        setTimeout(() => {
-            this.setGalleryImages();
-            this.fetchBlogs();
-        }, 300);
-    }
+        this.setGalleryImages();
+        this.fetchBlogs();
+    };
 
     fetchBlogs = () => {
         const currentTime = GetCurrentTime("ms");
         const blog_list = [];
-        const blogsRef = firebase.database().ref("blogs");
+        const blogsRef = firebase.database().ref("blogs/");
         blogsRef.on("value", (snapshot) => {
             let items = snapshot.val();
             for (let i in items) {
-                if (currentTime - items[i].createTimeStamp > 604800000) continue;
+                // if (currentTime - items[i].createTimeStamp > 604800000) continue;
 
                 blog_list.push(items[i]);
             }
