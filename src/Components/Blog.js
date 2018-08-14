@@ -1,45 +1,62 @@
 import React, {Component} from 'react';
 import firebase from "./firebase.js";
-// import mammoth from "mammoth";
+
+import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, KeyBindingUtil, convertToRaw, convertFromRaw} from "draft-js";
 
 import "../CSS/blog.css";
 
 export default class Blog extends Component {
 	constructor(props) {
 		super(props);
-		this.filePath="https://firebasestorage.googleapis.com/v0/b/seeds-vietnam.appspot.com/o/blogs%2F0001%2Fcontent_0001.docx?alt=media&token=981b3c21-bb35-4de9-9242-572df5fadef5";
-
+		this.state = {
+		    content: "",
+            editorState: EditorState.createEmpty(),
+        };
 	}
 
-
 	componentWillMount() {
-        const storage = firebase.storage().ref("blogs/0001/");
-        storage.child("content_0001.docx").getDownloadURL()
-            .then((url) => {
-            console.log(url);
-            // This can be downloaded directly:
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'text';
-            xhr.onload = (event) => {
-                var document = xhr.response;
-                console.log(document);
-            };
-            xhr.open('GET', url);
-            xhr.send();
-        }).catch(function(error) {
-            // Handle any errors
-        });
-
+		this.getBlogContent();
     }
+
+    getBlogContent = () => {
+	    const id = this.props.match.params.id;
+	    if (id === undefined) return;
+	    const blogRef = firebase.database().ref("blogs/" + id);
+	    blogRef.on("value", (snapshot) => {
+	        const blog_data = snapshot.val();
+	        this.setState({content: blog_data.data.content.slice(1, -1)}, () => {
+                const newEditor = EditorState.createWithContent(convertFromRaw(JSON.parse(this.state.content)));
+                this.setState({editorState: newEditor});
+            });
+        });
+    };
+
+    renderBlogContent = () => {
+        return(
+            <div className="blog-content">
+                <Editor
+                    editorState={this.state.editorState}
+                    readOnly={true}
+                />
+            </div>
+        );
+    };
+
+    renderBlogBrowser = () => {
+        return(
+            <div></div>
+        );
+    };
 
 	render() {
 		return(
 			<div className="blog">
-				Blog
-				{this.props.match.params.id}
-                {this.props.match.params.title}
-                <div id="fileview" ref="fileview"></div>
-			</div>
+                <div>
+                    {this.props.match.params.id}
+                    {this.props.match.params.title}
+                </div>
+                { this.props.match.params.id === undefined ? this.renderBlogBrowser() : this.renderBlogContent()}
+            </div>
 		);
 	}
 }

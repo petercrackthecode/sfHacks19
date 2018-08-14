@@ -10,6 +10,7 @@ export default class NewContent extends Component {
     saveTextEditorData = (data) => {
         // POST data to backend here
         console.log(data);
+        console.log(JSON.stringify(data));
     };
 
     render() {
