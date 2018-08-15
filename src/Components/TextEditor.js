@@ -101,7 +101,7 @@ export default class TextEditor extends Component {
                 <Card className="add-media-manager">
                     <Tabs id="AddSiteMedia" defaultSelectedTabId="site-media-browser" large={true}>
                         <Tab id="site-media-browser" title="From Site" panel={<SiteMediaBrowser embed={this.insertMedia}/>}/>
-                        <Tab id="google-image" title="From Google Image" panel={<GoogleImageBrowser />} />
+                        <Tab id="google-image" title="From Google Image" panel={<GoogleImageBrowser embed={this.insertMedia}/>} />
                         <Tabs.Expander />
                     </Tabs>
                 </Card>

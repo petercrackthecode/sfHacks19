@@ -16,6 +16,7 @@ export default class SiteMediaBrowser extends Component {
         this.state = {
             media: [],
             selected: "",
+            isOperationUnderway: false,
         };
     }
 
@@ -25,7 +26,14 @@ export default class SiteMediaBrowser extends Component {
         }, 500);
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.media !== this.state.media) {
+            this.setState({isOperationUnderway: true});
+        }
+    }
+
     getSiteMedia = () => {
+        this.setState({isOperationUnderway: true});
         const mediaRef = firebase.database().ref("siteMedia/")
         mediaRef.on("value", (snapshot) => {
             let media_list = [];
@@ -33,7 +41,7 @@ export default class SiteMediaBrowser extends Component {
             for (let i in items) {
                 media_list.push(items[i]);
             }
-            this.setState({media: media_list});
+            this.setState({media: media_list}, () => this.setState({isOperationUnderway: false}));
         });
     };
 
@@ -77,19 +85,26 @@ export default class SiteMediaBrowser extends Component {
         e.preventDefault();
         e.target.setAttribute("is-dragged-over", "false");
         const files = e.dataTransfer.files;
-        let error = null;
+        let error = "";
         for (let file of files) {
             console.log(file);
             if (!file.type.includes("image")) {
                 error = "File này không phải file ảnh";
-                return;
+                break;
             }
             if (file.size > 5242880) {
                 error = "File ảnh quá lớn! Bạn hãy chọn file ảnh dưới 5mb nhé!";
-                return;
+                break;
             }
             console.log("resizing img");
+            this.setState({isOperationUnderway: true});
             this.resizeAndUploadImage(file);
+        }
+        if (error !== "") {
+            AppToaster.show({
+                message: error,
+                intent: Intent.DANGER
+            });
         }
     };
 
@@ -113,18 +128,20 @@ export default class SiteMediaBrowser extends Component {
                     message: "Ảnh tải lên hệ thống thành công!",
                     intent: Intent.SUCCESS
                 });
-                // this.getSiteMedia();
+                this.setState({isOperationUnderway: false});
             })
             .catch((error) => {
                 AppToaster.show({
                     message: "Ảnh tải lên thất bại: " + error.message,
                     intent: Intent.DANGER
                 });
+                this.setState({isOperationUnderway: false});
             });
     };
 
     deleteSelectedMedia = (e) => {
         e.preventDefault();
+        this.setState({isOperationUnderway: true});
         const fileName = this.state.selected.name + "." + this.state.selected.type.match(/[^/]*$/);
         const mediaRef = firebase.storage().ref().child("site/" + fileName);
         mediaRef.delete().then(() => {
@@ -132,11 +149,13 @@ export default class SiteMediaBrowser extends Component {
                 message: "Xóa ảnh thành công",
                 intent: Intent.SUCCESS
             });
+            this.setState({isOperationUnderway: false});
         }).catch((error) => {
             AppToaster.show({
                 message: "Xoá ảnh thất bại: " + error.message,
                 intent: Intent.DANGER
             });
+            this.setState({isOperationUnderway: false});
         });
     };
 
@@ -151,9 +170,12 @@ export default class SiteMediaBrowser extends Component {
                      onDrop={this.handleFileDrop}>
                     <h3>Click or Drag file here to upload...</h3>
                 </div>
+                <div>
+                { this.state.isOperationUnderway ? this.renderSpinner() : null }
+                </div>
                 <div className="browser">
                     {this.state.media.map(this.renderMedia)}
-                    { this.state.media.length === 0 ? this.renderSpinner() : null }
+
                 </div>
                 <div className="detail-viewer">
                     <b>Selected File Name: </b>{this.state.selected.name} <br/>
