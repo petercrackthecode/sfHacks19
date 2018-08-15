@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08eb52f-3a1b-44c9-adf6-a156f293c35f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Toaster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/SiteMediaBrowser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/site-media-browser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS/text-editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/text-editor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BlockStyles/entities/MediaBlockRenderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BlockStyles/entities/MediaBlockRenderer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/CMS/NewContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CMS/NewContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaUploader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/TextEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TextEditor.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,33 +65,33 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="NewContent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/CMS/NewContent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="114">
+              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="TextEditor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/TextEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="285">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="SiteMediaBrowser.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1211">
-              <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+            <state relative-caret-position="221">
+              <caret line="96" column="32" lean-forward="true" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -91,23 +99,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CSS/SiteMediaBrowser.css">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+            <state relative-caret-position="475">
+              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/Blog.js">
+      <file leaf-file-name="Toaster.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Toaster.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="57">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMS.js" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/shopping-app/src/components/CMS.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3344">
+              <caret line="176" column="50" selection-start-line="176" selection-start-column="40" selection-end-line="176" selection-end-column="50" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site-media-browser.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CSS/site-media-browser.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="text-editor.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CSS/text-editor.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4826">
+              <caret line="254" column="32" selection-start-line="254" selection-start-column="32" selection-end-line="254" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blog.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CSS/blog.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -117,8 +161,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -130,9 +174,12 @@
       <find>ExtendedRichUtils</find>
       <find>'</find>
       <find>Modifier</find>
+      <find>SiteMediaUploader</find>
+      <find>uploadingFile</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
+      <replace>fileData</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -147,18 +194,15 @@
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/src/Components/BlogCrawler.js" />
         <option value="$PROJECT_DIR$/src/CSS/blog-crawler.css" />
-        <option value="$PROJECT_DIR$/src/CSS/blog.css" />
         <option value="$PROJECT_DIR$/src/Components/Main.js" />
         <option value="$PROJECT_DIR$/src/Components/TextEditorCMS.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/getCurrentlySelectedBlock.js" />
-        <option value="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleButton.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/ExtendedRichUtils.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/FontSizeStyleDropdown.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/HeaderStyleDropdown.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/plugins/HyperLinkPlugin.js" />
-        <option value="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleToolbar.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/entities/mediaBlockRenderer.js" />
         <option value="$PROJECT_DIR$/src/CSS/custom-block-style.css" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/HelperFn.js" />
@@ -169,15 +213,23 @@
         <option value="$PROJECT_DIR$/src/Components/BlogCMS.js" />
         <option value="$PROJECT_DIR$/src/Components/GoogleImageBrowser.js" />
         <option value="$PROJECT_DIR$/src/Components/Home.js" />
-        <option value="$PROJECT_DIR$/functions/index.js" />
         <option value="$PROJECT_DIR$/src/Components/SiteMediaBrowser.js" />
         <option value="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaUploader.js" />
-        <option value="$PROJECT_DIR$/src/CSS/text-editor.css" />
         <option value="$PROJECT_DIR$/src/CSS/SiteMediaBrowser.css" />
-        <option value="$PROJECT_DIR$/src/Components/TextEditor.js" />
-        <option value="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js" />
         <option value="$PROJECT_DIR$/src/Components/CMS/NewContent.js" />
+        <option value="$PROJECT_DIR$/src/CSS/blog.css" />
+        <option value="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleButton.js" />
+        <option value="$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleToolbar.js" />
+        <option value="$PROJECT_DIR$/src/Components/BlockStyles/entities/MediaBlockRenderer.js" />
         <option value="$PROJECT_DIR$/src/Components/Blog.js" />
+        <option value="$PROJECT_DIR$/src/CSS/site-media-manager.css" />
+        <option value="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaManager.js" />
+        <option value="$PROJECT_DIR$/src/Components/TextEditor.js" />
+        <option value="$PROJECT_DIR$/src/CSS/text-editor.css" />
+        <option value="$PROJECT_DIR$/src/CSS/site-media-browser.css" />
+        <option value="$PROJECT_DIR$/src/Components/Toaster.js" />
+        <option value="$PROJECT_DIR$/functions/index.js" />
+        <option value="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js" />
       </list>
     </option>
   </component>
@@ -192,6 +244,8 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/functions/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
+    <handled-path value="$USER_HOME$/shopping-app/functions/node_modules" />
+    <handled-path value="$USER_HOME$/shopping-app/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -200,10 +254,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1830" />
-    <option name="y" value="75" />
-    <option name="width" value="1022" />
-    <option name="height" value="736" />
+    <option name="x" value="55" />
+    <option name="y" value="-8" />
+    <option name="width" value="1873" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -213,15 +267,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
               <item name="seeds-vietnam" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seeds-vietnam" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
@@ -233,6 +292,13 @@
               <item name="seeds-vietnam" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seeds-vietnam" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="BlockStyles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
@@ -246,6 +312,21 @@
               <item name="seeds-vietnam" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="CSS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shopping-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shopping-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shopping-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -265,18 +346,18 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\SiteMediaManager" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components" />
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\CSS" />
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\CMS" />
-      <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components" />
       <recent name="C:\Users\nguyet26\seeds-vietnam\src\Components" />
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Helpers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\SiteMediaManager" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -292,30 +373,58 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method>
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+      <method>
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js">
       <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
         <browser start="true" />
       </EXTENSION>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -325,7 +434,6 @@
       <node-interpreter value="project" />
       <package-manager value="npm" />
       <envs />
-      <method v="2" />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -333,7 +441,6 @@
       <node-interpreter value="project" />
       <package-manager value="npm" />
       <envs />
-      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -352,6 +459,7 @@
       <workItem from="1533678865355" duration="182000" />
       <workItem from="1533737013196" duration="5839000" />
       <workItem from="1534261753353" duration="6243000" />
+      <workItem from="1534283744634" duration="15738000" />
     </task>
     <task id="LOCAL-00001" summary="New HomePage version 2.0">
       <created>1533612720711</created>
@@ -378,79 +486,89 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93969000" />
+    <option name="totallyTimeSpent" value="109707000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1672" y="-70" width="1696" height="1036" extended-state="6" />
+    <frame x="55" y="-8" width="1873" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24420024" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="DB Browser" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info id="npm" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" weight="0.32154697" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.35903338" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50155956" side_tool="true" weight="0.32022473" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.32707182" />
-      <window_info anchor="bottom" id="TypeScript" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="DB Execution Console" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50155956" side_tool="true" weight="0.32022473" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32987553" />
+      <window_info id="DB Browser" order="4" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32676348" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" visible="true" weight="0.343361" />
+      <window_info id="npm" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.35892117" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25261998" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TypeScript" order="14" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2533532" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
+      <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="TypeScript" order="14" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" visible="true" weight="0.3205394" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="DB Browser" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.35892117" />
       <window_info id="Capture Tool" order="7" />
-      <window_info id="npm" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32830188" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.35974842" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015314" side_tool="true" weight="0.32924107" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.32830188" />
-      <window_info anchor="bottom" id="TypeScript" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50155956" side_tool="true" weight="0.32022473" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="npm" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32676348" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24710424" />
       <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,6 +610,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="Finished Blog Text Editor." />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/site-media-browser.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Blog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -549,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CSS/blog-crawler.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -572,9 +710,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/docx2html/lib/index.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/docx2html/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/Components/SignupForm.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -588,12 +723,6 @@
           <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -613,13 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -648,9 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -661,29 +780,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/entities/MediaBlockRenderer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/HelperFn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-535">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/shopping-app/src/css/CMS.css" />
-    <entry file="file://$USER_HOME$/shopping-app/src/components/CMS.js" />
     <entry file="file://$PROJECT_DIR$/src/CSS/CMS.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -712,13 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/GoogleImageBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -726,37 +816,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaUploader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
           <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/text-editor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="243" column="1" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1211">
-          <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -767,34 +830,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/SiteMediaBrowser.css">
+    <entry file="file://$PROJECT_DIR$/node_modules/draft-js/lib/RichTextEditorUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="209">
+          <caret line="271" column="2" selection-start-line="271" selection-start-column="2" selection-end-line="271" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CMS/NewContent.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/entities/MediaBlockRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/TextEditor.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleToolbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="51" />
+        <state relative-caret-position="171">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/BlockStyleButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Blog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1098">
+          <caret line="74" column="110" selection-start-line="74" selection-start-column="93" selection-end-line="74" selection-end-column="110" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Blog.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/HelperFn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        <state relative-caret-position="551">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/site-media-manager.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/text-editor.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4826">
+          <caret line="254" column="32" selection-start-line="254" selection-start-column="32" selection-end-line="254" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/site-media-browser.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/shopping-app/src/components/CMS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3344">
+          <caret line="176" column="50" selection-start-line="176" selection-start-column="40" selection-end-line="176" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Toaster.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TextEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/CMS/NewContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="96" column="32" lean-forward="true" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

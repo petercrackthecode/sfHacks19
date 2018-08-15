@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import {Spinner} from "@blueprintjs/core";
 import firebase from "./firebase.js";
 
-import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, KeyBindingUtil, convertToRaw, convertFromRaw} from "draft-js";
+import {Editor, EditorState, convertFromRaw} from "draft-js";
+import {mediaBlockRenderer} from "./BlockStyles/entities/MediaBlockRenderer.js";
+import {hyperlinkDecorator} from "./BlockStyles/plugins/HyperLinkPlugin.js";
+
+import {customStyleMap,
+    getBlockStyle,
+    getBlockMap} from "./BlockStyles/HelperFn.js";
 
 import "../CSS/blog.css";
+import "../CSS/custom-block-style.css";
 
 export default class Blog extends Component {
 	constructor(props) {
@@ -14,8 +22,10 @@ export default class Blog extends Component {
         };
 	}
 
-	componentWillMount() {
-		this.getBlogContent();
+	componentDidMount() {
+	    setTimeout(() => {
+            this.getBlogContent();
+        }, 500);
     }
 
     getBlogContent = () => {
@@ -24,8 +34,9 @@ export default class Blog extends Component {
 	    const blogRef = firebase.database().ref("blogs/" + id);
 	    blogRef.on("value", (snapshot) => {
 	        const blog_data = snapshot.val();
+	        console.log(blog_data.data.content.slice(1, -1));
 	        this.setState({content: blog_data.data.content.slice(1, -1)}, () => {
-                const newEditor = EditorState.createWithContent(convertFromRaw(JSON.parse(this.state.content)));
+                const newEditor = EditorState.createWithContent(convertFromRaw(JSON.parse(this.state.content)), hyperlinkDecorator);
                 this.setState({editorState: newEditor});
             });
         });
@@ -34,27 +45,33 @@ export default class Blog extends Component {
     renderBlogContent = () => {
         return(
             <div className="blog-content">
-                <Editor
-                    editorState={this.state.editorState}
-                    readOnly={true}
-                />
+                {
+                    this.state.content === ""
+                        ? <Spinner />
+                        : <Editor
+                            editorState={this.state.editorState}
+                            blockStyleFn={getBlockStyle}
+                            blockRendererFn={mediaBlockRenderer}
+                            blockRenderMap={getBlockMap()}
+                            customStyleMap={customStyleMap}
+                            readOnly={true}
+                        />
+                }
             </div>
         );
     };
 
     renderBlogBrowser = () => {
         return(
-            <div></div>
+            <div className="blog-browser">
+
+            </div>
         );
     };
 
 	render() {
 		return(
 			<div className="blog">
-                <div>
-                    {this.props.match.params.id}
-                    {this.props.match.params.title}
-                </div>
                 { this.props.match.params.id === undefined ? this.renderBlogBrowser() : this.renderBlogContent()}
             </div>
 		);

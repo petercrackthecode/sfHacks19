@@ -1,3 +1,7 @@
 .blog {
     text-align: initial;
 }
+
+.blog-content .DraftEditor-root {
+    border: 2px #0a6640 solid;
+}

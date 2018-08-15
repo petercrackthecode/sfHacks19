@@ -20,9 +20,8 @@
 
 .DraftEditor-root {
     position: relative;
-    border: 2px #0a6640 solid;
     border-radius: 10px;
-    padding: 10px;
+    padding: 12px;
     cursor: text;
 }
 
@@ -225,6 +224,10 @@
 }
 
 /* Custom CSS for TextEditor Wrapper Divs */
+.text-editor .DraftEditor-root {
+    border: 2px #0a6640 solid;
+}
+
 .text-editor-button-div, .text-editor-block-style {
     margin-top: 10px;
     margin-bottom: 10px
@@ -245,9 +248,9 @@
 
 .add-media-manager {
     width: 60%;
-    height: 450px;
+    min-width: 600px;
+    height: 600px;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 30%);
 }

@@ -2,9 +2,8 @@ import React, {Component} from "react";
 
 import {Button, ButtonGroup, Overlay} from "@blueprintjs/core";
 import {Card, Tab, Tabs} from "@blueprintjs/core";
-import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, KeyBindingUtil, convertToRaw, convertFromRaw} from "draft-js";
+import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, convertToRaw, convertFromRaw} from "draft-js";
 
-import SiteMediaUploader from "./SiteMediaManager/SiteMediaUploader.js";
 import SiteMediaBrowser from "./SiteMediaManager/SiteMediaBrowser.js";
 import GoogleImageBrowser from "./SiteMediaManager/GoogleImageBrowser.js";
 
@@ -16,8 +15,7 @@ import {hyperlinkDecorator} from "./BlockStyles/plugins/HyperLinkPlugin.js";
 import {customStyleMap,
         getBlockStyle,
         getBlockMap,
-        customKeyBindingFn,
-        handleKeyCommand} from "./BlockStyles/HelperFn.js";
+        customKeyBindingFn} from "./BlockStyles/HelperFn.js";
 
 import "../CSS/text-editor.css";
 import "../CSS/custom-block-style.css";
@@ -102,7 +100,6 @@ export default class TextEditor extends Component {
                      onClose={() => this.setState({addMediaOverlay: false})}>
                 <Card className="add-media-manager">
                     <Tabs id="AddSiteMedia" defaultSelectedTabId="site-media-browser" large={true}>
-                        <Tab id="site-media-uploader" title="From Site" panel={<SiteMediaUploader />}/>
                         <Tab id="site-media-browser" title="From Site" panel={<SiteMediaBrowser embed={this.insertMedia}/>}/>
                         <Tab id="google-image" title="From Google Image" panel={<GoogleImageBrowser />} />
                         <Tabs.Expander />

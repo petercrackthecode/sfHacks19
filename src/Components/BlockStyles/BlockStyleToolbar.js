@@ -36,18 +36,15 @@ export default class BlockStyleToolbar extends Component {
                 <span className="RichEditor-controls">
                     <HeaderStyleDropdown
                         headerOptions={BLOCK_TYPE_HEADINGS}
-                        active={this.blockType}
                         onToggle={this.state.onToggle}
                     />
                     <FontSizeStyleDropdown
                         fontSizeOptions={FONT_SIZE}
-                        active={this.blockType}
                         onToggle={this.props.onToggleFontSize}
                     />
                     {BLOCK_TYPES.map((type) => {
                         return (
                             <BlockStyleButton
-                                active={type.style === this.blockType}
                                 label={type.label}
                                 onToggle={this.state.onToggle}
                                 style={type.style}

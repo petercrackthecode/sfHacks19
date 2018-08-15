@@ -1,0 +1,58 @@
+.site-media-browser {
+    overflow: auto;
+    position: relative;
+    height: 480px;
+    padding: 10px;
+    border: 3px aquamarine groove;
+    border-radius: 7px;
+}
+
+.site-media-browser .bp3-card:hover {
+    cursor: pointer;
+    background-color: #ced9e0;
+}
+
+.site-media-browser .bp3-card[data-selected="true"] {
+    background-color: deepskyblue;
+}
+
+.site-media-browser .browser {
+    height: 260px;
+    overflow: auto;
+}
+.site-media-browser .file-drop {
+    height: 80px;
+    background-color: #d8e1e8;
+    margin-bottom: 10px;
+    color: #8a9ba8;
+    text-align: center;
+    border-radius: 7px;
+    border: 2px #3dcc91 dotted;
+}
+
+.site-media-browser .file-drop[is-dragged-over="true"] {
+    background-color: white;
+    color: #10161a;
+}
+
+.site-media-browser .file-drop h3 {
+    position: relative;
+    top: 10px;
+}
+
+
+.site-media-browser .detail-viewer {
+    position: absolute;
+    bottom: 3px;
+    left: 10px;
+    overflow: hidden;
+    height: 72px;
+    width: 400px;
+    word-break: break-all;
+}
+
+.site-media-browser .submit-selection {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}

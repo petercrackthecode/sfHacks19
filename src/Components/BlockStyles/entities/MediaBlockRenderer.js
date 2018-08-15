@@ -1,7 +1,6 @@
 import React from "react";
-import { EditorState, RichUtils, AtomicBlockUtils } from "draft-js";
 
-import {IMAGE, MEDIA} from "../HelperFn.js";
+import {MEDIA} from "../HelperFn.js";
 
 export const mediaBlockRenderer = (block) => {
     if (block.getType() === "atomic") {
