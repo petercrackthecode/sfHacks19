@@ -52,7 +52,7 @@ export default class BlogCrawler extends Component {
                         <div style={{display: "table-cell"}}>
                             <img src={this.props.list[this.state.item_index].thumbnail} style={{height: "100px"}}/>
                         </div>
-                        <div style={{display: "table-cell", position: "absolute", padding: "10px"}}>
+                        <div style={{display: "table-cell", position: "absolute", padding: "10px", minWidth: "200px"}}>
                             <div>
                                 <h3 style={{margin: "4px"}}>{this.props.list[this.state.item_index].title}</h3>
                             </div>

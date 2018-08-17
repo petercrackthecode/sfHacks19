@@ -34,8 +34,8 @@ export default class Blog extends Component {
 	    const blogRef = firebase.database().ref("blogs/" + id);
 	    blogRef.on("value", (snapshot) => {
 	        const blog_data = snapshot.val();
-	        console.log(blog_data.data.content.slice(1, -1));
-	        this.setState({content: blog_data.data.content.slice(1, -1)}, () => {
+	        console.log(blog_data.data.content);
+	        this.setState({content: blog_data.data.content}, () => {
                 const newEditor = EditorState.createWithContent(convertFromRaw(JSON.parse(this.state.content)), hyperlinkDecorator);
                 this.setState({editorState: newEditor});
             });

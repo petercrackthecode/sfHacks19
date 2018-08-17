@@ -35,13 +35,15 @@ export default class Home extends Component {
         const currentTime = GetCurrentTime("ms");
         const blog_list = [];
         const blogsRef = firebase.database().ref("blogs/");
-        blogsRef.on("value", (snapshot) => {
+        blogsRef.orderByKey().limitToLast(10).on("value", (snapshot) => {
             let items = snapshot.val();
             for (let i in items) {
+                if (i === "sequence") continue;
                 // if (currentTime - items[i].createTimeStamp > 604800000) continue;
 
                 blog_list.push(items[i]);
             }
+            blog_list.reverse();
             this.setState({blog_list: blog_list});
         });
 
