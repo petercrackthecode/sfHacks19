@@ -5,6 +5,9 @@ import seedsVietnam_banner from "../Images/seedsVietnamBanner.jpg";
 import seedsACT_banner from "../Images/seedsACTBanner.jpg";
 import sheCodes_banner from "../Images/sheCodesBanner.jpg";
 import essayEditing_banner from "../Images/essayEditingBanner.jpg";
+import seedsACT_logo from "../Images/seedsACTLogo.png";
+import sheCodes_logo from "../Images/sheCodesLogo.png";
+import essayEditing_logo from "../Images/essayEditingLogo.png";
 import {PageSummary} from "../Constants/constants.js";
 
 import {Accordion, AccordionItem, AccordionItemTitle, AccordionItemBody} from 'react-accessible-accordion';
@@ -35,7 +38,7 @@ export default class Home extends Component {
         const currentTime = GetCurrentTime("ms");
         const blog_list = [];
         const blogsRef = firebase.database().ref("blogs/");
-        blogsRef.orderByKey().limitToLast(10).on("value", (snapshot) => {
+        blogsRef.orderByKey().limitToLast(5).on("value", (snapshot) => {
             let items = snapshot.val();
             for (let i in items) {
                 if (i === "sequence") continue;
@@ -125,48 +128,33 @@ export default class Home extends Component {
                 <div id="Nội Dung" className="pageSection" data-color="white">
                     <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CHƯƠNG TRÌNH</h1></div>
                     <div className="sectionContent" style={{display: "table"}}>
-                        <div style={{display: "table-cell", width: "33%", padding: "10px"}}>
-                            <div style={{
-                                borderRadius: "50%",
-                                border: "1px solid green",
-                                padding: "5px",
-                                overflow: "hidden"
-                            }}>
-                                <img src={seedsACT_banner} style={{width: "100%"}}/>
+                        <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
+                            <div>
+                                <img src={seedsACT_logo} alt="SeedsACT Logo"/>
                             </div>
                             <div><h3>Seeds ACT</h3></div>
                             <div style={{height: "2px", backgroundColor: "green"}}></div>
                             <div><p>Chương trình hỗ trợ du học Hoa Kỳ 10 tháng miễn phí cho học sinh đến từ gia đình thu
                                 nhập trung bình / thấp</p></div>
                         </div>
-
-                        <div style={{display: "table-cell", width: "33%", padding: "10px"}}>
-                            <div style={{
-                                borderRadius: "50%",
-                                border: "1px solid green",
-                                padding: "5px",
-                                overflow: "hidden"
-                            }}>
-                                <img src={sheCodes_banner} style={{width: "100%"}}/>
+                        <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
+                            <div>
+                                <img src={sheCodes_logo} alt="SheCodes Logo"/>
                             </div>
                             <div><h3>SheCodes</h3></div>
                             <div style={{height: "2px", backgroundColor: "green"}}></div>
                             <div><p>Hackathon 28 giờ đồng hồ dành cho phái nữ thỏa sức sáng tạo & network</p></div>
                         </div>
-
+                        <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
+                            <div>
+                                <img src={essayEditing_logo} alt="Essay Editing Logo"/>
+                            </div>
+                            <div><h3>Essay Editing</h3></div>
+                            <div style={{height: "2px", backgroundColor: "green"}}></div>
+                            <div><p>Chương trình tư vấn luận 1-1 trong quá trình du học</p></div>
+                        </div>
                     </div>
                 </div>
-
-
-                <div style={{display: "table-cell", width: "33%", padding: "10px"}}>
-                    <div style={{borderRadius: "50%", border: "1px solid green", padding: "5px", overflow: "hidden"}}>
-                        <img src={essayEditing_banner} style={{width: "100%"}}/>
-                    </div>
-                    <div><h3>Essay Editing</h3></div>
-                    <div style={{height: "2px", backgroundColor: "green"}}></div>
-                    <div><p>Chương trình tư vấn luận 1-1 trong quá trình du học</p></div>
-                </div>
-
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
                     <div className="pageDivider" data-color="green"></div>
                 </div>

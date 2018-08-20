@@ -46,7 +46,9 @@ export default class BlogCrawler extends Component {
                      this.props.list[this.state.item_index].id +
                      "/" +
                      this.props.list[this.state.item_index].title}>
-                <div style={{float: "left", width: "10%", height: "100%"}}><h1>BLOG:</h1></div>
+                <div style={{float: "left", width: "10%", height: "100%", color: "red", textShadow: "1.5px 1.5px green"}}>
+                    <h1 style={{lineHeight: "98px", margin: "0px"}}>MỚI:</h1>
+                </div>
                 <div style={{float: "right", width: "90%"}}>
                     <div className="blog-item" style={{display: "table"}}>
                         <div style={{display: "table-cell"}}>

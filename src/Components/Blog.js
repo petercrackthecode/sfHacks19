@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Spinner} from "@blueprintjs/core";
+import {Spinner, Card} from "@blueprintjs/core";
 import firebase from "./firebase.js";
 
 import {Editor, EditorState, convertFromRaw} from "draft-js";
@@ -19,14 +19,46 @@ export default class Blog extends Component {
 		this.state = {
 		    content: "",
             editorState: EditorState.createEmpty(),
+            blog_list: [],
         };
 	}
 
 	componentDidMount() {
+        const id = this.props.match.params.id;
 	    setTimeout(() => {
-            this.getBlogContent();
+	        if (id)
+                this.getBlogContent();
+	        else
+	            this.getBlogs();
         }, 500);
     }
+
+    getBlogs = (endAt) => {
+        const blogRef = firebase.database().ref("blogs");
+	    if (endAt){
+            blogRef.orderByKey().endAt(endAt).limitToLast(10).on("value", (snapshot) => {
+                const query_result = snapshot.val();
+                const result = [];
+                for (let i in query_result) {
+                    if (i === "sequence") continue;
+                    result.push(query_result[i]);
+                }
+                result.reverse();
+                this.setState({blog_list: result});
+            });
+        } else {
+            blogRef.orderByKey().limitToLast(10).on("value", (snapshot) => {
+                const query_result = snapshot.val();
+                const result = [];
+                for (let i in query_result) {
+                    if (i === "sequence") continue;
+                    result.push(query_result[i]);
+                }
+                result.reverse();
+                this.setState({blog_list: result});
+            });
+        }
+    };
 
     getBlogContent = () => {
 	    const id = this.props.match.params.id;
@@ -61,10 +93,31 @@ export default class Blog extends Component {
         );
     };
 
+    renderBlogCards = (blog) => {
+        return(
+            <div key={blog.id} style={{display: "inline-block", width: "50%", padding: "20px"}}>
+                <Card>
+                    <div id={blog.id + "cover_img"}>
+                        <img src={blog.cover_img} style={{width: "100%"}}/>
+                    </div>
+                    <div id={blog.id + "author"}>
+                        <h3>Người viết: {blog.author}</h3>
+                    </div>
+                    <div id={blog.id + "title"}>
+                        <h1>{blog.title}</h1>
+                    </div>
+                    <div id={blog.id + "sneakpeak"}>
+                        <p>{blog.title}</p>
+                    </div>
+                </Card>
+            </div>
+        );
+    };
+
     renderBlogBrowser = () => {
         return(
             <div className="blog-browser">
-
+                {this.state.blog_list.map(this.renderBlogCards)}
             </div>
         );
     };
