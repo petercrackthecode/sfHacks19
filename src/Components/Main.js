@@ -5,7 +5,8 @@ import SeedsACT from "./SeedsACT.js";
 import SheCodes from "./SheCodes.js";
 import EssayEditing from "./EssayEditing.js";
 import AboutContact from "./AboutContact.js";
-import Blog from "./Blog.js";
+import BlogViewer from "./BlogViewer.js";
+import BlogBrowser from "./BlogBrowser.js";
 import BlogCMS from "./BlogCMS.js";
 
 export default class Main extends Component {
@@ -23,8 +24,8 @@ export default class Main extends Component {
 				<Route path="/SheCodes" component={SheCodes} />
 				<Route path="/Essay Editing" component={EssayEditing} />
 				<Route path="/About &amp; Contact" component={AboutContact} />
-				<Route path="/Blog" component={Blog} />
-                <Route path="/Blog/:id/:title" component={Blog} />
+				<Route exact path="/Blog" component={BlogBrowser} />
+                <Route path="/Blog/:id/:title" component={BlogViewer} />
                 <Route path="/BlogCMS" component={BlogCMS} />
 			</div>
 		);

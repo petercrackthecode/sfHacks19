@@ -109,13 +109,13 @@ export default class NewContent extends Component {
             .then(() => this.resetComponentState())
             .then(() => {
                 AppToaster.show({
-                    message: "Tạo Blog mới thành công!",
+                    message: "Tạo BlogViewer mới thành công!",
                     intent: Intent.SUCCESS
                 });
             })
             .catch(() => {
                 AppToaster.show({
-                    message: "Tạo Blog mới thất bại",
+                    message: "Tạo BlogViewer mới thất bại",
                     intent: Intent.DANGER
                 });
             });

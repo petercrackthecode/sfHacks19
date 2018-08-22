@@ -35,7 +35,7 @@ export default class Header extends Component {
 			: <div className="menuOptions" key={key}>
 				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				{
-					key !== "Blog"
+					key !== "BlogViewer"
 					? <span className="bp3-navbar-divider" style={{float: "right"}}></span>
 					: <div></div>
 				}
