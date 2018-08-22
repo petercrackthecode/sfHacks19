@@ -35,7 +35,7 @@
 
     .menu-bar-desktop {
         position: absolute;
-        bottom: 5px;
+        /*bottom: 5px;*/
         width: 100%;
     }
 
@@ -45,29 +45,6 @@
 
     .bp3-navbar-divider {
         height: 40px;
-    }
-
-    .pagePeek-desktop .flash:hover {
-        opacity: 1;
-        -webkit-animation: flash 1s;
-        animation: flash 1s;
-    }
-
-    @-webkit-keyframes flash {
-        0% {
-            opacity: .3;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    @keyframes flash {
-        0% {
-            opacity: .3;
-        }
-        100% {
-            opacity: 1;
-        }
     }
 
     .sectionTitle {

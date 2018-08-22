@@ -1,0 +1,28 @@
+.app-header {
+    min-height: 160px;
+    padding: 5px 12px 20px 12px;
+    box-shadow: 0 0 0 0;
+}
+
+.app-header .top-bar {
+    margin: 0 auto;
+    height: 90px;
+    position: relative
+}
+
+.top-bar #seedsVietnam-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.top-bar .subscribe, .top-bar .user-account {
+    height: 90px;
+    display:flex;
+    align-items:center;
+}
+
+.subscribe-btn, .sign-in-btn {
+    border: 1px #3dcc91 solid;
+    padding: 9px;
+}
