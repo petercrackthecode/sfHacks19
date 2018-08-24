@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f08eb52f-3a1b-44c9-adf6-a156f293c35f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CSS/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="f08eb52f-3a1b-44c9-adf6-a156f293c35f" name="Default" comment="Header update">
+      <change afterPath="$PROJECT_DIR$/src/CSS/user-registration.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BlogCrawler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BlogCrawler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +49,7 @@
         <item name="status2.0prod" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="eprov_audit_01: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="views" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -57,43 +58,46 @@
     <session id="-166670499">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="9" />
-          <entry key="js" value="13" />
+          <entry key="css" value="10" />
+          <entry key="js" value="23" />
           <entry key="png" value="1" />
           <entry key="request_data" value="1" />
-          <entry key="request_data_modified_values" value="1" />
+          <entry key="request_data_modified_values" value="3" />
           <entry key="request_data_modified_values3" value="2" />
-          <entry key="request_data_saved" value="1" />
-          <entry key="request_data_values" value="1" />
-          <entry key="request_identity_data" value="1" />
-          <entry key="sql" value="1" />
+          <entry key="request_data_saved" value="2" />
+          <entry key="request_data_values" value="3" />
+          <entry key="request_identity_data" value="2" />
+          <entry key="sql" value="6" />
+          <entry key="v_request_attribute_values" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="9" />
-          <entry key="Database Element" value="7" />
+          <entry key="CSS" value="10" />
+          <entry key="Database Element" value="14" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="13" />
-          <entry key="Scratch" value="1" />
+          <entry key="JavaScript" value="23" />
+          <entry key="Scratch" value="6" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="314" />
-          <entry key="js" value="4134" />
-          <entry key="sql" value="145" />
+          <entry key="css" value="388" />
+          <entry key="js" value="6518" />
+          <entry key="sql" value="268" />
+          <entry key="txt" value="13" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="314" />
-          <entry key="JavaScript" value="4134" />
-          <entry key="SQL" value="39" />
-          <entry key="Scratch" value="106" />
+          <entry key="CSS" value="388" />
+          <entry key="JavaScript" value="6518" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="SQL" value="44" />
+          <entry key="Scratch" value="224" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
@@ -103,12 +107,13 @@
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.27" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="1" />
+          <entry key="ESLintLanguageService" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -118,8 +123,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="224">
+              <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -128,83 +133,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_identity_data">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state>
-              <filtering enabled="true" />
+              <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_values">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" text="request_id=17082501992">
-                <filter text="request_id=17082501992" />
-                <filter text="request_id=18052302601" />
-              </filtering>
+        <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console_1.sql">
+        <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="32" column="47" lean-forward="true" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+            <state relative-caret-position="417">
+              <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_modified_values">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" text="request_id=17082501992">
-                <filter text="request_id=17082501992" />
-                <filter text="request_id &gt; 18080000000" />
-                <filter text="request_id &gt; 1808000000" />
-                <filter text="request_id &gt; 180800000" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" text="request_id=17082501992">
-                <filter text="request_id=17082501992" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_saved">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
+        <entry file="file://$PROJECT_DIR$/src/CSS/user-registration.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CSS/header.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="84">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -232,6 +200,7 @@
       <find>site-media-browser</find>
       <find>site-media</find>
       <find>renderAddMediaOverlay</find>
+      <find>UserRegistration</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -246,8 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet" />
-        <option value="$PROJECT_DIR$/src/Components/firebase.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/src/CSS/blog-crawler.css" />
@@ -285,16 +252,20 @@
         <option value="$PROJECT_DIR$/src/Components/TextEditor.js" />
         <option value="$PROJECT_DIR$/src/Components/CMS/NewContent.js" />
         <option value="$PROJECT_DIR$/src/Components/Home.js" />
-        <option value="$PROJECT_DIR$/src/Components/BlogCrawler.js" />
         <option value="$PROJECT_DIR$/src/Components/Blog.js" />
-        <option value="$PROJECT_DIR$/src/Components/Main.js" />
         <option value="$PROJECT_DIR$/src/Components/BlogBrowser.js" />
         <option value="$PROJECT_DIR$/src/CSS/blog.css" />
         <option value="$PROJECT_DIR$/src/Components/BlogViewer.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/CSS/header.css" />
-        <option value="$PROJECT_DIR$/src/Components/Header.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console_1.sql" />
+        <option value="$PROJECT_DIR$/src/Components/Header.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console.sql" />
+        <option value="$PROJECT_DIR$/src/Components/BlogCrawler.js" />
+        <option value="$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js" />
+        <option value="$PROJECT_DIR$/src/Components/Main.js" />
+        <option value="$PROJECT_DIR$/src/CSS/user-registration.css" />
+        <option value="$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js" />
       </list>
     </option>
   </component>
@@ -320,10 +291,10 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="1672" />
+    <option name="y" value="-70" />
+    <option name="width" value="1696" />
+    <option name="height" value="1036" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -363,7 +334,7 @@
               <item name="seeds-vietnam" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="SiteMediaManager" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAuth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="seeds-vietnam" type="b2602c69:ProjectViewProjectNode" />
@@ -400,8 +371,8 @@
     <property name="SearchEverywhereHistoryKey" value="cmd&#9;ACTION&#9;Cmd.Group&#10;console&#9;ACTION&#9;JShell.Console" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534971735221" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535138536556" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/shopping-app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -506,6 +477,7 @@
       <workItem from="1534694246622" duration="3210000" />
       <workItem from="1534888255532" duration="3370000" />
       <workItem from="1534951162299" duration="9687000" />
+      <workItem from="1534981009757" duration="16683000" />
     </task>
     <task id="LOCAL-00001" summary="New HomePage version 2.0">
       <created>1533612720711</created>
@@ -535,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534469081691</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Header update">
+      <created>1534981105039</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1534981105039</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149371000" />
+    <option name="totallyTimeSpent" value="166054000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -552,9 +531,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1672" y="-70" width="1696" height="1036" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32783884" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22283272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -563,29 +541,29 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="npm" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Database Console" visible="true" weight="0.32928178" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32834226" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" weight="0.26629835" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" weight="0.26519337" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.35828876" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.24861878" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50155956" side_tool="true" weight="0.32022473" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151056" side_tool="true" weight="0.32263243" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3237569" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="13" sideWeight="0.49848944" visible="true" weight="0.32154697" />
       <window_info anchor="bottom" id="TypeScript" order="14" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.2685083" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.2912088" />
+      <window_info anchor="right" id="Database" order="6" weight="0.23504274" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -663,7 +641,8 @@
     <MESSAGE value="Developing Blog CMS with good text editor that outputs rich text format. Then this will be pushed into firebase storage" />
     <MESSAGE value="Finished Blog Text Editor." />
     <MESSAGE value="Connected Blog CMS to DB and storage. User can now create new Blog and the blog will be updated on front page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connected Blog CMS to DB and storage. User can now create new Blog and the blog will be updated on front page." />
+    <MESSAGE value="Header update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Header update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -675,28 +654,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/docx2html/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/getCurrentlySelectedBlock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/BlockStyles/HeaderStyleDropdown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -758,13 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlogCMS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -855,38 +805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CMS/NewContent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlogCrawler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/BlogBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="69" column="23" lean-forward="true" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -930,24 +852,94 @@
     <entry file="file://$PROJECT_DIR$/src/Images/fb_logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_modified_values3">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" text="request_id=17082501992">
+            <filter text="request_id=17082501992" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="request_id=17082501992" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        <state relative-caret-position="1064">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSS/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
+        <state relative-caret-position="728">
           <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="103">
+          <caret line="74" column="27" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_saved">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/CMS/NewContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-507">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/BlogCMS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/BlogCrawler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/user-registration.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -961,19 +953,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_modified_values3">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="request_id=17082501992">
-            <filter text="request_id=17082501992" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_modified_values">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true" text="request_id=17082501992">
+          <filtering enabled="true">
+            <filter text="request_id=18052302601" />
             <filter text="request_id=17082501992" />
             <filter text="request_id &gt; 18080000000" />
             <filter text="request_id &gt; 1808000000" />
@@ -982,36 +966,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="request_id=17082501992">
-            <filter text="request_id=17082501992" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_saved">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_values">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true" text="request_id=17082501992">
+          <filtering enabled="true">
             <filter text="request_id=17082501992" />
             <filter text="request_id=18052302601" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console_1.sql">
+    <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="32" column="47" lean-forward="true" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+        <state relative-caret-position="224">
+          <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/view/v_request_attribute_values">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/104a1d97-a8d2-4bf8-84af-2536dac79027/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

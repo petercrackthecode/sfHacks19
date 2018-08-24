@@ -6,6 +6,8 @@ import googleplus_logo from "../Images/ggp_logo.png";
 import { Button, Menu, MenuItem, Popover, Overlay } from "@blueprintjs/core";
 import { Position, PopoverInteractionKind } from "@blueprintjs/core";
 
+import SignInOverlay from "./UserAuth/SignInOverlay.js";
+
 import "../CSS/header.css";
 
 export default class Header extends Component {
@@ -58,37 +60,9 @@ export default class Header extends Component {
 
     renderSignInOverlay = () => {
         return (
-            <Overlay isOpen={this.state.isSignInClicked} hasBackdrop={false} autoFocus={false}>
-                <div style={{
-                    backgroundColor: "#D5DADF",
-                    width: "240px",
-                    borderRadius: "5px",
-                    margin: "1px",
-                    padding: "5px",
-                    left: this.state.signInOverlayPos.x,
-                    top: this.state.signInOverlayPos.y}}>
-                    <form ref="sign-in-form" onSubmit={this.authenticateUser}>
-                        <div style={{marginBottom: "10px"}}>
-                            <label htmlFor="username">Email/Tên Tài Khoản:</label><br/>
-                            <input className="pt-input" type="text"
-                                   ref="username" style={{marginTop: "10px"}}
-                                   onChange={(e) => {this.setState({username: e.target.value})}}/>
-                        </div>
-                        <div style={{marginBottom: "15px"}}>
-                            <label htmlFor="password">Mật Khẩu:</label><br/>
-                            <input className="pt-input" type="password"
-                                   ref="password" style={{marginTop: "10px"}}
-                                   onChange={(e) => {this.setState({password: e.target.value})}}/>
-                        </div>
-                        <div>
-                            <Button className="pt-button" type="submit" text="Đăng nhập"/>
-                        </div>
-                        <div>
-
-                        </div>
-                    </form>
-                </div>
-            </Overlay>
+            <SignInOverlay isVisible={this.state.isSignInClicked}
+                           posx={this.state.signInOverlayPos.x}
+                           posy={this.state.signInOverlayPos.y}/>
         );
     };
 
@@ -113,7 +87,6 @@ export default class Header extends Component {
 				<div className="menu-bar-desktop bp3-navbar-group">
 					{ Object.keys(this.props.pageStructure).map(this.renderDesktopMenuOptions) }
 				</div>
-
                 {this.state.isSignInClicked ? this.renderSignInOverlay() : null}
 			</nav>
 		);

@@ -8,6 +8,7 @@ import AboutContact from "./AboutContact.js";
 import BlogViewer from "./BlogViewer.js";
 import BlogBrowser from "./BlogBrowser.js";
 import BlogCMS from "./BlogCMS.js";
+import UserRegistration from "./UserAuth/UserRegistration.js";
 
 export default class Main extends Component {
 	constructor(props) {
@@ -27,6 +28,7 @@ export default class Main extends Component {
 				<Route exact path="/Blog" component={BlogBrowser} />
                 <Route path="/Blog/:id/:title" component={BlogViewer} />
                 <Route path="/BlogCMS" component={BlogCMS} />
+                <Route path="/registration" component={UserRegistration} />
 			</div>
 		);
 	}

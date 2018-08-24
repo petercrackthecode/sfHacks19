@@ -20,7 +20,7 @@ export default class BlogCrawler extends Component {
 
     crawlNext = () => {
         this.timeout = setTimeout(() => {
-            console.log(this.delay);
+            // console.log(this.delay);
             let next_index = this.state.item_index + 1;
             this.setState({item_index: next_index % this.props.list.length});
             this.crawlNext();
@@ -31,7 +31,7 @@ export default class BlogCrawler extends Component {
     resetTimeout = () => {
         this.delay = this.delay - this.timeout*10;
         if(this.delay < 0) this.delay = 0;
-        console.log(this.delay);
+        // console.log(this.delay);
         clearTimeout(this.timeout);
     };
 
