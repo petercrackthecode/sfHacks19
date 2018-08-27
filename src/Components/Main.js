@@ -9,6 +9,7 @@ import BlogViewer from "./BlogViewer.js";
 import BlogBrowser from "./BlogBrowser.js";
 import BlogCMS from "./BlogCMS.js";
 import UserRegistration from "./UserAuth/UserRegistration.js";
+import AccountSettings from "./UserAuth/AccountSettings.js";
 
 export default class Main extends Component {
 	constructor(props) {
@@ -29,6 +30,10 @@ export default class Main extends Component {
                 <Route path="/Blog/:id/:title" component={BlogViewer} />
                 <Route path="/BlogCMS" component={BlogCMS} />
                 <Route path="/registration" component={UserRegistration} />
+                <Route path="/user/settings/:id" component={() => <AccountSettings isLoggedIn={this.props.isLoggedIn}
+                                                                                  uid={this.props.uid}
+                                                                                  isAdmin={this.props.isAdmin}
+                                                                                  user_metadata={this.props.user_metadata}/>}/>
 			</div>
 		);
 	}

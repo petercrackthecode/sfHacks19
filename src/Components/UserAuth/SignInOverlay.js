@@ -8,8 +8,6 @@ export default class SignInOverlay extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            password: "",
         };
     }
 
@@ -43,24 +41,24 @@ export default class SignInOverlay extends Component {
             const uid = firebase.auth().currentUser.uid;
             const displayName = firebase.auth().currentUser.displayName;
             this.checkIfAdminUser(uid).then((isAdmin) => {
-                console.log(isAdmin);
+                this.props.authenticated(uid, isAdmin);
                 if(isAdmin) {
                     AppToaster.show({
                         message: "Chào mừng quản lý! Chúc bạn 1 ngày tốt lành!",
                         intent: Intent.SUCCESS
                     });
-                }
-                if (!isAdmin && displayName !== null){
-                    AppToaster.show({
-                        message: "Chào mừng " + displayName,
-                        intent: Intent.SUCCESS
-                    });
-                }
-                if (!isAdmin && displayName === null){
-                    AppToaster.show({
-                        message: "Chào mừng bạn! Chúc bạn ngày tốt lành!",
-                        intent: Intent.SUCCESS
-                    });
+                } else {
+                    if (displayName !== null){
+                        AppToaster.show({
+                            message: "Chào mừng " + displayName,
+                            intent: Intent.SUCCESS
+                        });
+                    } else {
+                        AppToaster.show({
+                            message: "Chào mừng bạn! Chúc bạn ngày tốt lành!",
+                            intent: Intent.SUCCESS
+                        });
+                    }
                 }
             });
         })
@@ -77,7 +75,7 @@ export default class SignInOverlay extends Component {
 
     render() {
         return(
-            <Overlay isOpen={this.props.isVisible} hasBackdrop={false} autoFocus={false}>
+            <Overlay isOpen={this.props.isVisible} hasBackdrop={false} autoFocus={false} className="sign-in-overlay">
                 <div style={{
                     backgroundColor: "#D5DADF",
                     width: "240px",
@@ -90,14 +88,14 @@ export default class SignInOverlay extends Component {
                         <div style={{marginBottom: "10px"}}>
                             <label htmlFor="username">Email/Tên Tài Khoản:</label><br/>
                             <input className="pt-input" type="text"
-                                   ref="username" style={{marginTop: "10px"}}
-                                   onChange={(e) => {this.setState({username: e.target.value})}}/>
+                                   autoComplete="username"
+                                   ref="username" style={{marginTop: "10px"}}/>
                         </div>
                         <div style={{marginBottom: "15px"}}>
                             <label htmlFor="password">Mật Khẩu:</label><br/>
                             <input className="pt-input" type="password"
-                                   ref="password" style={{marginTop: "10px"}}
-                                   onChange={(e) => {this.setState({password: e.target.value})}}/>
+                                   autoComplete="current-password"
+                                   ref="password" style={{marginTop: "10px"}}/>
                         </div>
                         <div>
                             <Button className="pt-button" type="submit" text="Đăng nhập"/>

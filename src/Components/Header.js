@@ -7,6 +7,7 @@ import { Button, Menu, MenuItem, Popover, Overlay } from "@blueprintjs/core";
 import { Position, PopoverInteractionKind } from "@blueprintjs/core";
 
 import SignInOverlay from "./UserAuth/SignInOverlay.js";
+import UserAccOverlay from "./UserAuth/UserAccOverlay.js";
 
 import "../CSS/header.css";
 
@@ -14,17 +15,16 @@ export default class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-		    isLoggedIn: false,
             isSignInClicked: false,
-            username: "",
-            password: "",
             signInOverlayPos : {},
+            isUserAccClicked: false,
+            userAccOverlayPos : {},
         };
 	}
 
-	componentWillMount() {
-
-    }
+    authenticated = (uid, isAdmin) => {
+	    this.props.authenticated(uid, isAdmin);
+    };
 
 	renderMenuItems = (page, key) => {
 		return (
@@ -62,7 +62,19 @@ export default class Header extends Component {
         return (
             <SignInOverlay isVisible={this.state.isSignInClicked}
                            posx={this.state.signInOverlayPos.x}
-                           posy={this.state.signInOverlayPos.y}/>
+                           posy={this.state.signInOverlayPos.y}
+                           authenticated={this.authenticated}/>
+        );
+    };
+
+    renderUserAccOverlay = () => {
+        return (
+            <UserAccOverlay isVisible={this.state.isSignInClicked}
+                            posx={this.state.signInOverlayPos.x}
+                            posy={this.state.signInOverlayPos.y}
+                            uid={this.props.uid}
+                            isAdmin={this.props.isAdmin}
+                            user_metadata={this.props.user_metadata}/>
         );
     };
 
@@ -81,16 +93,21 @@ export default class Header extends Component {
                             <input type="search" className="bp3-input bp3-minimal" />
                             <span className="bp3-icon bp3-icon-search"></span>
                         </div>
-                        <Button className="sign-in-btn bp3-minimal" text="Sign in" onClick={this.handleSignIn}/>
+                        {
+                            !this.props.isLoggedIn
+                                ? <Button className="sign-in-btn bp3-minimal" text="Sign in" onClick={this.handleSignIn}/>
+                                : <Button className="sign-in-btn bp3-minimal" text="My Account" onClick={this.handleUserAccount}/>
+                        }
 					</div>
 				</div>
 				<div className="menu-bar-desktop bp3-navbar-group">
 					{ Object.keys(this.props.pageStructure).map(this.renderDesktopMenuOptions) }
 				</div>
-                {this.state.isSignInClicked ? this.renderSignInOverlay() : null}
+                {!this.props.isLoggedIn && this.state.isSignInClicked ? this.renderSignInOverlay() : null}
+                {this.props.isLoggedIn && this.state.isUserAccClicked ? this.renderUserAccOverlay() : null}
 			</nav>
 		);
-	}
+	};
 
     handleSignIn = (e) => {
         e.stopPropagation();
@@ -98,5 +115,13 @@ export default class Header extends Component {
         isClicked ? isClicked=false : isClicked=true
         let domrect = e.target.getBoundingClientRect();
         this.setState({isSignInClicked: isClicked, signInOverlayPos: {x: domrect.right-230, y: domrect.top+domrect.height + 10}});
-    }
+    };
+
+    handleUserAccount = (e) => {
+        e.stopPropagation();
+        let isClicked = this.state.isUserAccClicked;
+        isClicked ? isClicked=false : isClicked=true
+        let domrect = e.target.getBoundingClientRect();
+        this.setState({isUserAccClicked: isClicked, userAccOverlayPos: {x: domrect.right-230, y: domrect.top+domrect.height + 10}});
+    };
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Card, PanelStack} from "@blueprintjs/core";
+// import {Button, Card, PanelStack} from "@blueprintjs/core";
 import firebase from "./firebase.js";
 import seedsVietnam_banner from "../Images/seedsVietnamBanner.jpg";
 import seedsACT_banner from "../Images/seedsACTBanner.jpg";
@@ -8,7 +8,6 @@ import essayEditing_banner from "../Images/essayEditingBanner.jpg";
 import seedsACT_logo from "../Images/seedsACTLogo.png";
 import sheCodes_logo from "../Images/sheCodesLogo.png";
 import essayEditing_logo from "../Images/essayEditingLogo.png";
-import {PageSummary} from "../Constants/constants.js";
 
 import {Accordion, AccordionItem, AccordionItemTitle, AccordionItemBody} from 'react-accessible-accordion';
 import "../CSS/accordion.css";
