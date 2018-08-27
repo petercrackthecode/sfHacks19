@@ -14,6 +14,7 @@ import "../CSS/accordion.css";
 
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import "../CSS/home-page.css";
 
 import {GetCurrentTime} from "../Helpers/HelperFn";
 import BlogCrawler from "./BlogCrawler.js";
@@ -94,7 +95,7 @@ export default class Home extends Component {
 
                 <div id="Về Seeds Vietnam" className="pageSection" data-color="white">
                     <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>SEEDS VIETNAM</h1></div>
-                    <div className="sectionContent">
+                    <div className="section-content">
                         <p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt
                             Nam vượt qua những bất bình đẳng trên con đường học vấn để nắm lấy tri thức cho chính
                             mình.</p>
@@ -106,11 +107,11 @@ export default class Home extends Component {
                 </div>
 
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
-                    <div className="pageDivider" data-color="green"></div>
+                    <div className="page-divider" data-color="green"></div>
                 </div>
                 <div id="Về Seeds Vietnam" className="pageSection" data-color="green">
                     <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>SEEDS VIETNAM</h1></div>
-                    <div className="sectionContent">
+                    <div className="section-content">
                         <p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt
                             Nam vượt qua những bất bình đẳng trên con đường học vấn để nắm lấy tri thức cho chính
                             mình.</p>
@@ -122,11 +123,11 @@ export default class Home extends Component {
                 </div>
 
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="green">
-                    <div className="pageDivider" data-color="white"></div>
+                    <div className="page-divider" data-color="white"></div>
                 </div>
                 <div id="Nội Dung" className="pageSection" data-color="white">
                     <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CHƯƠNG TRÌNH</h1></div>
-                    <div className="sectionContent" style={{display: "table"}}>
+                    <div className="section-content" style={{display: "table"}}>
                         <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
                             <div>
                                 <img src={seedsACT_logo} alt="SeedsACT Logo"/>
@@ -155,11 +156,11 @@ export default class Home extends Component {
                     </div>
                 </div>
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
-                    <div className="pageDivider" data-color="green"></div>
+                    <div className="page-divider" data-color="green"></div>
                 </div>
                 <div id="Testimonials" className="pageSection" data-color="green">
                     <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>TESTIMONIALS</h1></div>
-                    <div className="sectionContent">
+                    <div className="section-content">
                         <Accordion accordion={false}>
                             <AccordionItem expanded={true}>
                                 <AccordionItemTitle>
@@ -207,11 +208,11 @@ export default class Home extends Component {
                 </div>
 
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="green">
-                    <div className="pageDivider" data-color="white"></div>
+                    <div className="page-divider" data-color="white"></div>
                 </div>
                 <div id="questionSubmit" className="pageSection" data-color="white">
                     <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CÂU HỎI CHO CHÚNG TÔI</h1></div>
-                    <div className="sectionContent">
+                    <div className="section-content">
                         <SurveyCollector/>
                     </div>
                 </div>

@@ -1,14 +1,19 @@
-.account-settings {
-    width: 100%;
-    height: 100%;
+.account-settings .profile_pic img {
+    width: 128px;
+    border-radius: 50%;
+    border: 1.5px black dot-dot-dash;
 }
 
-.account-settings .pt-tabs {
-    width: 100%;
-    height: 100%;
+.account-settings .user-introduction {
+    font-size: 16px;
+    line-height: 1.6rem;
 }
 
-.account-settings .pt-tab-panel {
-    width: 100%;
-    height: 100%;
+.account-settings .user-stats {
+    font-size: 17px;
+}
+.account-settings .user-stats .bp3-tag {
+    font-size: 16px;
+    margin-left: 15px;
+    margin-right: 15px;
 }

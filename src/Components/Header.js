@@ -69,9 +69,9 @@ export default class Header extends Component {
 
     renderUserAccOverlay = () => {
         return (
-            <UserAccOverlay isVisible={this.state.isSignInClicked}
-                            posx={this.state.signInOverlayPos.x}
-                            posy={this.state.signInOverlayPos.y}
+            <UserAccOverlay isVisible={this.state.isUserAccClicked}
+                            posx={this.state.userAccOverlayPos.x}
+                            posy={this.state.userAccOverlayPos.y}
                             uid={this.props.uid}
                             isAdmin={this.props.isAdmin}
                             user_metadata={this.props.user_metadata}/>

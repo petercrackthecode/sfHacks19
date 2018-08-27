@@ -30,10 +30,8 @@ export default class Main extends Component {
                 <Route path="/Blog/:id/:title" component={BlogViewer} />
                 <Route path="/BlogCMS" component={BlogCMS} />
                 <Route path="/registration" component={UserRegistration} />
-                <Route path="/user/settings/:id" component={() => <AccountSettings isLoggedIn={this.props.isLoggedIn}
-                                                                                  uid={this.props.uid}
-                                                                                  isAdmin={this.props.isAdmin}
-                                                                                  user_metadata={this.props.user_metadata}/>}/>
+                <Route exact path="/user/settings/:id" component={() => <AccountSettings isLoggedIn={this.props.isLoggedIn}
+                                                                                  isAdmin={this.props.isAdmin}/>}/>
 			</div>
 		);
 	}

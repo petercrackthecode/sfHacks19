@@ -17,7 +17,7 @@ export default class SeedsAct extends Component {
 				</div>
 				<div id="Về Seeds ACT" className="pageSection" data-color="white">
 					<div className="sectionTitle"><h1 style={{marginTop: "0px"}}>SEEDS ACT</h1></div>
-					<div className="sectionContent">
+					<div className="section-content">
 						<p>SEEDS Act là chương trình hỗ trợ du học Hoa Kỳ miễn phí trong vòng
 							<b> 10 tháng</b> do <b>SEEDS</b> cộng tác cùng <b>Đại sứ quán Mỹ </b>
 							và tổ chức <b>EduQ</b> thuộc Brazil thực hiện</p>
@@ -25,11 +25,11 @@ export default class SeedsAct extends Component {
 				</div>
 
 				<div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
-					<div className="pageDivider" data-color="orange"></div>
+					<div className="page-divider" data-color="orange"></div>
 				</div>
 				<div id="Đối tượng tham gia" className="pageSection" data-color="orange">
 					<div className="sectionTitle"><h1 style={{marginTop: "0px"}}>ĐỐI TƯỢNG THAM GIA</h1></div>
-					<div className="sectionContent">
+					<div className="section-content">
 						<p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt Nam vượt qua những bất bình đẳng trên con đường học vấn để nắm lấy tri thức cho chính mình.</p>
 						<br />
 						<p>Trong thời gian vừa qua, SEEDS Vietnam đã tập trung thực hiện các chương trình trong 2 lĩnh vực Du học Hoa Kỳ và Giáo dục Công nghệ thông tin. Trong tương lai, SEEDS Vietnam mong muốn có thể cung cấp một nền tảng vững chắc cho học sinh Việt Nam trong hai lĩnh vực này.</p>
@@ -37,11 +37,11 @@ export default class SeedsAct extends Component {
 				</div>
 
 				<div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="orange">
-					<div className="pageDivider" data-color="white"></div>
+					<div className="page-divider" data-color="white"></div>
 				</div>
 				<div id="Cách hoạt động" className="pageSection" data-color="white">
 					<div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CÁCH HOẠT ĐỘNG</h1></div>
-					<div className="sectionContent">
+					<div className="section-content">
 						<p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt Nam vượt qua những bất bình đẳng trên con đường học vấn để nắm lấy tri thức cho chính mình.</p>
 						<br />
 						<p>Trong thời gian vừa qua, SEEDS Vietnam đã tập trung thực hiện các chương trình trong 2 lĩnh vực Du học Hoa Kỳ và Giáo dục Công nghệ thông tin. Trong tương lai, SEEDS Vietnam mong muốn có thể cung cấp một nền tảng vững chắc cho học sinh Việt Nam trong hai lĩnh vực này.</p>
@@ -49,21 +49,21 @@ export default class SeedsAct extends Component {
 				</div>
 
 				<div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
-					<div className="pageDivider" data-color="orange"></div>
+					<div className="page-divider" data-color="orange"></div>
 				</div>
 				<div id="Đơn vị cộng tác" className="pageSection" data-color="orange">
 					<div className="sectionTitle"><h1 style={{marginTop: "0px"}}>ĐƠN VỊ CỘNG TÁC</h1></div>
-					<div className="sectionContent">
+					<div className="section-content">
 
 					</div>
 				</div>
 
 				<div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="orange">
-					<div className="pageDivider" data-color="white"></div>
+					<div className="page-divider" data-color="white"></div>
 				</div>
 				<div id="Đơn vị cộng tác" className="pageSection" data-color="white">
 					<div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CÁCH ĐĂNG KÍ THAM GIA</h1></div>
-					<div className="sectionContent">
+					<div className="section-content">
 						<div><p>Chương trình sẽ được <u>bắt đầu vào tháng 2</u> và <u>kết thúc vào tháng 12</u> hàng năm.
 							Form đăng kí sẽ được mở <u>1-1.5 tháng</u> trước khi chương trình chính thức bắt đầu.
 							Để nhận được thông tin khi đơn đăng ký mở, bạn có thể điền email tại đây:</p></div>
