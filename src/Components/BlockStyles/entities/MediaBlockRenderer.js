@@ -1,5 +1,3 @@
-import React from "react";
-
 import {MEDIA} from "../HelperFn.js";
 
 export const mediaBlockRenderer = (block) => {

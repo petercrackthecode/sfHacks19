@@ -4,7 +4,7 @@ import { Position, Toaster } from "@blueprintjs/core";
 const AppToaster = Toaster.create({
     className: "recipe-toaster",
     position: Position.TOP,
-    timeout: 4000,
+    timeout: 5000,
     style: {"fontSize": "16px"}
 });
 

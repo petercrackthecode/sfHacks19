@@ -1,12 +1,9 @@
 import React, {Component} from "react";
-import Draft from "draft-js";
-import Immutable from "immutable";
 
 import BlockStyleButton from "./BlockStyleButton.js";
 import HeaderStyleDropdown from "./HeaderStyleDropdown.js";
 import FontSizeStyleDropdown from "./FontSizeStyleDropdown.js";
 
-import {ALIGNMENT_DATA_KEY} from "./ExtendedRichUtils.js";
 import {BLOCK_TYPES, BLOCK_TYPE_HEADINGS, FONT_SIZE} from  "./HelperFn.js";
 
 export default class BlockStyleToolbar extends Component {

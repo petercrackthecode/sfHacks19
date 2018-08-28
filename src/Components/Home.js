@@ -16,7 +16,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../CSS/home-page.css";
 
-import {GetCurrentTime} from "../Helpers/HelperFn";
+// import {GetCurrentTime} from "../Helpers/HelperFn";
 import BlogCrawler from "./BlogCrawler.js";
 import SurveyCollector from "./SurveyCollector.js";
 
@@ -35,14 +35,12 @@ export default class Home extends Component {
     };
 
     fetchBlogs = () => {
-        const currentTime = GetCurrentTime("ms");
         const blog_list = [];
         const blogsRef = firebase.database().ref("blogs/");
         blogsRef.orderByKey().limitToLast(5).on("value", (snapshot) => {
             let items = snapshot.val();
             for (let i in items) {
                 if (i === "sequence") continue;
-                // if (currentTime - items[i].createTimeStamp > 604800000) continue;
 
                 blog_list.push(items[i]);
             }

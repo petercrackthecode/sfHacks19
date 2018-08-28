@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import firebase from "../firebase.js";
-import {AppToaster} from "../Toaster.js";
+// import {AppToaster} from "../Toaster.js";
 
 import {Card, Button, Tag, Intent} from "@blueprintjs/core";
-import {Tab, Tabs, Label, Tooltip, Position} from "@blueprintjs/core";
-import resizeImage from "resize-image";
+// import {Tab, Tabs, Label, Tooltip, Position} from "@blueprintjs/core";
+// import resizeImage from "resize-image";
 
 // import {GetCurrentTime} from "./helpers/HelperFn.js";
 
@@ -50,14 +50,23 @@ export default class AccountSettings extends Component {
         return (
             <div className="account-settings">
                 <div className="profile_pic">
-                    <img src={this.state.user_metadata.profile_pic} alt="profile_pic" />
+                    {
+                        this.state.user_metadata.profile_pic === null || this.state.user_metadata.profile_pic === ""
+                            ? <div className="bp3-skeleton"
+                             style={{width: "128px", height: "128px", borderRadius: "50%", margin: "0 auto"}}></div>
+                            : <img src={this.state.user_metadata.profile_pic} alt="profile_pic"/>
+                    }
                 </div>
                 <div className="user-identity">
                     <h2>@{this.state.user_metadata.display_name}</h2>
                     <h4><i>{this.state.user_metadata.pseudonym}</i></h4>
                 </div>
-                <div className="user-introduction">
-                    <p>{this.state.user_metadata.introduction}</p>
+                <div className="user-introduction" style={{minHeight: "50px"}}>
+                    {
+                        this.state.user_metadata.introduction === null || this.state.user_metadata.introduction === ""
+                            ? <p>I feel undefined...</p>
+                            : <p>{this.state.user_metadata.introduction}</p>
+                    }
                 </div>
                 <div className="user-stats">
                     Your Stats:

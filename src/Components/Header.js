@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import logo from "../Images/seedsvietnam.png";
 import fb_logo from "../Images/fb_logo.png";
 import googleplus_logo from "../Images/ggp_logo.png";
@@ -33,7 +33,6 @@ export default class Header extends Component {
 	};
 
 	renderDesktopMenuOptions = (key) => {
-		const page = key;
 		return (
 			this.props.pageStructure[key].length > 0
 			? <div className="menuOptions" key={key}><Popover
@@ -74,7 +73,8 @@ export default class Header extends Component {
                             posy={this.state.userAccOverlayPos.y}
                             uid={this.props.uid}
                             isAdmin={this.props.isAdmin}
-                            user_metadata={this.props.user_metadata}/>
+                            user_metadata={this.props.user_metadata}
+							signOut={this.props.signOut}/>
         );
     };
 

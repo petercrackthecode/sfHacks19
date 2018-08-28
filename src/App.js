@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./Components/Header.js";
 import Main from "./Components/Main.js";
 import firebase from "./Components/firebase.js";
+import AppToaster from "./Components/Toaster.js";
 
 import {GetCurrentTime} from "./Helpers/HelperFn";
 
@@ -14,7 +15,7 @@ class App extends Component {
             uid: "",
             isAdmin: false,
             user_metadata: {},
-        }
+        };
         this.pageStructure = {
             "Home": ["Về Seeds Vietnam", "Nội Dung", "Testimonials"],
             "Seeds ACT": ["Về Seeds ACT", "Đối tượng tham gia", "Cách hoạt động", "Đơn vị cộng tác", "Đăng ký"],
@@ -22,7 +23,7 @@ class App extends Component {
             "Essay Editing": ["Về Essay Editing", "Quyền lợi", "Dịch vụ", "Counselor của Seeds Vietnam", "Đăng ký"],
             "About & Contact": [],
             "Blog": [],
-        }
+        };
     }
 
     componentWillMount() {
@@ -31,7 +32,7 @@ class App extends Component {
 
     componentDidMount() {
         const lastAccessed = localStorage.getItem("lastAccessed");
-        const timeElapsed = GetCurrentTime("ms") - parseInt(lastAccessed);
+        const timeElapsed = GetCurrentTime("ms") - lastAccessed;
         const appPrevState = localStorage.getItem("appState");
         if (timeElapsed <= 18000000) {
             this.setState(JSON.parse(appPrevState));
@@ -59,6 +60,21 @@ class App extends Component {
         });
     };
 
+    signOut = () => {
+        this.setState({
+            isLoggedIn: false,
+            uid: "",
+            isAdmin: false,
+            user_metadata: {},
+        }, () => {
+            localStorage.setItem("appState", JSON.stringify(this.state));
+            AppToaster.show({
+                message: "Đăng xuất thành công!",
+                intent: "success"
+            })
+        });
+    };
+
 	render() {
 		return (
             <div className="App">
@@ -67,7 +83,7 @@ class App extends Component {
                         isLoggedIn={this.state.isLoggedIn}
                         uid={this.state.uid}
                         isAdmin={this.state.isAdmin}
-                        user_metadata={this.state.user_metadata}/>
+                        user_metadata={this.state.user_metadata} signOut={this.signOut}/>
 
                 <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "3px", marginBottom: "7px"}}></div>
 

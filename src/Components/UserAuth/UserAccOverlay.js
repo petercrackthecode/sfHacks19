@@ -22,7 +22,12 @@ export default class UserAccOverlay extends Component {
                     left: this.props.posx,
                     top: this.props.posy}}>
                     <div className="profile-pic" style={{minHeight: "70px"}}>
-                        <img src={this.props.user_metadata.profile_pic} alt="profile_pic" style={{float: "left", width: "64px", borderRadius: "50%"}}/>
+                        {
+                            this.props.user_metadata.profile_pic === null || this.props.user_metadata.profile_pic === ""
+                                ? <div className="bp3-skeleton"
+                                       style={{float: "left", width: "64px", height: "64px", borderRadius: "50%", margin: "0 auto"}}></div>
+                                : <img src={this.props.user_metadata.profile_pic} alt="profile_pic" style={{float: "left", width: "64px", borderRadius: "50%"}}/>
+                        }
                         <div style={{width: "calc((100% - 70px))", float: "right", minHeight: "70px"}}>
                             <h3 style={{lineHeight: "70px", margin: "0px"}}>{this.props.user_metadata.display_name}</h3>
                         </div>
@@ -42,7 +47,7 @@ export default class UserAccOverlay extends Component {
                     </div>
                     <div className="bp3-menu-divider"></div>
                     <div>
-                        <Button className="bp3-icon-log-out bp3-fill bp3-minimal bp3-large">
+                        <Button className="bp3-icon-log-out bp3-fill bp3-minimal bp3-large" onClick={this.props.signOut}>
                             Đăng xuất
                         </Button>
                     </div>

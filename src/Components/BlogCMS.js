@@ -9,9 +9,9 @@ import Metrics from "./CMS/Metrics.js";
 import "../CSS/CMS.css";
 
 export default class BlogCMS extends Component {
-	constructor(props) {
-		super(props);
-	};
+	// constructor(props) {
+	// 	super(props);
+	// };
 
 	render() {
 		return(

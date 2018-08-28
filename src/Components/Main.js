@@ -13,9 +13,9 @@ import AccountSettings from "./UserAuth/AccountSettings.js";
 import Four0Four from "./Four0Four.js";
 
 export default class Main extends Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 
 	render() {
 		return(

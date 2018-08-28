@@ -34,30 +34,27 @@ export default class SignInOverlay extends Component {
         this.setState({isSignInClicked: false});
         firebase.auth().signInWithEmailAndPassword(this.refs["username"].value, this.refs["password"].value)
         .then((user) => {
-            AppToaster.show({
-                message: "Đăng nhập thành công!",
-                intent: Intent.SUCCESS
-            });
-            const uid = firebase.auth().currentUser.uid;
-            const displayName = firebase.auth().currentUser.displayName;
+            if (!user.user.emailVerified) {
+                AppToaster.show({ message: "Email từ tài khoản này chưa được xác minh", intent: Intent.DANGER });
+                user.user.sendEmailVerification().then(() => {
+                    AppToaster.show({ message: "Email xác minh đã được gửi lại", intent: Intent.WARNING });
+                }).catch(() => {
+                    AppToaster.show({ message: "Email xác minh gửi thất bại", intent: Intent.DANGER });
+                });
+                return;
+            }
+            AppToaster.show({ message: "Đăng nhập thành công!", intent: Intent.SUCCESS });
+            const uid = user.user.uid;
+            const displayName = user.user.displayName;
             this.checkIfAdminUser(uid).then((isAdmin) => {
                 this.props.authenticated(uid, isAdmin);
                 if(isAdmin) {
-                    AppToaster.show({
-                        message: "Chào mừng quản lý! Chúc bạn 1 ngày tốt lành!",
-                        intent: Intent.SUCCESS
-                    });
+                    AppToaster.show({ message: "Chào mừng quản lý! Chúc bạn 1 ngày tốt lành!", intent: Intent.SUCCESS });
                 } else {
                     if (displayName !== null){
-                        AppToaster.show({
-                            message: "Chào mừng " + displayName,
-                            intent: Intent.SUCCESS
-                        });
+                        AppToaster.show({ message: "Chào mừng " + displayName, intent: Intent.SUCCESS });
                     } else {
-                        AppToaster.show({
-                            message: "Chào mừng bạn! Chúc bạn ngày tốt lành!",
-                            intent: Intent.SUCCESS
-                        });
+                        AppToaster.show({ message: "Chào mừng bạn! Chúc bạn ngày tốt lành!", intent: Intent.SUCCESS });
                     }
                 }
             });
@@ -65,10 +62,7 @@ export default class SignInOverlay extends Component {
         .catch((error) => {
             var errorMessage = error.message;
             console.log(errorMessage);
-            AppToaster.show({
-                message: "Lỗi đăng nhập: " + errorMessage,
-                intent: Intent.DANGER
-            });
+            AppToaster.show({ message: "Lỗi đăng nhập: " + errorMessage, intent: Intent.DANGER });
         });
         this.refs["sign-in-form"].reset();
     };

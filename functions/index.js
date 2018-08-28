@@ -36,3 +36,10 @@ exports.deleteSiteMedia = functions.storage.object().onDelete((object) => {
     const dbRef = admin.database().ref("siteMedia/" + fileName);
     return dbRef.set(null);
 });
+
+exports.addUserNameToPool = functions.database.ref("user_metadata")
+    .onWrite((change, context) => {
+        const user_metadata = change.after.val();
+        const display_name = user_metadata.display_name;
+        return change.after.parent.child("display_name_pool").push(display_name);
+    });
