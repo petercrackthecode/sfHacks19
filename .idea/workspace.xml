@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08eb52f-3a1b-44c9-adf6-a156f293c35f" name="Default" comment="Header update">
-      <change afterPath="$PROJECT_DIR$/src/CSS/account-settings.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/UserAuth/UserAccOverlay.js" afterDir="false" />
+    <list default="true" id="f08eb52f-3a1b-44c9-adf6-a156f293c35f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CSS/four-0-four.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Four0Four.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/SheCodesTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/database.rules.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Home_old.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage.rules" beforeDir="false" afterPath="$PROJECT_DIR$/storage.rules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,8 +127,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+            <state relative-caret-position="210">
+              <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -143,8 +139,8 @@
       <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+            <state relative-caret-position="294">
+              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -152,11 +148,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+            <state relative-caret-position="273">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="36" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -176,14 +172,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountSettings.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AccountSettings.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="336">
+              <caret line="58" column="51" lean-forward="true" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -191,8 +184,20 @@
       <file leaf-file-name="SignInOverlay.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1533">
-              <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
+            <state>
+              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlogViewer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/BlogViewer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -236,6 +241,7 @@
       <find>site-media</find>
       <find>renderAddMediaOverlay</find>
       <find>UserRegistration</find>
+      <find>br</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -250,9 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Components/BlockStyles/ExtendedRichUtils.js" />
-        <option value="$PROJECT_DIR$/src/Components/BlockStyles/FontSizeStyleDropdown.js" />
-        <option value="$PROJECT_DIR$/src/Components/BlockStyles/HeaderStyleDropdown.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/plugins/HyperLinkPlugin.js" />
         <option value="$PROJECT_DIR$/src/Components/BlockStyles/entities/mediaBlockRenderer.js" />
         <option value="$PROJECT_DIR$/src/CSS/custom-block-style.css" />
@@ -292,15 +295,18 @@
         <option value="$PROJECT_DIR$/src/CSS/user-registration.css" />
         <option value="$PROJECT_DIR$/database.rules.json" />
         <option value="$PROJECT_DIR$/storage.rules" />
-        <option value="$PROJECT_DIR$/src/Components/Home.js" />
         <option value="$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js" />
         <option value="$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js" />
         <option value="$PROJECT_DIR$/src/CSS/account-settings.css" />
-        <option value="$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js" />
-        <option value="$PROJECT_DIR$/src/Components/Main.js" />
         <option value="$PROJECT_DIR$/src/Components/UserAuth/UserAccOverlay.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Components/Header.js" />
+        <option value="$PROJECT_DIR$/src/Components/sheCodesTable.js" />
+        <option value="$PROJECT_DIR$/src/Components/SheCodesTable.js" />
+        <option value="$PROJECT_DIR$/src/Components/Home.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/Components/Four0Four.js" />
+        <option value="$PROJECT_DIR$/src/Components/Main.js" />
+        <option value="$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js" />
       </list>
     </option>
   </component>
@@ -421,15 +427,15 @@
     <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\SiteMediaManager" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\CSS" />
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\UserAuth" />
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components" />
       <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\CMS" />
       <recent name="C:\Users\nguyet26\seeds-vietnam\src\Components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tai Duc Nguyen\seeds-vietnam\src\Components\SiteMediaManager" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -540,7 +546,7 @@
       <workItem from="1534951162299" duration="9687000" />
       <workItem from="1534981009757" duration="16683000" />
       <workItem from="1535330020641" duration="10338000" />
-      <workItem from="1535344959139" duration="1258000" />
+      <workItem from="1535344959139" duration="9955000" />
     </task>
     <task id="LOCAL-00001" summary="New HomePage version 2.0">
       <created>1533612720711</created>
@@ -577,11 +583,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534981105039</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Header update + Authentication">
+      <created>1535348125272</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1535348125272</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177650000" />
+    <option name="totallyTimeSpent" value="186347000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -597,29 +610,30 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info id="DB Browser" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151056" side_tool="true" weight="0.32263243" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49848944" weight="0.32085562" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" weight="0.26417112" />
-      <window_info id="npm" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.24861878" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22880886" />
       <window_info anchor="right" id="Database" order="6" weight="0.23504274" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info id="DB Browser" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49848944" weight="0.32085562" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4984404" visible="true" weight="0.26417112" />
+      <window_info id="npm" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.24812834" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22880886" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32834226" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -629,7 +643,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32834226" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
@@ -706,7 +719,8 @@
     <MESSAGE value="Finished Blog Text Editor." />
     <MESSAGE value="Connected Blog CMS to DB and storage. User can now create new Blog and the blog will be updated on front page." />
     <MESSAGE value="Header update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Header update" />
+    <MESSAGE value="Header update + Authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="Header update + Authentication" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -715,36 +729,10 @@
           <url>file://$PROJECT_DIR$/src/Components/BlogViewer.js</url>
         </line-breakpoint>
       </breakpoints>
+      <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="121" column="52" lean-forward="true" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CMS/ContentManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/CMS/Metrics.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -853,16 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/BlogViewer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="67" column="44" lean-forward="true" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data_modified_values3" />
     <entry file="das://104a1d97-a8d2-4bf8-84af-2536dac79027/schema/eprov_audit_01/table/request_data" />
     <entry file="file://$PROJECT_DIR$/src/App.css">
@@ -936,21 +914,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/firebase.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1533">
-          <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
+        <state>
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -963,30 +930,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Home_old.js" />
-    <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/UserRegistration.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1003,23 +950,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/SheCodesTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+        <state relative-caret-position="323">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#103#140#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+        <state relative-caret-position="273">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="36" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/SignInOverlay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/BlogViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSS/four-0-four.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Four0Four.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/UserAuth/AccountSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="58" column="51" lean-forward="true" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
         </state>
       </provider>
     </entry>

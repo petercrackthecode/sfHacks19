@@ -33,10 +33,7 @@ class App extends Component {
         const lastAccessed = localStorage.getItem("lastAccessed");
         const timeElapsed = GetCurrentTime("ms") - parseInt(lastAccessed);
         const appPrevState = localStorage.getItem("appState");
-        console.log(JSON.parse(appPrevState));
-        console.log(timeElapsed);
         if (timeElapsed <= 18000000) {
-            console.log(timeElapsed);
             this.setState(JSON.parse(appPrevState));
         }
     }
@@ -57,7 +54,6 @@ class App extends Component {
         const userRef = firebase.database().ref("user_metadata/" + uid);
         return new Promise((resolve, reject) => {
             userRef.on("value", snapshot => {
-                console.log(snapshot.val());
                 this.setState({user_metadata: snapshot.val()}, () => {return resolve()});
             })
         });
