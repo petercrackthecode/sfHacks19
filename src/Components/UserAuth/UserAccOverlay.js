@@ -23,7 +23,7 @@ export default class UserAccOverlay extends Component {
                     top: this.props.posy}}>
                     <div className="profile-pic" style={{minHeight: "70px"}}>
                         {
-                            this.props.user_metadata.profile_pic === null || this.props.user_metadata.profile_pic === ""
+                            this.props.user_metadata.profile_pic == null || this.props.user_metadata.profile_pic === ""
                                 ? <div className="bp3-skeleton"
                                        style={{float: "left", width: "64px", height: "64px", borderRadius: "50%", margin: "0 auto"}}></div>
                                 : <img src={this.props.user_metadata.profile_pic} alt="profile_pic" style={{float: "left", width: "64px", borderRadius: "50%"}}/>

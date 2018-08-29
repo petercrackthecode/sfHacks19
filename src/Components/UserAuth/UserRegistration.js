@@ -6,8 +6,8 @@ import firebase from "../firebase.js";
 import "../../CSS/user-registration.css";
 
 export default class UserRegistration extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             real_name: "",
             display_name: "",
@@ -15,6 +15,10 @@ export default class UserRegistration extends Component {
             email: "",
             password: "",
         }
+    }
+
+    componentDidMount() {
+        console.log(this.props.isLoggedIn)
     }
 
     writeUserDataToDB = (uid, metadata) => {
@@ -51,7 +55,10 @@ export default class UserRegistration extends Component {
                         user.user.sendEmailVerification()
                             .then(() => {
                                 AppToaster.show({ message: "Email xác minh đã gửi đến tài khoản của bạn", intent: "success" });
-                                window.location.href="/Home";
+                                AppToaster.show({ message: "Hãy xác minh và đăng nhập lại bạn nhé! Quay lại trang chủ...", intent: "success" });
+                                setTimeout(() => {
+                                    window.location.href="/Home";
+                                }, 4000);
                             })
                             .catch(() => {
                                 AppToaster.show({ message: "Email xác minh gửi thất bại", intent: "danger" });
@@ -74,35 +81,39 @@ export default class UserRegistration extends Component {
     render() {
         return(
             <div className="user-registration">
-                <div className="account-info">
-                    <div>
-                        <h2>Tạo Tài Khoản Mới</h2>
-                    </div>
-                    <form ref="new-user-form" onSubmit={this.submitNewAccInfo}>
-                        <label className="bp3-label" htmlFor="acc-name">Tên Người Dùng/User Name:*
-                            <input id="acc-name" type="text" className="bp3-input bp3-fill" onChange={this.handleRealName} required/>
-                        </label>
+                {
+                    this.props.isLoggedIn
+                        ? <div>Bạn phải đăng xuất để tạo tài khoản mới!</div>
+                        : <div className="account-info">
+                            <div>
+                                <h2>Tạo Tài Khoản Mới</h2>
+                            </div>
+                            <form ref="new-user-form" onSubmit={this.submitNewAccInfo}>
+                                <label className="bp3-label" htmlFor="acc-name">Tên Người Dùng/User Name:*
+                                    <input id="acc-name" type="text" className="bp3-input bp3-fill" onChange={this.handleRealName} required/>
+                                </label>
 
-                        <label className="bp3-label" htmlFor="acc-display-name">Tên Tài Khoản/Account Name:*
-                            <input id="acc-display-name" type="text" className="bp3-input bp3-fill" onChange={this.handleDisplayName} required/>
-                        </label>
+                                <label className="bp3-label" htmlFor="acc-display-name">Tên Tài Khoản/Account Name:*
+                                    <input id="acc-display-name" type="text" className="bp3-input bp3-fill" onChange={this.handleDisplayName} required/>
+                                </label>
 
-                        <label className="bp3-label" htmlFor="acc-pseudonym">Bút Danh/Pseudonym:
-                            <input id="acc-pseudonym" type="text" className="bp3-input bp3-fill" onChange={this.handlePseudonym}/>
-                        </label>
+                                <label className="bp3-label" htmlFor="acc-pseudonym">Bút Danh/Pseudonym:
+                                    <input id="acc-pseudonym" type="text" className="bp3-input bp3-fill" onChange={this.handlePseudonym}/>
+                                </label>
 
-                        <label className="bp3-label" htmlFor="acc-email">Email:*
-                            <input id="acc-email" type="text" className="bp3-input bp3-fill" onChange={this.handleEmail} required/>
-                        </label>
+                                <label className="bp3-label" htmlFor="acc-email">Email:*
+                                    <input id="acc-email" type="text" className="bp3-input bp3-fill" onChange={this.handleEmail} required/>
+                                </label>
 
-                        <label className="bp3-label" htmlFor="acc-password">Mật Khẩu/Password:*
-                            <input id="acc-password" type="password" className="bp3-input bp3-fill" onChange={this.handlePassword} required/>
-                        </label>
-                        <div>
-                            <Button type="submit" text="Xác minh email và Tạo Tài Khoản!"/>
+                                <label className="bp3-label" htmlFor="acc-password">Mật Khẩu/Password:*
+                                    <input id="acc-password" type="password" className="bp3-input bp3-fill" onChange={this.handlePassword} required/>
+                                </label>
+                                <div>
+                                    <Button type="submit" text="Xác minh email và Tạo Tài Khoản!"/>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
+                }
             </div>
         );
     };

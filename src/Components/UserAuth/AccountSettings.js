@@ -51,19 +51,24 @@ export default class AccountSettings extends Component {
             <div className="account-settings">
                 <div className="profile_pic">
                     {
-                        this.state.user_metadata.profile_pic === null || this.state.user_metadata.profile_pic === ""
+                        this.state.user_metadata.profile_pic == null || this.state.user_metadata.profile_pic === ""
                             ? <div className="bp3-skeleton"
-                             style={{width: "128px", height: "128px", borderRadius: "50%", margin: "0 auto"}}></div>
+                                style={{width: "128px", height: "128px", borderRadius: "50%", margin: "0 auto"}}></div>
                             : <img src={this.state.user_metadata.profile_pic} alt="profile_pic"/>
                     }
                 </div>
                 <div className="user-identity">
-                    <h2>@{this.state.user_metadata.display_name}</h2>
+                    {
+                        this.state.user_metadata.display_name == null || this.state.user_metadata.display_name === ""
+                            ? <div className="bp3-skeleton"
+                               style={{width: "150px", height: "30px", margin: "0 auto"}}></div>
+                            : <h2>@{this.state.user_metadata.display_name}</h2>
+                    }
                     <h4><i>{this.state.user_metadata.pseudonym}</i></h4>
                 </div>
                 <div className="user-introduction" style={{minHeight: "50px"}}>
                     {
-                        this.state.user_metadata.introduction === null || this.state.user_metadata.introduction === ""
+                        this.state.user_metadata.introduction == null || this.state.user_metadata.introduction === ""
                             ? <p>I feel undefined...</p>
                             : <p>{this.state.user_metadata.introduction}</p>
                     }

@@ -31,7 +31,7 @@ export default class Main extends Component {
                     <Route exact path="/Blog" component={BlogBrowser} />
                     <Route exact path="/Blog/:id/:title" component={BlogViewer} />
                     <Route path="/BlogCMS" component={BlogCMS} />
-                    <Route path="/registration" component={UserRegistration} />
+                    <Route path="/registration" render={() => <UserRegistration isLoggedIn={this.props.isLoggedIn}/>} />
                     <Route exact path="/user/settings/:id" render={(props) => <AccountSettings {...props}
                                                                                                isLoggedIn={this.props.isLoggedIn}
                                                                                                isAdmin={this.props.isAdmin}/>} />

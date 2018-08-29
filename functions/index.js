@@ -37,9 +37,18 @@ exports.deleteSiteMedia = functions.storage.object().onDelete((object) => {
     return dbRef.set(null);
 });
 
-exports.addUserNameToPool = functions.database.ref("user_metadata")
+exports.addUserNameToPool = functions.database.ref("user_metadata/{created_user}")
     .onWrite((change, context) => {
+        // Only edit data when it is first created.
+        if (change.before.exists()) {
+            return null;
+        }
+        // Exit when the data is deleted.
+        if (!change.after.exists()) {
+            return null;
+        }
         const user_metadata = change.after.val();
         const display_name = user_metadata.display_name;
-        return change.after.parent.child("display_name_pool").push(display_name);
+        console.log(user_metadata);
+        return change.after.ref.parent.parent.child("display_name_pool").push(display_name);
     });
