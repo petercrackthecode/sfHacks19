@@ -250,7 +250,8 @@
     width: 60%;
     min-width: 600px;
     height: 600px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 30%);
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, 50%) !important;
 }

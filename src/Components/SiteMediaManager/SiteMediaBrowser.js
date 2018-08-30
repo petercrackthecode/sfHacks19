@@ -4,7 +4,7 @@ import {Spinner, Card, Button, Intent} from "@blueprintjs/core";
 import resizeImage from "resize-image";
 import AppToaster from "../Toaster.js";
 
-import slug from "slug";
+import slugify from "slugify";
 
 import firebase from "../firebase.js";
 
@@ -121,7 +121,7 @@ export default class SiteMediaBrowser extends Component {
     };
 
     uploadMedia = (fileName, data) => {
-        const mediaRef = firebase.storage().ref().child("site/" + slug(fileName.match(/^(.*?)(\.[^.]*)?$/)[1], "_") + ".jpeg");
+        const mediaRef = firebase.storage().ref().child("site/" + slugify(fileName.match(/^(.*?)(\.[^.]*)?$/)[1], "_") + ".jpeg");
         mediaRef.putString(data, 'data_url')
             .then((snapshot) => {
                 AppToaster.show({

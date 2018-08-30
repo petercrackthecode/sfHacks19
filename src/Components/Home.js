@@ -37,11 +37,9 @@ export default class Home extends Component {
     fetchBlogs = () => {
         const blog_list = [];
         const blogsRef = firebase.database().ref("blogs/");
-        blogsRef.orderByKey().limitToLast(5).on("value", (snapshot) => {
+        blogsRef.orderByChild("createTimeStamp").limitToLast(5).on("value", (snapshot) => {
             let items = snapshot.val();
             for (let i in items) {
-                if (i === "sequence") continue;
-
                 blog_list.push(items[i]);
             }
             blog_list.reverse();

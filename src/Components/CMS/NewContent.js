@@ -9,6 +9,8 @@ import TextEditor from "../TextEditor.js";
 import SiteMediaBrowser from "../SiteMediaManager/SiteMediaBrowser.js";
 import GoogleImageBrowser from "../SiteMediaManager/GoogleImageBrowser.js";
 
+import {GetCurrentTime} from "../../Helpers/HelperFn";
+
 export default class NewContent extends Component {
     constructor(props) {
         super(props);
@@ -26,6 +28,7 @@ export default class NewContent extends Component {
                 author: "",
                 cover_img: "",
                 thumbnail: "",
+                createTimeStamp: 0,
             },
         };
     }
@@ -46,44 +49,48 @@ export default class NewContent extends Component {
         this.setState({addMediaOverlay: false});
     };
 
-    getNewBlogID = () => {
+    // getNewBlogID = () => {
+    //     return new Promise ((resolve, reject) => {
+    //         let currentSeq = 0;
+    //         const blogRef = firebase.database().ref().child("blogs/sequence");
+    //         blogRef.on("value", (snapshot) => {
+    //             currentSeq = snapshot.val();
+    //             currentSeq += 1;
+    //             return resolve(currentSeq);
+    //         });
+    //     });
+    // };
+    //
+    // updateBlogSequence = (id) => {
+    //     return new Promise ((resolve, reject) => {
+    //         const blogRef = firebase.database().ref().child("blogs/sequence");
+    //         blogRef.set(id)
+    //             .then(() => {
+    //                 const temp = this.state.newBlog;
+    //                 temp.id = String(id).padStart(4, "0");
+    //                 this.setState({newBlog: temp});
+    //                 return resolve(String(id).padStart(4, "0"));
+    //             })
+    //             .catch(() => {
+    //                 return reject();
+    //             })
+    //     });
+    // };
+
+    createNewBlogEntry = () => {
+        const blogRef = firebase.database().ref().child("blogs").push();
+        let newBlog = this.state.newBlog;
+        newBlog.id = blogRef.key;
         return new Promise ((resolve, reject) => {
-            let currentSeq = 0;
-            const blogRef = firebase.database().ref().child("blogs/sequence");
-            blogRef.on("value", (snapshot) => {
-                currentSeq = snapshot.val();
-                currentSeq += 1;
-                return resolve(currentSeq);
+            this.setState({newBlog: newBlog}, () => {
+                blogRef.set(this.state.newBlog)
+                    .then(() => {
+                        return resolve();
+                    })
+                    .catch(() => {
+                        return reject();
+                    });
             });
-        });
-    };
-
-    updateBlogSequence = (id) => {
-        return new Promise ((resolve, reject) => {
-            const blogRef = firebase.database().ref().child("blogs/sequence");
-            blogRef.set(id)
-                .then(() => {
-                    const temp = this.state.newBlog;
-                    temp.id = String(id).padStart(4, "0");
-                    this.setState({newBlog: temp});
-                    return resolve(String(id).padStart(4, "0"));
-                })
-                .catch(() => {
-                    return reject();
-                })
-        });
-    };
-
-    createNewBlogEntry = (id) => {
-        return new Promise ((resolve, reject) => {
-            const blogRef = firebase.database().ref().child("blogs/" + id);
-            blogRef.set(this.state.newBlog)
-                .then(() => {
-                    return resolve();
-                })
-                .catch(() => {
-                    return reject();
-                })
         });
     };
 
@@ -95,6 +102,7 @@ export default class NewContent extends Component {
                 author: "",
                 cover_img: "",
                 thumbnail: "",
+                createTimeStamp: 0,
             };
             this.setState({createContentOverlay: false});
             this.setState({newBlog: reset}, () => resolve());
@@ -103,22 +111,26 @@ export default class NewContent extends Component {
 
     submitData = (e) => {
         e.preventDefault();
-        this.getNewBlogID()
-            .then(id => this.updateBlogSequence(id))
-            .then(id => this.createNewBlogEntry(id))
-            .then(() => this.resetComponentState())
-            .then(() => {
-                AppToaster.show({
-                    message: "Tạo BlogViewer mới thành công!",
-                    intent: Intent.SUCCESS
+        let newBlog = this.state.newBlog;
+        newBlog.createTimeStamp = GetCurrentTime("ms");
+        this.setState({newBlog: newBlog}, () => {
+            this.createNewBlogEntry()
+                .then(() => {
+                    this.resetComponentState()
+                        .then(() => {
+                            AppToaster.show({
+                                message: "Tạo Blog mới thành công!",
+                                intent: Intent.SUCCESS
+                            });
+                        })
+                        .catch(() => {
+                            AppToaster.show({
+                                message: "Tạo Blog mới thất bại",
+                                intent: Intent.DANGER
+                            });
+                        });
                 });
-            })
-            .catch(() => {
-                AppToaster.show({
-                    message: "Tạo BlogViewer mới thất bại",
-                    intent: Intent.DANGER
-                });
-            });
+        });
     };
 
     renderAddMediaOverlay = () => {
