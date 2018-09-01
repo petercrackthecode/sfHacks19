@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f08eb52f-3a1b-44c9-adf6-a156f293c35f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/database.rules.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/CMS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/blog-cms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS/text-editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS/text-editor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/BlogCMS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BlogCMS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/CMS/NewContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CMS/NewContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SiteMediaManager/SiteMediaBrowser.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,7 +117,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -465,7 +456,8 @@
       <workItem from="1534981009757" duration="16683000" />
       <workItem from="1535330020641" duration="10338000" />
       <workItem from="1535344959139" duration="9955000" />
-      <workItem from="1535566748006" duration="12145000" />
+      <workItem from="1535566748006" duration="12327000" />
+      <workItem from="1535686490040" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="New HomePage version 2.0">
       <created>1533612720711</created>
@@ -516,11 +508,18 @@
       <option name="project" value="LOCAL" />
       <updated>1535532620087</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="User Registration 90% done">
+      <created>1535633074693</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1535633074694</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203391000" />
+    <option name="totallyTimeSpent" value="204172000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -535,30 +534,29 @@
     <frame x="55" y="-8" width="1873" height="1096" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151056" side_tool="true" weight="0.32263243" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="6" weight="0.23504274" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info id="DB Browser" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151056" side_tool="true" weight="0.32263243" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info active="true" anchor="bottom" id="Version Control" order="13" sideWeight="0.49848944" visible="true" weight="0.32085562" />
-      <window_info id="npm" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984404" weight="0.26417112" />
+      <window_info id="npm" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984686" weight="0.35614973" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23157895" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32834226" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23490305" />
+      <window_info anchor="right" id="Database" order="6" weight="0.23504274" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="5" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="9" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32996634" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -568,6 +566,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32834226" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +610,8 @@
     <MESSAGE value="Header update" />
     <MESSAGE value="Header update + Authentication" />
     <MESSAGE value="User Registration 80% done" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Registration 80% done" />
+    <MESSAGE value="User Registration 90% done" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Registration 90% done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -697,9 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,9 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="34" column="73" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -788,9 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -812,9 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,9 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="137" column="20" lean-forward="true" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,30 +834,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/accordion.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CSS/account-settings.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/blog.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/blog-cms.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/blog-crawler.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/custom-block-style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSS/four-0-four.css">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CSS/google-image-browser.css">
       <provider selected="true" editor-type-id="text-editor">
