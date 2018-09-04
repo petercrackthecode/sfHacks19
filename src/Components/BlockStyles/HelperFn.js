@@ -107,10 +107,8 @@ export const MEDIA = (props) => {
     const { src } = entity.getData();
     const type = entity.getType();
 
-    let media;
-
     if (type === "image") {
-        return(<IMAGE src={src} />);
+        return(<IMAGE src={src}/>);
     }
 };
 

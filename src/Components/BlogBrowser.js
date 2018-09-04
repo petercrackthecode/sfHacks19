@@ -54,7 +54,8 @@ export default class BlogBrowser extends Component {
     renderBlogCards = (blog) => {
         return(
             <div key={blog.id} style={{display: "inline-block", width: "50%", padding: "20px"}}>
-                <Card onClick={(e, id, title) => {this.redirectToBlogViewer(e, blog.id, blog.title)}}>
+                <Card interactive={true} elevation="two"
+                      onClick={(e, id, title) => {this.redirectToBlogViewer(e, blog.id, blog.title)}}>
                     <div id={blog.id + "cover_img"}>
                         <img src={blog.cover_img} style={{width: "100%"}}/>
                     </div>

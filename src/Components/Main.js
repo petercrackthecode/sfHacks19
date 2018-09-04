@@ -31,10 +31,16 @@ export default class Main extends Component {
                     <Route path="/About &amp; Contact" component={AboutContact} />
                     <Route exact path="/Blog" component={BlogBrowser} />
                     <Route exact path="/Blog/:id/:title" component={BlogViewer} />
-                    <Route exact path="/:id/createNewPost" component={CreateNewPost} />
+                    <Route exact path="/:id/createNewPost" render={(props) => <CreateNewPost {...props}
+                                                                                             uid={this.props.uid}
+                                                                                             user_metadata={this.props.user_metadata}
+                                                                                             isLoggedIn={this.props.isLoggedIn}
+                                                                                             isAdmin={this.props.isAdmin}/>} />
                     <Route path="/BlogCMS" component={BlogCMS} />
                     <Route path="/registration" render={() => <UserRegistration isLoggedIn={this.props.isLoggedIn}/>} />
                     <Route exact path="/user/settings/:id" render={(props) => <AccountSettings {...props}
+                                                                                               uid={this.props.uid}
+                                                                                               user_metadata={this.props.user_metadata}
                                                                                                isLoggedIn={this.props.isLoggedIn}
                                                                                                isAdmin={this.props.isAdmin}/>} />
                     <Route exact path="*" component={Four0Four} />

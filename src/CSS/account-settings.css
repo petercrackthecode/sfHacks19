@@ -5,15 +5,88 @@
 }
 
 .account-settings .user-introduction {
-    font-size: 16px;
-    line-height: 1.6rem;
+    font-size: 1em;
+    line-height: 1.5rem;
+    margin: 5px;
 }
 
 .account-settings .user-stats {
-    font-size: 17px;
+    font-size: 1.1em;
+    margin: 5px;
+    padding: 5px;
 }
 .account-settings .user-stats .bp3-tag {
-    font-size: 16px;
-    margin-left: 15px;
-    margin-right: 15px;
+    font-size: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.account-settings .user-drafts {
+    margin: 5px;
+    padding: 5px;
+}
+
+.user-drafts button {
+    width: 500px;
+}
+
+.account-settings .user-drafts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-drafts .draft {
+    width: 500px;
+    margin: 0 auto;
+    overflow: auto;
+    text-align: initial;
+}
+
+.user-drafts .draft .draft-title{
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.user-drafts .draft .draft-time-stamp{
+    font-size: 1em;
+    font-style: italic;
+}
+
+.user-drafts .draft .draft-sneakpeak{
+    margin-top: 15px;
+}
+
+.account-settings .user-blogs {
+    margin: 5px;
+    padding: 5px;
+}
+
+.user-blogs button {
+    width: 500px;
+}
+
+.account-settings .user-blogs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-blogs .blog {
+    width: 500px;
+    margin: 0 auto;
+    overflow: auto;
+    text-align: initial;
+}
+
+.user-blogs .blog .blog-title{
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.user-blogs .blog .blog-time-stamp{
+    font-size: 1em;
+    font-style: italic;
+}
+
+.user-blogs .blog .blog-sneakpeak{
+    margin-top: 15px;
 }

@@ -24,6 +24,7 @@ export default class TextEditor extends Component {
 	constructor(props) {
 		super(props);
         this.state = {
+            title: "",
             editorState: EditorState.createEmpty(),
             addMediaOverlay: false,
         };
@@ -161,7 +162,7 @@ export default class TextEditor extends Component {
         if (contentState.getPlainText().trim() === "") return;
 
         const data = convertToRaw(contentState);
-        this.props.savePublish(data);
+        this.props.savePublish({"title": this.state.title, "data": data});
     };
 
     onSaveDraft = () => {
@@ -169,7 +170,7 @@ export default class TextEditor extends Component {
         if (contentState.getPlainText().trim() === "") return;
 
         const data = convertToRaw(contentState);
-        this.props.saveDraft(data);
+        this.props.saveDraft({"title": this.state.title, "data": data});
     };
 
     render() {
@@ -200,6 +201,11 @@ export default class TextEditor extends Component {
                         onToggleFontSize={this.toggleBlockFontSize}
                     />
                 </div>
+                <div className="text-editor-title-div">
+                    <textarea className="bp3-input bp3-fill" placeholder="Your title goes here..."
+                              draggable={false}
+                              onChange={(e) => this.setState({title: e.target.value})}></textarea>
+                </div>
                 <div className="text-editor-content-div">
                     <Editor
                         editorState={this.state.editorState}
@@ -211,6 +217,7 @@ export default class TextEditor extends Component {
                         onTab={this.handleTab}
                         customStyleMap={customStyleMap}
                         keyBindingFn={customKeyBindingFn}
+                        placeholder="Your great post begins here..."
                     />
                 </div>
                 <div className="text-editor-save">
