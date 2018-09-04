@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import {Card, Overlay, Tab, Tabs, Button, Intent} from "@blueprintjs/core";
 
-import firebase from "../firebase.js";
+import firebase from "./firebase.js";
 
-import AppToaster from "../Toaster.js";
+import AppToaster from "./Toaster.js";
 
-import TextEditor from "../TextEditor.js";
-import SiteMediaBrowser from "../SiteMediaManager/SiteMediaBrowser.js";
-import GoogleImageBrowser from "../SiteMediaManager/GoogleImageBrowser.js";
+import TextEditor from "./TextEditor.js";
+import SiteMediaBrowser from "./SiteMediaManager/SiteMediaBrowser.js";
+import GoogleImageBrowser from "./SiteMediaManager/GoogleImageBrowser.js";
 
-import {GetCurrentTime} from "../../Helpers/HelperFn";
+import {GetCurrentTime} from "../Helpers/HelperFn";
 
-export default class NewContent extends Component {
+export default class CreateNewPost extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,6 +23,7 @@ export default class NewContent extends Component {
                     content: "",
                     likes: 0,
                     views: 0,
+                    sneakpeak: "",
                 },
                 title: "",
                 author: "",
@@ -81,8 +82,30 @@ export default class NewContent extends Component {
         })
     };
 
-    submitData = (e) => {
-        e.preventDefault();
+    savePublish = (data) => {
+        let newBlog = this.state.newBlog;
+        newBlog.createTimeStamp = GetCurrentTime("ms");
+        this.setState({newBlog: newBlog}, () => {
+            this.createNewBlogEntry()
+                .then(() => {
+                    this.resetComponentState()
+                        .then(() => {
+                            AppToaster.show({
+                                message: "Tạo Blog mới thành công!",
+                                intent: Intent.SUCCESS
+                            });
+                        })
+                        .catch(() => {
+                            AppToaster.show({
+                                message: "Tạo Blog mới thất bại",
+                                intent: Intent.DANGER
+                            });
+                        });
+                });
+        });
+    };
+
+    saveDraft = (data) => {
         let newBlog = this.state.newBlog;
         newBlog.createTimeStamp = GetCurrentTime("ms");
         this.setState({newBlog: newBlog}, () => {
@@ -125,7 +148,7 @@ export default class NewContent extends Component {
         return(
             <Overlay isOpen={this.state.createContentOverlay}
                      onClose={() => this.setState({createContentOverlay: false})}>
-                <Card>
+                <Card className="new-post-info">
                     <div>
                         <h2>Điền thông tin của blog mới: </h2>
                     </div>
@@ -133,10 +156,6 @@ export default class NewContent extends Component {
                         <div>
                             <label htmlFor="title">Tựa đề:</label><br/>
                             <input id="title" type="text" className="bp3-input" required onChange={this.handleTitleChange}/>
-                        </div>
-                        <div>
-                            <label htmlFor="author">Tác giả:</label><br/>
-                            <input id="author" type="text" className="bp3-input" required onChange={this.handleAuthorChange}/>
                         </div>
                         <div>
                             <label htmlFor="cover_img">Ảnh cover:</label><br/>
@@ -155,7 +174,7 @@ export default class NewContent extends Component {
     render() {
         return(
             <div className="blog-cms-new-content">
-                <TextEditor save={this.saveTextEditorData}/>
+                <TextEditor savePublish={this.savePublish} saveDraft={this.saveDraft}/>
                 { this.state.createContentOverlay ? this.renderCreateContentOverlay() : null }
                 { this.state.addMediaOverlay ? this.renderAddMediaOverlay() : null }
             </div>
@@ -165,12 +184,6 @@ export default class NewContent extends Component {
     handleTitleChange = (e) => {
         const temp = this.state.newBlog;
         temp.title = e.target.value;
-        this.setState({newBlog: temp});
-    };
-
-    handleAuthorChange = (e) => {
-        const temp = this.state.newBlog;
-        temp.author = e.target.value;
         this.setState({newBlog: temp});
     };
 }

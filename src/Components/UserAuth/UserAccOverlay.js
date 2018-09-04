@@ -34,7 +34,7 @@ export default class UserAccOverlay extends Component {
                     </div>
                     <div className="bp3-menu-divider"></div>
                     <div>
-                        <a href={"user/settings/@" + this.props.user_metadata.display_name} role="button" className="bp3-button bp3-icon-user bp3-fill bp3-minimal bp3-large">
+                        <a href={"/user/settings/@" + this.props.user_metadata.display_name} role="button" className="bp3-button bp3-icon-user bp3-fill bp3-minimal bp3-large">
                             Thông tin cá nhân
                         </a>
                         {
@@ -44,6 +44,11 @@ export default class UserAccOverlay extends Component {
                                   </Button>
                                 : null
                         }
+                    </div>
+                    <div>
+                        <a href={"/@" + this.props.user_metadata.display_name + "/createNewPost"} role="button" className="bp3-button bp3-icon-user bp3-fill bp3-minimal bp3-large">
+                            Tạo post mới
+                        </a>
                     </div>
                     <div className="bp3-menu-divider"></div>
                     <div>

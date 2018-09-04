@@ -27,7 +27,7 @@ class App extends Component {
     }
 
     componentWillMount() {
-        localStorage.setItem("lastAccessed", GetCurrentTime("ms"));
+
     }
 
     componentDidMount() {
@@ -36,7 +36,11 @@ class App extends Component {
         const appPrevState = localStorage.getItem("appState");
         if (timeElapsed <= 18000000) {
             this.setState(JSON.parse(appPrevState));
+        } else {
+            localStorage.removeItem("appState");
+            localStorage.removeItem("lastAccessed");
         }
+        localStorage.setItem("lastAccessed", GetCurrentTime("ms"));
     }
 
     authenticated = (uid, isAdmin) => {
@@ -71,7 +75,8 @@ class App extends Component {
             AppToaster.show({
                 message: "Đăng xuất thành công!",
                 intent: "success"
-            })
+            });
+            window.location.href="/Home";
         });
     };
 

@@ -22,7 +22,7 @@
     position: relative;
     border-radius: 10px;
     padding: 12px;
-    cursor: text;
+    /*cursor: text;*/
 }
 
 .DraftEditor-editorContainer {
@@ -239,10 +239,10 @@
 
 .text-editor-save {
     padding: 10px;
-    height: 60px;
+    overflow: auto;
 }
 
-.text-editor-save button {
+.text-editor-save .bp3-button {
     float: right;
 }
 
@@ -250,8 +250,13 @@
     width: 60%;
     min-width: 600px;
     height: 600px;
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, 50%) !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-media-manager .close-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
