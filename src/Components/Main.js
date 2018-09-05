@@ -8,6 +8,7 @@ import AboutContact from "./AboutContact.js";
 import BlogViewer from "./BlogViewer.js";
 import BlogBrowser from "./BlogBrowser.js";
 import CreateNewPost from "./CreateNewPost.js";
+import EditDraft from "./EditDraft.js";
 import BlogCMS from "./BlogCMS.js";
 import UserRegistration from "./UserAuth/UserRegistration.js";
 import AccountSettings from "./UserAuth/AccountSettings.js";
@@ -36,6 +37,10 @@ export default class Main extends Component {
                                                                                              user_metadata={this.props.user_metadata}
                                                                                              isLoggedIn={this.props.isLoggedIn}
                                                                                              isAdmin={this.props.isAdmin}/>} />
+                    <Route exact path="/editDraft/:id" render={(props) => <EditDraft {...props}
+                                                                                     uid={this.props.uid}
+                                                                                     isLoggedIn={this.props.isLoggedIn}
+                                                                                     isAdmin={this.props.isAdmin}/>} />
                     <Route path="/BlogCMS" component={BlogCMS} />
                     <Route path="/registration" render={() => <UserRegistration isLoggedIn={this.props.isLoggedIn}/>} />
                     <Route exact path="/user/settings/:id" render={(props) => <AccountSettings {...props}

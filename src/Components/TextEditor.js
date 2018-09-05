@@ -30,6 +30,15 @@ export default class TextEditor extends Component {
         };
 	}
 
+	componentWillMount() {
+	    if (this.props.renderContent !== undefined) {
+            console.log(this.props.renderContent);
+            this.setState({title: this.props.renderContent.title});
+            const content = convertFromRaw(JSON.parse(this.props.renderContent.data.content));
+            this.setState({editorState: EditorState.createWithContent(content)});
+        }
+    }
+
     onChange = (editorState) => {
         this.setState({editorState: editorState});
     };
@@ -101,7 +110,7 @@ export default class TextEditor extends Component {
                      onClose={() => this.setState({addMediaOverlay: false})}>
                 <Card className="add-media-manager">
                     <Button className="bp3-minimal bp3-large bp3-intent-danger close-button" onClick={() => this.setState({addMediaOverlay: false})}>
-                        <span className="bp3-icon-large bp3-icon-cross"></span>
+                        <span className="bp3-icon-large bp3-icon-cross"/>
                     </Button>
                     <Tabs id="AddSiteMedia" defaultSelectedTabId="site-media-browser" large={true}>
                         <Tab id="site-media-browser" title="From Site" panel={<SiteMediaBrowser embed={this.insertMedia}/>}/>
@@ -202,9 +211,11 @@ export default class TextEditor extends Component {
                     />
                 </div>
                 <div className="text-editor-title-div">
-                    <textarea className="bp3-input bp3-fill" placeholder="Your title goes here..."
+                    <textarea className="bp3-input bp3-fill"
+                              placeholder="Your title goes here..."
                               draggable={false}
-                              onChange={(e) => this.setState({title: e.target.value})}></textarea>
+                              onChange={(e) => this.setState({title: e.target.value})}
+                              defaultValue={this.state.title}/>
                 </div>
                 <div className="text-editor-content-div">
                     <Editor
