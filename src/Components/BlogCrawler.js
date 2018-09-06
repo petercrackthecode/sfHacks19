@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import moize from "moize";
+// import moize from "moize";
 
 import "../CSS/blog-crawler.css";
-
-const imgObj = (url) => {
-    return (
-        <img src={url} alt="post-thumbnail" style={{height: "100px"}}/>
-    );
-};
 
 export default class BlogCrawler extends Component {
     constructor(props) {
@@ -22,25 +16,11 @@ export default class BlogCrawler extends Component {
     }
 
     componentDidMount() {
-        this.populateImageList()
-            .then(() => {
-                this.crawlNext();
-            })
+        this.crawlNext();
     }
-
-    populateImageList = () => {
-        return new Promise((resolve, reject) => {
-            let temp = this.state.imageList;
-            this.props.list.forEach(el => {
-                temp.push(imgObj(el.thumbnail));
-            });
-            this.setState({imageList: temp}, () => {return resolve()});
-        })
-    };
 
     crawlNext = () => {
         this.timeout = setTimeout(() => {
-            // console.log(this.delay);
             let next_index = this.state.item_index + 1;
             this.setState({item_index: next_index % this.props.list.length});
             this.crawlNext();
@@ -51,7 +31,6 @@ export default class BlogCrawler extends Component {
     resetTimeout = () => {
         this.delay = this.delay - this.timeout*10;
         if(this.delay < 0) this.delay = 0;
-        // console.log(this.delay);
         clearTimeout(this.timeout);
     };
 
@@ -72,7 +51,7 @@ export default class BlogCrawler extends Component {
                 <div style={{float: "right", width: "90%"}}>
                     <div className="blog-item" style={{display: "table"}}>
                         <div style={{display: "table-cell"}}>
-                            {this.state.imageList[this.state.item_index]}
+                            <img src={this.props.list[this.state.item_index].thumbnail} style={{height: "98px"}}/>
                         </div>
                         <div style={{display: "table-cell", position: "absolute", padding: "10px", minWidth: "200px"}}>
                             <div>

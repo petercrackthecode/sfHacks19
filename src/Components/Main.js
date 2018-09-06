@@ -15,9 +15,13 @@ import AccountSettings from "./UserAuth/AccountSettings.js";
 import Four0Four from "./Four0Four.js";
 
 export default class Main extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// }
+	constructor(props) {
+		super(props);
+	}
+
+    reloadUserMetadata = () => {
+	    this.props.reloadUserMetadata();
+    };
 
 	render() {
 		return(
@@ -33,17 +37,20 @@ export default class Main extends Component {
                     <Route exact path="/Blog" component={BlogBrowser} />
                     <Route exact path="/Blog/:id/:title" component={BlogViewer} />
                     <Route exact path="/:id/createNewPost" render={(props) => <CreateNewPost {...props}
+                                                                                             reloadUserMetadata={this.reloadUserMetadata}
                                                                                              uid={this.props.uid}
                                                                                              user_metadata={this.props.user_metadata}
                                                                                              isLoggedIn={this.props.isLoggedIn}
                                                                                              isAdmin={this.props.isAdmin}/>} />
                     <Route exact path="/editDraft/:id" render={(props) => <EditDraft {...props}
+                                                                                     reloadUserMetadata={this.reloadUserMetadata}
                                                                                      uid={this.props.uid}
                                                                                      isLoggedIn={this.props.isLoggedIn}
                                                                                      isAdmin={this.props.isAdmin}/>} />
                     <Route path="/BlogCMS" component={BlogCMS} />
                     <Route path="/registration" render={() => <UserRegistration isLoggedIn={this.props.isLoggedIn}/>} />
                     <Route exact path="/user/settings/:id" render={(props) => <AccountSettings {...props}
+                                                                                               reloadUserMetadata={this.reloadUserMetadata}
                                                                                                uid={this.props.uid}
                                                                                                user_metadata={this.props.user_metadata}
                                                                                                isLoggedIn={this.props.isLoggedIn}

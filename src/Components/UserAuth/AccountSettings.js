@@ -19,16 +19,25 @@ export default class AccountSettings extends Component {
         this.blogRef = firebase.database().ref("blogs");
     }
 
+    componentWillMount() {
+    }
+
     componentDidMount() {
-        setTimeout(() => {
+        let attempt = 0;
+        const load = setInterval(() => {
             if (this.props.isLoggedIn !== undefined && !this.props.isLoggedIn) {
                 window.location.href="/404";
             }
 
+            if (attempt === 3) clearInterval(load);
+
+            this.props.reloadUserMetadata();
+            attempt += 1;
             if (this.props.user_metadata.drafts) {
                 Object.values(this.props.user_metadata.drafts).map(draftId => {
+                    let temp = [];
                     this.draftRef.orderByKey().equalTo(draftId).on("value", snapshot => {
-                        let temp = this.state.drafts;
+                        if (snapshot.val() === null) return;
                         temp.push(Object.values(snapshot.val())[0]);
                         this.setState({drafts: temp});
                     });
@@ -37,14 +46,15 @@ export default class AccountSettings extends Component {
 
             if (this.props.user_metadata.blogs) {
                 Object.values(this.props.user_metadata.blogs).map(blogId => {
+                    let temp = [];
                     this.blogRef.orderByKey().equalTo(blogId).on("value", snapshot => {
-                        let temp = this.state.blogs;
+                        if (snapshot.val() === null) return;
                         temp.push(Object.values(snapshot.val())[0]);
                         this.setState({blogs: temp});
                     });
                 });
             }
-        }, 500)
+        }, 300)
     }
 
     renderUserDrafts = (key) => {

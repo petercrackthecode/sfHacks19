@@ -57,7 +57,6 @@ export default class EditDraft extends Component {
                 draft.cover_img = content_images[0].data.src;
                 draft.thumbnail = content_images[0].data.src;
             }
-            console.log(draft);
             this.setState({draft: draft}, () => {
                 resolve();
             });
@@ -79,19 +78,17 @@ export default class EditDraft extends Component {
     };
 
     savePublish = (content) => {
+        const publishDraft = firebase.functions().httpsCallable('publishDraft');
         const id = this.props.match.params.id;
+        const uid = this.props.uid;
         this.savePostData(content).then(() => {
-            const blogRef = firebase.database().ref().child("blogs");
-            const userBlogRef = firebase.database().ref().child("user_metadata/" + this.props.uid + "/blogs");
-            blogRef.set({[id]: this.state.draft})
+            const draftRef = firebase.database().ref().child("drafts/" + id);
+            draftRef.update(this.state.draft)
                 .then(() => {
-                    userBlogRef.push(id)
-                        .then(() => {
-                            AppToaster.show({message: "Publish bản draft thành công!", intent: "success"})
-                        })
-                        .catch((error) => {
-                            AppToaster.show({message: "Publish bản draft thất bại. Lỗi: " + error.message, intent: "danger"})
-                        })
+                    publishDraft({id: id, uid: uid}).then(result => {
+                        console.log(result);
+                        AppToaster.show({message: "Publish bản draft thành công!", intent: "success"})
+                    });
                 })
                 .catch((error) => {
                     AppToaster.show({message: "Publish bản draft thất bại. Lỗi: " + error.message, intent: "danger"})
@@ -104,7 +101,7 @@ export default class EditDraft extends Component {
             <div className="edit-draft">
                 {
                     Object.keys(this.state.draft).length > 0
-                        ? <TextEditor renderContent={this.state.draft} saveDraft={this.saveDraft}/>
+                        ? <TextEditor renderContent={this.state.draft} saveDraft={this.saveDraft} savePublish={this.savePublish}/>
                         : null
                 }
             </div>

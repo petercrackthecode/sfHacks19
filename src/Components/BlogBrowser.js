@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card} from "@blueprintjs/core";
 import firebase from "./firebase.js";
 
-import "../CSS/blog.css";
+import "../CSS/blog-viewer.css";
 
 export default class BlogBrowser extends Component {
 	constructor(props) {
@@ -14,7 +14,11 @@ export default class BlogBrowser extends Component {
 
 	componentDidMount() {
 	    setTimeout(() => {
-            this.getBlogs();
+            this.getBlogs().then(() => {
+                this.state.blog_list.forEach((blog, index) => {
+                    this.getAuthor(index);
+                });
+            });
         }, 500);
     }
 
@@ -49,6 +53,15 @@ export default class BlogBrowser extends Component {
 
     redirectToBlogViewer = (e, id, title) => {
         window.location.href="Blog/" + id + "/" + title;
+    };
+
+    getAuthor = (index) => {
+        const userRef = firebase.database().ref("user_metadata/" + this.state.blog_list[index].author);
+        userRef.on("value", snapshot => {
+            let temp = this.state.blog_list;
+            temp[index].author = snapshot.val().pseudonym;
+            this.setState({blog_list: temp}, () => console.log(this.state.blog_list));
+        });
     };
 
     renderBlogCards = (blog) => {

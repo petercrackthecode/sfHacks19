@@ -55,7 +55,13 @@ class App extends Component {
         });
     };
 
+    reloadUserMetadata = () => {
+        console.log("reload user metadata");
+        this.getUserMetadata(this.state.uid);
+    };
+
     getUserMetadata = (uid) => {
+        if (uid === "") return;
         const userRef = firebase.database().ref("user_metadata/" + uid);
         return new Promise((resolve, reject) => {
             userRef.on("value", snapshot => {
@@ -93,6 +99,7 @@ class App extends Component {
                 <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "3px", marginBottom: "7px"}}></div>
 
                 <Main isLoggedIn={this.state.isLoggedIn}
+                      reloadUserMetadata={this.reloadUserMetadata}
                       uid={this.state.uid}
                       isAdmin={this.state.isAdmin}
                       user_metadata={this.state.user_metadata}/>
