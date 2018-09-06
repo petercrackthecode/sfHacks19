@@ -1,13 +1,20 @@
 import React, {Component} from 'react';
+import moize from "moize";
 
 import "../CSS/blog-crawler.css";
+
+const imgObj = (url) => {
+    return (
+        <img src={url} alt="post-thumbnail" style={{height: "100px"}}/>
+    );
+};
 
 export default class BlogCrawler extends Component {
     constructor(props) {
         super(props);
         this.state = {
             item_index: 0,
-
+            imageList: [],
         };
         this.default_delay = 5000;
         this.delay = 5000;
@@ -15,8 +22,21 @@ export default class BlogCrawler extends Component {
     }
 
     componentDidMount() {
-        this.crawlNext();
+        this.populateImageList()
+            .then(() => {
+                this.crawlNext();
+            })
     }
+
+    populateImageList = () => {
+        return new Promise((resolve, reject) => {
+            let temp = this.state.imageList;
+            this.props.list.forEach(el => {
+                temp.push(imgObj(el.thumbnail));
+            });
+            this.setState({imageList: temp}, () => {return resolve()});
+        })
+    };
 
     crawlNext = () => {
         this.timeout = setTimeout(() => {
@@ -52,7 +72,7 @@ export default class BlogCrawler extends Component {
                 <div style={{float: "right", width: "90%"}}>
                     <div className="blog-item" style={{display: "table"}}>
                         <div style={{display: "table-cell"}}>
-                            <img src={this.props.list[this.state.item_index].thumbnail} style={{height: "100px"}}/>
+                            {this.state.imageList[this.state.item_index]}
                         </div>
                         <div style={{display: "table-cell", position: "absolute", padding: "10px", minWidth: "200px"}}>
                             <div>
