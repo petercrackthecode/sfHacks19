@@ -54,12 +54,12 @@ export default class SheCodes extends Component {
 						<p style={{fontWeight: 500, fontSize: 20}}>Học những kiến thức quý giá về Công nghệ qua các workshop</p>
 					</section>
 				</section>
-				<img src={logoSheCodes5} className='flex-box' style={{marginTop: '5%', marginBottom: '5%'}} alt='symbol'/><br/>
-				<p className='balooFont center' width='40%'>CHI TIẾT CHƯƠNG TRÌNH NĂM 2018</p>
-				<SheCodesTable className='flex-box' />
-				<img src={logoSheCodes5} className='flex-box' style={{margin: '5% 35vw 5% 35vw'}} alt='symbol'/><br/>
-				
-				<p className='balooFont center' width='40%'>ĐƠN VỊ HỢP TÁC</p>
+				<img src={logoSheCodes5} className='logo' alt='symbol'/><br/>
+				<p className='balooFont flex-box'>CHI TIẾT CHƯƠNG TRÌNH NĂM 2018</p>
+				<SheCodesTable className='flex-box'/>
+				<img src={logoSheCodes5} className='logo' alt='symbol'/><br/>
+
+				<p className='balooFont flex-box'>ĐƠN VỊ HỢP TÁC</p>
 				<section className='flex-box'>
 					<a className='box' src='https://wisevietnam.org/'><img src={sheCodesSponsors1} title='WISE- Sáng kiến hỗ trợ phụ nữ khởi nghiệp và kinh doanh' alt='WISE'/></a>
 					<a className='box' src='https://coccoc.com/'><img src={sheCodesSponsors2} title='Trình duyệt và công cụ tìm kiếm Cốc Cốc' alt='Cốc Cốc'/></a>
@@ -71,9 +71,22 @@ export default class SheCodes extends Component {
 					<a className='box' src='http://innovatube.com/'><img src={sheCodesSponsors6} title='Innovatube' alt='Innovatube'/></a>
 				</section>
 				<section className='flex-box'>
-					<a className='box' src='https://techkids.vn/' style={{marginRight: '5vw'}}><img src={sheCodesSponsors7} title='Tech kids- Coding School' alt='Tech Kids'/></a>
-					<a className='box' src='http://up-co.vn/en/' style={{marginLeft: '5vw'}}><img src={sheCodesSponsors8} title='Up Coworking Space - Best Coworking Space in Vietnam' alt='Up Coworking Space'/></a>
+					<a className='box' src='https://techkids.vn/'><img src={sheCodesSponsors7} title='Tech kids- Coding School' alt='Tech Kids'/></a>
+					<a className='box' src='http://up-co.vn/en/'><img src={sheCodesSponsors8} title='Up Coworking Space - Best Coworking Space in Vietnam' alt='Up Coworking Space'/></a>
 				</section>
+				<img src={logoSheCodes5} className='logo' alt='symbol'/><br/>
+				<h1 className="balooFont flex-box">CÁCH ĐĂNG KÍ THAM GIA</h1>
+				<p className='flex-box' style={{fontWeight: 500, fontSize: 20}}>Sự kiện sẽ được tổ chức vào tháng 7 hằng năm. Đơn đăng kí tham dự chương trình sẽ được mở 1 tháng trước sự kiện chính. Để nhận được thông tin khi đơn đăng kí mở, bạn có thể điền thông tin tại đây: </p>
+				<form action='' className='subcribe-box' id='subscribe-box'>
+					<p style={{width: '49.6vw', backgroundColor: '#BEBEBE', margin: 'auto', fontWeight: 500, fontSize: 20}}>Đăng kí ngay để nhận thông tin tức thời</p><br/>
+					<span style={{display: 'inline'}}>
+						<i className='fa fa-user icon'/>
+						<input id='name-box' className='common-box' type='text' placeholder='Tên'/>
+						<i className='fa fa-envelope icon'/>
+						<input id='name-box' className='common-box' type='email' placeholder='Địa chỉ Email'/>
+						<button className='button-decoration'>Đăng kí</button>
+					</span>
+				</form>
 			</div>
 		);
 	}
