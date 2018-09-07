@@ -4,6 +4,7 @@ import "firebase/auth"
 import "firebase/firestore"
 import "firebase/database"
 import "firebase/storage"
+import "firebase/functions"
 const config = {
     apiKey: "AIzaSyBjTXde_cHIP_JiyeDfPfKDbPxMnBMmD80",
     authDomain: "seeds-vietnam.firebaseapp.com",

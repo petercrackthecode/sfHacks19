@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import moize from "moize";
 
 import "../CSS/blog-crawler.css";
 
@@ -7,7 +8,7 @@ export default class BlogCrawler extends Component {
         super(props);
         this.state = {
             item_index: 0,
-
+            imageList: [],
         };
         this.default_delay = 5000;
         this.delay = 5000;
@@ -20,7 +21,6 @@ export default class BlogCrawler extends Component {
 
     crawlNext = () => {
         this.timeout = setTimeout(() => {
-            // console.log(this.delay);
             let next_index = this.state.item_index + 1;
             this.setState({item_index: next_index % this.props.list.length});
             this.crawlNext();
@@ -31,7 +31,6 @@ export default class BlogCrawler extends Component {
     resetTimeout = () => {
         this.delay = this.delay - this.timeout*10;
         if(this.delay < 0) this.delay = 0;
-        // console.log(this.delay);
         clearTimeout(this.timeout);
     };
 
@@ -52,7 +51,7 @@ export default class BlogCrawler extends Component {
                 <div style={{float: "right", width: "90%"}}>
                     <div className="blog-item" style={{display: "table"}}>
                         <div style={{display: "table-cell"}}>
-                            <img src={this.props.list[this.state.item_index].thumbnail} style={{height: "100px"}}/>
+                            <img src={this.props.list[this.state.item_index].thumbnail} style={{height: "98px"}}/>
                         </div>
                         <div style={{display: "table-cell", position: "absolute", padding: "10px", minWidth: "200px"}}>
                             <div>

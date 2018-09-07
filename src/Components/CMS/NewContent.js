@@ -49,34 +49,6 @@ export default class NewContent extends Component {
         this.setState({addMediaOverlay: false});
     };
 
-    // getNewBlogID = () => {
-    //     return new Promise ((resolve, reject) => {
-    //         let currentSeq = 0;
-    //         const blogRef = firebase.database().ref().child("blogs/sequence");
-    //         blogRef.on("value", (snapshot) => {
-    //             currentSeq = snapshot.val();
-    //             currentSeq += 1;
-    //             return resolve(currentSeq);
-    //         });
-    //     });
-    // };
-    //
-    // updateBlogSequence = (id) => {
-    //     return new Promise ((resolve, reject) => {
-    //         const blogRef = firebase.database().ref().child("blogs/sequence");
-    //         blogRef.set(id)
-    //             .then(() => {
-    //                 const temp = this.state.newBlog;
-    //                 temp.id = String(id).padStart(4, "0");
-    //                 this.setState({newBlog: temp});
-    //                 return resolve(String(id).padStart(4, "0"));
-    //             })
-    //             .catch(() => {
-    //                 return reject();
-    //             })
-    //     });
-    // };
-
     createNewBlogEntry = () => {
         const blogRef = firebase.database().ref().child("blogs").push();
         let newBlog = this.state.newBlog;

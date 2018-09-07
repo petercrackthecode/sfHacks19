@@ -24,10 +24,20 @@ export default class TextEditor extends Component {
 	constructor(props) {
 		super(props);
         this.state = {
+            title: "",
             editorState: EditorState.createEmpty(),
             addMediaOverlay: false,
         };
 	}
+
+	componentWillMount() {
+	    if (this.props.renderContent !== undefined) {
+            console.log(this.props.renderContent);
+            this.setState({title: this.props.renderContent.title});
+            const content = convertFromRaw(JSON.parse(this.props.renderContent.data.content));
+            this.setState({editorState: EditorState.createWithContent(content)});
+        }
+    }
 
     onChange = (editorState) => {
         this.setState({editorState: editorState});
@@ -99,6 +109,9 @@ export default class TextEditor extends Component {
                      isOpen={this.state.addMediaOverlay}
                      onClose={() => this.setState({addMediaOverlay: false})}>
                 <Card className="add-media-manager">
+                    <Button className="bp3-minimal bp3-large bp3-intent-danger close-button" onClick={() => this.setState({addMediaOverlay: false})}>
+                        <span className="bp3-icon-large bp3-icon-cross"/>
+                    </Button>
                     <Tabs id="AddSiteMedia" defaultSelectedTabId="site-media-browser" large={true}>
                         <Tab id="site-media-browser" title="From Site" panel={<SiteMediaBrowser embed={this.insertMedia}/>}/>
                         <Tab id="google-image" title="From Google Image" panel={<GoogleImageBrowser embed={this.insertMedia}/>} />
@@ -153,12 +166,20 @@ export default class TextEditor extends Component {
         this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle));
     };
 
-    onSave = () => {
+    onSavePublish = () => {
         let contentState = this.state.editorState.getCurrentContent();
         if (contentState.getPlainText().trim() === "") return;
 
         const data = convertToRaw(contentState);
-        this.props.save(data);
+        this.props.savePublish({"title": this.state.title, "data": data});
+    };
+
+    onSaveDraft = () => {
+        let contentState = this.state.editorState.getCurrentContent();
+        if (contentState.getPlainText().trim() === "") return;
+
+        const data = convertToRaw(contentState);
+        this.props.saveDraft({"title": this.state.title, "data": data});
     };
 
     render() {
@@ -189,6 +210,13 @@ export default class TextEditor extends Component {
                         onToggleFontSize={this.toggleBlockFontSize}
                     />
                 </div>
+                <div className="text-editor-title-div">
+                    <textarea className="bp3-input bp3-fill"
+                              placeholder="Your title goes here..."
+                              draggable={false}
+                              onChange={(e) => this.setState({title: e.target.value})}
+                              defaultValue={this.state.title}/>
+                </div>
                 <div className="text-editor-content-div">
                     <Editor
                         editorState={this.state.editorState}
@@ -200,10 +228,20 @@ export default class TextEditor extends Component {
                         onTab={this.handleTab}
                         customStyleMap={customStyleMap}
                         keyBindingFn={customKeyBindingFn}
+                        placeholder="Your great post begins here..."
                     />
                 </div>
                 <div className="text-editor-save">
-                    <Button className="bp3-large" text="Save and Upload..." onClick={this.onSave}/>
+                    {
+                        this.props.saveDraft
+                            ? <Button className="bp3-large" text="Save as Draft" onClick={this.onSaveDraft}/>
+                            : null
+                    }
+                    {
+                        this.props.savePublish
+                            ? <Button className="bp3-large" text="Save and Publish" onClick={this.onSavePublish}/>
+                            : null
+                    }
                 </div>
 
                 { this.state.addMediaOverlay ? this.renderAddMediaOverlay() : null }

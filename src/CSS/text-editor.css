@@ -20,9 +20,8 @@
 
 .DraftEditor-root {
     position: relative;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 12px;
-    cursor: text;
 }
 
 .DraftEditor-editorContainer {
@@ -223,11 +222,26 @@
     counter-reset: ol4
 }
 
+.DraftEditor-root figure {
+    text-align: center;
+}
+
 /* Custom CSS for TextEditor Wrapper Divs */
 .text-editor .DraftEditor-root {
     border: 2px #0a6640 solid;
 }
 
+.text-editor-title-div {
+    border-radius: 5px;
+    border: 2px #0a6640 solid;
+    margin-bottom: 10px;
+}
+
+.text-editor-title-div textarea {
+    font-size: 2em;
+    font-weight: 900;
+    resize: none;
+}
 .text-editor-button-div, .text-editor-block-style {
     margin-top: 10px;
     margin-bottom: 10px
@@ -239,10 +253,10 @@
 
 .text-editor-save {
     padding: 10px;
-    height: 60px;
+    overflow: auto;
 }
 
-.text-editor-save button {
+.text-editor-save .bp3-button {
     float: right;
 }
 
@@ -250,8 +264,13 @@
     width: 60%;
     min-width: 600px;
     height: 600px;
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, 50%) !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-media-manager .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

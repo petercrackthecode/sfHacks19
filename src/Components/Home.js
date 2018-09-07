@@ -24,28 +24,45 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            blog_list: null,
+            blog_list: [],
             gallery: [],
         };
     };
 
     componentDidMount = () => {
-        this.setGalleryImages();
-        this.fetchBlogs();
+        setTimeout(() => {
+            this.setGalleryImages();
+            this.fetchBlogs().then(() => {
+                this.state.blog_list.forEach((blog, index) => {
+                    this.getAuthor(index);
+                })
+            });
+        }, 300);
     };
 
     fetchBlogs = () => {
         const blog_list = [];
         const blogsRef = firebase.database().ref("blogs/");
-        blogsRef.orderByChild("createTimeStamp").limitToLast(5).on("value", (snapshot) => {
-            let items = snapshot.val();
-            for (let i in items) {
-                blog_list.push(items[i]);
-            }
-            blog_list.reverse();
-            this.setState({blog_list: blog_list});
+        return new Promise((resolve, reject) => {
+            blogsRef.orderByChild("createTimeStamp").limitToLast(5).on("value", (snapshot) => {
+                console.log();
+                let items = snapshot.val();
+                for (let i in items) {
+                    blog_list.push(items[i]);
+                }
+                blog_list.reverse();
+                this.setState({blog_list: blog_list}, () => {return resolve()});
+            });
         });
+    };
 
+    getAuthor = (index) => {
+        const userRef = firebase.database().ref("user_metadata/" + this.state.blog_list[index].author);
+        userRef.on("value", snapshot => {
+            let temp = this.state.blog_list;
+            temp[index].author = snapshot.val().pseudonym;
+            this.setState({blog_list: temp}, () => console.log(this.state.blog_list));
+        });
     };
 
     setGalleryImages = () => {

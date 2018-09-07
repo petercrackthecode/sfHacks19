@@ -27,7 +27,7 @@ class App extends Component {
     }
 
     componentWillMount() {
-        localStorage.setItem("lastAccessed", GetCurrentTime("ms"));
+
     }
 
     componentDidMount() {
@@ -36,7 +36,11 @@ class App extends Component {
         const appPrevState = localStorage.getItem("appState");
         if (timeElapsed <= 18000000) {
             this.setState(JSON.parse(appPrevState));
+        } else {
+            localStorage.removeItem("appState");
+            localStorage.removeItem("lastAccessed");
         }
+        localStorage.setItem("lastAccessed", GetCurrentTime("ms"));
     }
 
     authenticated = (uid, isAdmin) => {
@@ -51,7 +55,13 @@ class App extends Component {
         });
     };
 
+    reloadUserMetadata = () => {
+        console.log("reload user metadata");
+        this.getUserMetadata(this.state.uid);
+    };
+
     getUserMetadata = (uid) => {
+        if (uid === "") return;
         const userRef = firebase.database().ref("user_metadata/" + uid);
         return new Promise((resolve, reject) => {
             userRef.on("value", snapshot => {
@@ -71,7 +81,8 @@ class App extends Component {
             AppToaster.show({
                 message: "Đăng xuất thành công!",
                 intent: "success"
-            })
+            });
+            window.location.href="/Home";
         });
     };
 
@@ -88,6 +99,7 @@ class App extends Component {
                 <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "3px", marginBottom: "7px"}}></div>
 
                 <Main isLoggedIn={this.state.isLoggedIn}
+                      reloadUserMetadata={this.reloadUserMetadata}
                       uid={this.state.uid}
                       isAdmin={this.state.isAdmin}
                       user_metadata={this.state.user_metadata}/>

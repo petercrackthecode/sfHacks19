@@ -1,0 +1,90 @@
+.blog-viewer .blog-content {
+    overflow: auto;
+}
+
+.author-info-wrapper {
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 0 9px 2px #0a6640;
+}
+
+.author-info {
+    min-width: 400px;
+    max-width: 650px;
+    height: 130px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color: white;
+}
+.author-info .profile-pic img {
+    float: left;
+    width: 64px;
+    border-radius: 50%;
+}
+
+.author-info .summary-info {
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+    color: dimgray;
+}
+
+.author-info .summary-info h4{
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.blog-content .content {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.blog-content .content .title {
+    padding-top: 10px;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.blog-viewer .blog-action-bar-vertical {
+    width: 150px;
+    position: fixed;
+    top: 185px;
+    z-index: 1;
+}
+.blog-action-bar-vertical .likes {
+    color: #0a6640;
+    font-size: 1.2em;
+}
+.blog-action-bar-vertical .likes-button .bp3-icon-heart:hover{
+    color: red;
+}
+
+.blog-footer {
+    display: inline-block;
+    width: 100%;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.blog-action-bar-horizontal .likes-button, .blog-action-bar-horizontal .likes {
+    float: left;
+}
+
+.blog-action-bar-horizontal .likes {
+    line-height: 50px;
+    margin-left: 10px;
+    color: #0a6640;
+    font-size: 1.2em;
+}
+
+.blog-action-bar-horizontal .fb-share-button, .blog-action-bar-horizontal .bookmark-button, .blog-action-bar-horizontal .cmt-button {
+    float: right;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
