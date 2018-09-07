@@ -3,9 +3,7 @@ import React, {Component} from 'react';
 const tableStyle= {
     border: '2px solid black',
     borderCollapse: 'collapse',
-    marginLeft: '20vw',
-    marginRight: '20vw',
-    width: '50vw'
+    margin: "0 auto",
 };
 
 const thStyle= {
