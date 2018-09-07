@@ -1,0 +1,69 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.flex-box	{
+      display: flex;
+      justify-content: space-around;
+  }
+.title	{
+    font-size: 20vw;
+}
+.box {
+    flex: 1;
+    align-items: center;
+}
+.box img {
+    max-width: 200px;
+}
+
+.logo	{
+	display: flex;
+	width: 270;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 35vw; 
+	margin-right: 35vw;
+}
+
+.subcribe-box	{
+	display: flex;
+	flex-direction: column;
+	border: 3px solid black;
+}
+
+.common-box	{
+	padding: 5px;
+    margin: 10px;
+    background-color: inherit;
+    border: none;
+	border-bottom: 1px white solid;
+	font-size: 1em;
+    color: white;
+}
+
+.common-box::placeholder {
+    color: white;
+    opacity: 0.65;
+}
+
+.icon {
+	color: white;
+}
+
+.button-decoration	{
+	text-align: center;
+	background-color: OrangeRed;
+    color: white;
+	font-size: 20px;
+	min-width: 20px;
+	padding: 10px;
+	margin: 5px 5px 5px 20px;
+	border: 1px;
+	border-radius: 10px;
+}
+
+.button-decoration:hover	{
+	opacity: 0.8;
+	box-shadow: 3px 3px 5px 2px gray;
+}
+
+

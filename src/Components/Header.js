@@ -19,6 +19,7 @@ export default class Header extends Component {
             signInOverlayPos : {},
             isUserAccClicked: false,
             userAccOverlayPos : {},
+			isSearchClicked: false,
         };
 	}
 
@@ -44,13 +45,13 @@ export default class Header extends Component {
 					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER}>
 					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				</Popover>
-				<span className="bp3-navbar-divider" style={{float: "right"}}></span>
+				<span className="bp3-navbar-divider" style={{float: "right"}}/>
 			</div>
 			: <div className="menuOptions" key={key}>
 				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				{
 					key !== "Blog"
-					? <span className="bp3-navbar-divider" style={{float: "right"}}></span>
+					? <span className="bp3-navbar-divider" style={{float: "right"}}/>
 					: null
 				}
 			</div>
@@ -90,9 +91,13 @@ export default class Header extends Component {
 					</div>
 					<div className="user-account" style={{float: "right"}}>
                         <div className="bp3-input-group" style={{marginRight: "10px"}}>
-                            <input type="search" className="bp3-input bp3-minimal" />
-                            <span className="bp3-icon bp3-icon-search"></span>
+                            {
+                                this.state.isSearchClicked
+                                    ? <input type="search" className="bp3-input bp3-minimal" />
+                                    : null
+                            }
                         </div>
+                        <Button className="bp3-minimal bp3-icon-search" onClick={() => this.setState({isSearchClicked: !this.state.isSearchClicked})}/>
                         {
                             !this.props.isLoggedIn
                                 ? <Button className="sign-in-btn bp3-minimal" text="Sign in" onClick={this.handleSignIn}/>
@@ -112,7 +117,7 @@ export default class Header extends Component {
     handleSignIn = (e) => {
         e.stopPropagation();
         let isClicked = this.state.isSignInClicked;
-        isClicked ? isClicked=false : isClicked=true
+        isClicked ? isClicked=false : isClicked=true;
         let domrect = e.target.getBoundingClientRect();
         this.setState({isSignInClicked: isClicked, signInOverlayPos: {x: domrect.right-230, y: domrect.top+domrect.height + 10}});
     };
@@ -120,7 +125,7 @@ export default class Header extends Component {
     handleUserAccount = (e) => {
         e.stopPropagation();
         let isClicked = this.state.isUserAccClicked;
-        isClicked ? isClicked=false : isClicked=true
+        isClicked ? isClicked=false : isClicked=true;
         let domrect = e.target.getBoundingClientRect();
         this.setState({isUserAccClicked: isClicked, userAccOverlayPos: {x: domrect.right-230, y: domrect.top+domrect.height + 10}});
     };

@@ -15,8 +15,7 @@ import "../CSS/accordion.css";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../CSS/home-page.css";
-
-// import {GetCurrentTime} from "../Helpers/HelperFn";
+import "../CSS/accordion.css";
 import BlogCrawler from "./BlogCrawler.js";
 import SurveyCollector from "./SurveyCollector.js";
 
@@ -67,18 +66,10 @@ export default class Home extends Component {
 
     setGalleryImages = () => {
         const images = [
-            {
-                original: seedsVietnam_banner
-            },
-            {
-                original: seedsACT_banner
-            },
-            {
-                original: sheCodes_banner
-            },
-            {
-                original: essayEditing_banner
-            },
+            { original: seedsVietnam_banner },
+            { original: seedsACT_banner },
+            { original: sheCodes_banner },
+            { original: essayEditing_banner },
         ];
         this.setState({gallery: images});
     };
@@ -107,7 +98,7 @@ export default class Home extends Component {
                 </div>
 
                 <div id="Về Seeds Vietnam" className="pageSection" data-color="white">
-                    <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>SEEDS VIETNAM</h1></div>
+                    <div className="section-title"><h1 style={{marginTop: "0px"}}>SEEDS VIETNAM</h1></div>
                     <div className="section-content">
                         <p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt
                             Nam vượt qua những bất bình đẳng trên con đường học vấn để nắm lấy tri thức cho chính
@@ -120,65 +111,45 @@ export default class Home extends Component {
                 </div>
 
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
-                    <div className="page-divider" data-color="green"></div>
+                    <div className="page-divider" data-color="green"/>
                 </div>
-                <div id="Về Seeds Vietnam" className="pageSection" data-color="green">
-                    <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>SEEDS VIETNAM</h1></div>
+                <div id="Nội Dung" className="pageSection" data-color="green">
+                    <div className="section-title"><h1 style={{marginTop: "0px"}}>CHƯƠNG TRÌNH</h1></div>
                     <div className="section-content">
-                        <p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt
-                            Nam vượt qua những bất bình đẳng trên con đường học vấn để nắm lấy tri thức cho chính
-                            mình.</p>
-                        <br/>
-                        <p>Trong thời gian vừa qua, SEEDS Vietnam đã tập trung thực hiện các chương trình trong 2 lĩnh
-                            vực Du học Hoa Kỳ và Giáo dục Công nghệ thông tin. Trong tương lai, SEEDS Vietnam mong muốn
-                            có thể cung cấp một nền tảng vững chắc cho học sinh Việt Nam trong hai lĩnh vực này.</p>
+                        <div style={{padding: "15px", display: "block", overflow: "hidden", borderBottom: "1px #0000006b dashed"}}>
+                            <img src={seedsACT_logo} alt="SeedsACT Logo" style={{float: "left"}}/>
+                            <div style={{float: "right", width: "calc(100% - 30px - 128px)", textAlign: "left"}}>
+                                <h3 style={{marginTop: "0"}}>Seeds ACT</h3>
+                                Chương trình hỗ trợ du học Hoa Kỳ 10 tháng miễn phí cho học sinh đến từ gia đình thu nhập trung bình / thấp
+                            </div>
+                        </div>
+                        <div style={{padding: "15px", display: "block", overflow: "hidden", borderBottom: "1px #0000006b dashed"}}>
+                            <img src={sheCodes_logo} alt="SheCodes Logo" style={{float: "right"}}/>
+                            <div style={{float: "left", width: "calc(100% - 30px - 128px)", textAlign: "right"}}>
+                                <h3 style={{marginTop: "0"}}>SheCodes</h3>
+                                Hackathon 28 giờ đồng hồ dành cho phái nữ thỏa sức sáng tạo & network
+                            </div>
+                        </div>
+                        <div style={{padding: "15px", display: "block", overflow: "hidden"}}>
+                            <img src={essayEditing_logo} alt="Essay Editing Logo" style={{float: "left"}}/>
+                            <div style={{float: "right", width: "calc(100% - 30px - 128px)", textAlign: "left"}}>
+                                <h3 style={{marginTop: "0"}}>Essay Editing</h3>
+                                Chương trình tư vấn viết và sửa các bài luận 1-1 trong quá trình du học
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="green">
-                    <div className="page-divider" data-color="white"></div>
+                    <div className="page-divider" data-color="white"/>
                 </div>
-                <div id="Nội Dung" className="pageSection" data-color="white">
-                    <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CHƯƠNG TRÌNH</h1></div>
-                    <div className="section-content" style={{display: "table"}}>
-                        <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
-                            <div>
-                                <img src={seedsACT_logo} alt="SeedsACT Logo"/>
-                            </div>
-                            <div><h3>Seeds ACT</h3></div>
-                            <div style={{height: "2px", backgroundColor: "green"}}></div>
-                            <div><p>Chương trình hỗ trợ du học Hoa Kỳ 10 tháng miễn phí cho học sinh đến từ gia đình thu
-                                nhập trung bình / thấp</p></div>
-                        </div>
-                        <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
-                            <div>
-                                <img src={sheCodes_logo} alt="SheCodes Logo"/>
-                            </div>
-                            <div><h3>SheCodes</h3></div>
-                            <div style={{height: "2px", backgroundColor: "green"}}></div>
-                            <div><p>Hackathon 28 giờ đồng hồ dành cho phái nữ thỏa sức sáng tạo & network</p></div>
-                        </div>
-                        <div style={{display: "table-cell", width: "33%", padding: "15px"}}>
-                            <div>
-                                <img src={essayEditing_logo} alt="Essay Editing Logo"/>
-                            </div>
-                            <div><h3>Essay Editing</h3></div>
-                            <div style={{height: "2px", backgroundColor: "green"}}></div>
-                            <div><p>Chương trình tư vấn luận 1-1 trong quá trình du học</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
-                    <div className="page-divider" data-color="green"></div>
-                </div>
-                <div id="Testimonials" className="pageSection" data-color="green">
-                    <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>TESTIMONIALS</h1></div>
-                    <div className="section-content">
+                <div id="Testimonials" className="pageSection" data-color="white">
+                    <div className="section-title"><h1 style={{marginTop: "0px"}}>TESTIMONIALS</h1></div>
+                    <div className="section-content" style={{textAlign: "left"}}>
                         <Accordion accordion={false}>
                             <AccordionItem expanded={true}>
                                 <AccordionItemTitle>
                                     <h2 className="u-position-relative">Nguyễn Thị Quỳnh Như
-                                        <div className="accordion__arrow"></div>
+                                        <div className="accordion__arrow"/>
                                     </h2>
                                     <div><i>Hà Nội, Việt Nam</i></div>
                                 </AccordionItemTitle>
@@ -193,7 +164,7 @@ export default class Home extends Component {
                             <AccordionItem expanded={true}>
                                 <AccordionItemTitle>
                                     <h2 className="u-position-relative">Hồ Lê Anh Khoa
-                                        <div className="accordion__arrow"></div>
+                                        <div className="accordion__arrow"/>
                                     </h2>
                                     <div><i>Hà Nội, Việt Nam</i></div>
                                 </AccordionItemTitle>
@@ -208,7 +179,7 @@ export default class Home extends Component {
                             <AccordionItem expanded={true}>
                                 <AccordionItemTitle>
                                     <h2 className="u-position-relative">Nguyễn Khánh Linh
-                                        <div className="accordion__arrow"></div>
+                                        <div className="accordion__arrow"/>
                                     </h2>
                                     <div><i>Hà Nội, Việt Nam</i></div>
                                 </AccordionItemTitle>
@@ -220,11 +191,11 @@ export default class Home extends Component {
                     </div>
                 </div>
 
-                <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="green">
-                    <div className="page-divider" data-color="white"></div>
+                <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
+                    <div className="page-divider" data-color="green"/>
                 </div>
-                <div id="questionSubmit" className="pageSection" data-color="white">
-                    <div className="sectionTitle"><h1 style={{marginTop: "0px"}}>CÂU HỎI CHO CHÚNG TÔI</h1></div>
+                <div id="questionSubmit" className="pageSection" data-color="green">
+                    <div className="section-title"><h1 style={{marginTop: "0px"}}>CÂU HỎI CHO CHÚNG TÔI</h1></div>
                     <div className="section-content">
                         <SurveyCollector/>
                     </div>
