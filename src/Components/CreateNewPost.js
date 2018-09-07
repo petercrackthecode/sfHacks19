@@ -44,7 +44,7 @@ export default class CreateNewPost extends Component {
             let newBlog = this.state.newBlog;
             newBlog.createTimeStamp = GetCurrentTime("ms");
             newBlog.title = content.title;
-            newBlog.author = this.props.user_metadata.pseudonym;
+            newBlog.author = this.props.uid;
             newBlog.data.content = JSON.stringify(content.data);
             newBlog.data.sneakpeak = convertFromRaw(content.data).getPlainText().slice(0, 160);
             if (content_images.length > 0) {
@@ -67,7 +67,7 @@ export default class CreateNewPost extends Component {
             this.setState({newBlog: newBlog}, () => {
                 blogRef.set(this.state.newBlog)
                     .then(() => {
-                        userBlogRef.push(blogRef.key)
+                        userBlogRef.push({id: blogRef.key})
                             .then(() => {
                                 AppToaster.show({message: "Lưu post mới thành công!", intent: "success"})
                             })
@@ -91,7 +91,7 @@ export default class CreateNewPost extends Component {
                 this.setState({newBlog: newDraft}, () => {
                     draftRef.set(this.state.newBlog)
                         .then(() => {
-                            userDraftRef.push(draftRef.key)
+                            userDraftRef.push({id: draftRef.key})
                                 .then(() => {
                                     AppToaster.show({message: "Lưu bản draft thành công!", intent: "success"})
                                 })

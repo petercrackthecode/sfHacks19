@@ -45,6 +45,7 @@ export default class Home extends Component {
         const blogsRef = firebase.database().ref("blogs/");
         return new Promise((resolve, reject) => {
             blogsRef.orderByChild("createTimeStamp").limitToLast(5).on("value", (snapshot) => {
+                console.log();
                 let items = snapshot.val();
                 for (let i in items) {
                     blog_list.push(items[i]);

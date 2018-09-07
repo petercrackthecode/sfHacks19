@@ -19,9 +19,6 @@ export default class AccountSettings extends Component {
         this.blogRef = firebase.database().ref("blogs");
     }
 
-    componentWillMount() {
-    }
-
     componentDidMount() {
         let attempt = 0;
         const load = setInterval(() => {
@@ -29,14 +26,14 @@ export default class AccountSettings extends Component {
                 window.location.href="/404";
             }
 
-            if (attempt === 3) clearInterval(load);
+            if (attempt === 2) clearInterval(load);
 
             this.props.reloadUserMetadata();
             attempt += 1;
             if (this.props.user_metadata.drafts) {
+                let temp = [];
                 Object.values(this.props.user_metadata.drafts).map(draftId => {
-                    let temp = [];
-                    this.draftRef.orderByKey().equalTo(draftId).on("value", snapshot => {
+                    this.draftRef.orderByKey().equalTo(draftId.id).on("value", snapshot => {
                         if (snapshot.val() === null) return;
                         temp.push(Object.values(snapshot.val())[0]);
                         this.setState({drafts: temp});
@@ -45,9 +42,9 @@ export default class AccountSettings extends Component {
             }
 
             if (this.props.user_metadata.blogs) {
+                let temp = [];
                 Object.values(this.props.user_metadata.blogs).map(blogId => {
-                    let temp = [];
-                    this.blogRef.orderByKey().equalTo(blogId).on("value", snapshot => {
+                    this.blogRef.orderByKey().equalTo(blogId.id).on("value", snapshot => {
                         if (snapshot.val() === null) return;
                         temp.push(Object.values(snapshot.val())[0]);
                         this.setState({blogs: temp});
