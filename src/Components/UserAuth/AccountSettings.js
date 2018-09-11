@@ -5,8 +5,8 @@ import {WrappedUserProfilePic, WrappedUserAttribute} from "../HOC_EditUserInfo.j
 import FileDropUpload from "../FileDropUpload.js";
 import "../../CSS/account-settings.css"
 import AppToaster from "../Toaster";
-import slugify from "slugify/index";
 import resizeImage from "resize-image";
+import slugify from "slugify";
 
 export default class AccountSettings extends Component {
     constructor(props) {
@@ -16,10 +16,21 @@ export default class AccountSettings extends Component {
             isShowBlogs: false,
             drafts: [],
             blogs: [],
-            isShowEditProfilePic: false,
+            isEditProfilePic: false,
+            isEditDisplayName: false,
+            isEditPseudonym: false,
+            isEditIntroduction: false,
+            isDisplayNameValid: false,
+            isPseudonymValid: false,
+            displayNameErrorMessage: "",
+            pseudonymErrorMessage: "",
         };
         this.draftRef = firebase.database().ref("drafts");
         this.blogRef = firebase.database().ref("blogs");
+    }
+
+    componentWillMount() {
+        this.timer = null;
     }
 
     componentDidMount() {
@@ -61,15 +72,24 @@ export default class AccountSettings extends Component {
         const img = new Image();
         img.src = URL.createObjectURL(file);
         let data = null;
-        img.onload = () => {
-            let height = img.offsetWidth/128*img.offsetHeight;
-            let width = 128;
-            data = resizeImage.resize(img, width, height, resizeImage.JPEG);
-            this.uploadMedia(file.name, data)
-                .then(() => {
-                    this.updateProfilePicDB();
-                })
-        };
+        const attribute = "profile_pic";
+        const value = "https://storage.googleapis.com/seeds-vietnam.appspot.com/site/profile_pic/" + this.props.uid + ".jpeg";
+        return new Promise((resolve, reject) => {
+            img.onload = () => {
+                let height = img.offsetWidth/128*img.offsetHeight;
+                let width = 128;
+                data = resizeImage.resize(img, width, height, resizeImage.JPEG);
+                this.uploadMedia(file.name, data).then(() => {
+                    this.updateUserMetadata(attribute, value).then(() => {
+                        return resolve();
+                    }).catch((error) => {
+                        return reject(error);
+                    });
+                }).catch((error) => {
+                    return reject(error);
+                });
+            };
+        });
     };
 
     uploadMedia = (fileName, data) => {
@@ -77,51 +97,67 @@ export default class AccountSettings extends Component {
         return new Promise ((resolve, reject) => {
             mediaRef.putString(data, 'data_url')
                 .then((snapshot) => {
-                    AppToaster.show({
-                        message: "Ảnh tải lên hệ thống thành công!",
-                        intent: 'success'
-                    });
+                    AppToaster.show({ message: "Ảnh tải lên hệ thống thành công!", intent: 'success' });
                     return resolve();
                 })
                 .catch((error) => {
-                    AppToaster.show({
-                        message: "Ảnh tải lên thất bại: " + error.message,
-                        intent: "danger"
-                    });
-                    return reject();
+                    AppToaster.show({ message: "Ảnh tải lên thất bại: " + error.message, intent: "danger" });
+                    return reject(error);
                 });
         });
     };
 
-    updateProfilePicDB = () => {
+    updateUserMetadata = (attribute, value) => {
         const userRef = firebase.database().ref("user_metadata/" + this.props.uid);
-        userRef.update({
-            profile_pic: "https://storage.googleapis.com/seeds-vietnam.appspot.com/site/profile_pic/" + this.props.uid + ".jpeg"
+        return new Promise((resolve, reject) => {
+            userRef.update({
+                [attribute]: value
+            }).then(() => {
+                return resolve();
+            }).catch((error) => {
+                return reject(error);
+            });
         });
-
     };
 
-    handleProfilePicUpload = (files) => {
-        let error = "";
-        for (let file of files) {
-            console.log(file);
-            if (!file.type.includes("image")) {
-                error = "File này không phải file ảnh";
-                break;
+    validateDisplayName = (e) => {
+        let value = e.target.value;
+        const checkAvailableUserName = firebase.functions().httpsCallable('checkAvailableUserName');
+        this.setState({isDisplayNameValid: false});
+        this.setState({displayNameErrorMessage: ""});
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+            if (value === "") {
+                this.setState({displayNameErrorMessage: "Tên tài khoản không thể trống"});
+                this.setState({isDisplayNameValid: false});
+                return;
             }
-            if (file.size > 5242880) {
-                error = "File ảnh quá lớn! Bạn hãy chọn file ảnh dưới 5mb nhé!";
-                break;
+            if (value.includes(" ")) {
+                this.setState({displayNameErrorMessage: "Tên tài khoản không thể có dấu cách"});
+                this.setState({isDisplayNameValid: false});
+                return;
             }
-            console.log("resizing img");
-            this.resizeAndUploadImage(file);
-        }
-        if (error !== "") {
-            AppToaster.show({
-                message: error,
-                intent: "danger"
+            checkAvailableUserName({id: slugify(value)}).then((result) => {
+                this.setState({isDisplayNameValid: JSON.parse(result.data)});
+                if (!JSON.parse(result.data))
+                    this.setState({displayNameErrorMessage: "Tên tài khoản này đã tồn tại"})
             });
-        }
+        }, 400);
+    };
+
+    validatePseudonym = (e) => {
+        let value = e.target.value;
+        this.setState({isPseudonymValid: false});
+        this.setState({pseudonymErrorMessage: ""});
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+            if (value === "") {
+                this.setState({pseudonymErrorMessage: "Bút danh không thể trống"});
+                this.setState({isPseudonymValid: false});
+                return;
+            }
+            this.setState({isPseudonymValid: true});
+        }, 400);
     };
 
     renderUserDrafts = (key) => {
@@ -154,14 +190,90 @@ export default class AccountSettings extends Component {
     renderEditProfilePicOvelay = () => {
         return(
             <Overlay className="edit-profile-pic-overlay"
-                     isOpen={this.state.isShowEditProfilePic}
-                     onClose={() => this.setState({isShowEditProfilePic: false})}>
+                     isOpen={this.state.isEditProfilePic}
+                     onClose={() => this.setState({isEditProfilePic: false})}>
                 <Card style={{position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)"}}>
                     <Button className="bp3-icon-cross bp3-minimal bp3-intent-danger"
                             style={{position: "absolute", top: "0", right: "0"}}
-                            onClick={() => this.setState({isShowEditProfilePic: false})}/>
-                    <h3>Change your profile picture: </h3>
+                            onClick={() => this.setState({isEditProfilePic: false})}/>
+                    <h3>Thay đổi ảnh đại diện: </h3>
                     <FileDropUpload handleFileDrop={this.handleProfilePicUpload}/>
+                </Card>
+            </Overlay>
+        );
+    };
+
+    renderEditDisplayNameOvelay = () => {
+        return(
+            <Overlay className="edit-display-name-overlay"
+                     isOpen={this.state.isEditDisplayName}
+                     onClose={() => this.setState({isEditDisplayName: false})}>
+                <Card style={{position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)"}}>
+                    <Button className="bp3-icon-cross bp3-minimal bp3-intent-danger"
+                            style={{position: "absolute", top: "0", right: "0"}}
+                            onClick={() => this.setState({isEditDisplayName: false})}/>
+                    <form onSubmit={this.handleDisplayNameChange}>
+                        <h3>Thay đổi tên tài khoản: </h3>
+                        <div className="bp3-input-group">
+                            <span className="bp3-icon">@</span>
+                            <input className="bp3-input" type="text" defaultValue={this.props.user_metadata.display_name} onChange={this.validateDisplayName}/>
+                        </div>
+                        {
+                            !this.state.isDisplayNameValid
+                                ? <p style={{marginTop: "3px", color: "red"}}><i>{this.state.displayNameErrorMessage}</i></p>
+                                : null
+                        }
+                        <Button className="bp3-large bp3-fill bp3-intent-primary" type="submit" text="Change!" style={{marginTop: "10px", marginBottom: "10px"}}/>
+                    </form>
+                </Card>
+            </Overlay>
+        );
+    };
+
+    renderEditPseudonymOvelay = () => {
+        return(
+            <Overlay className="edit-pseudonym-overlay"
+                     isOpen={this.state.isEditPseudonym}
+                     onClose={() => this.setState({isEditPseudonym: false})}>
+                <Card style={{position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)"}}>
+                    <Button className="bp3-icon-cross bp3-minimal bp3-intent-danger"
+                            style={{position: "absolute", top: "0", right: "0"}}
+                            onClick={() => this.setState({isEditPseudonym: false})}/>
+                    <form onSubmit={this.handlePseudonymChange}>
+                        <h3>Thay đổi tên bút danh: </h3>
+                        <div className="bp3-input-group">
+                            <span className="bp3-icon bp3-icon-edit"/>
+                            <input className="bp3-input" type="text" defaultValue={this.props.user_metadata.pseudonym} onChange={this.validatePseudonym}/>
+                        </div>
+                        {
+                            !this.state.isPseudonymValid
+                                ? <p style={{marginTop: "3px", color: "red"}}><i>{this.state.pseudonymErrorMessage}</i></p>
+                                : null
+                        }
+                        <Button className="bp3-large bp3-fill bp3-intent-primary" type="submit" text="Change!" style={{marginTop: "10px", marginBottom: "10px"}}/>
+                    </form>
+                </Card>
+            </Overlay>
+        );
+    };
+
+    renderEditIntroductionOvelay = () => {
+        return(
+            <Overlay className="edit-pseudonym-overlay"
+                     isOpen={this.state.isEditIntroduction}
+                     onClose={() => this.setState({isEditIntroduction: false})}>
+                <Card style={{position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)"}}>
+                    <Button className="bp3-icon-cross bp3-minimal bp3-intent-danger"
+                            style={{position: "absolute", top: "0", right: "0"}}
+                            onClick={() => this.setState({isEditIntroduction: false})}/>
+                    <form onSubmit={this.handleIntroductionChange}>
+                        <h3>Thay đổi tên bút danh: </h3>
+                        <div className="bp3-input-group">
+                            <span className="bp3-icon bp3-icon-edit"/>
+                            <input className="bp3-input" type="text" defaultValue={this.props.user_metadata.introduction}/>
+                        </div>
+                        <Button className="bp3-large bp3-fill bp3-intent-primary" type="submit" text="Change!" style={{marginTop: "10px", marginBottom: "10px"}}/>
+                    </form>
                 </Card>
             </Overlay>
         );
@@ -177,7 +289,7 @@ export default class AccountSettings extends Component {
                             ? <div className="bp3-skeleton"
                                 style={{width: "128px", height: "128px", borderRadius: "50%", margin: "0 auto"}}/>
                             : <WrappedUserProfilePic src={this.props.user_metadata.profile_pic} alt={"profile_pic"}
-                                                     clickHandle={() => this.setState({isShowEditProfilePic: true})}/>
+                                                     clickHandle={() => this.setState({isEditProfilePic: true})}/>
 
                     }
                 </div>
@@ -187,12 +299,14 @@ export default class AccountSettings extends Component {
                             ? <div className="bp3-skeleton"
                                style={{width: "150px", height: "30px", margin: "0 auto"}}/>
                             : <h2>
-                                <WrappedUserAttribute text={"@" + this.props.user_metadata.display_name} clickHandle={this.editDisplayName}/>
-                             </h2>
+                                <WrappedUserAttribute text={"@" + this.props.user_metadata.display_name}
+                                                      clickHandle={() => this.setState({isEditDisplayName: true})}/>
+                              </h2>
                     }
                     <h4>
                         <i>
-                            <WrappedUserAttribute text={this.props.user_metadata.pseudonym} clickHandle={this.editPseudonym}/>
+                            <WrappedUserAttribute text={this.props.user_metadata.pseudonym}
+                                                  clickHandle={() => this.setState({isEditPseudonym: true})}/>
                         </i>
                     </h4>
                 </div>
@@ -200,7 +314,8 @@ export default class AccountSettings extends Component {
                     {
                         this.props.user_metadata.introduction == null || this.props.user_metadata.introduction === ""
                             ? <p>I feel undefined...</p>
-                            : <WrappedUserAttribute text={this.props.user_metadata.introduction} clickHandle={this.editIntroduction}/>
+                            : <WrappedUserAttribute text={this.props.user_metadata.introduction}
+                                                    clickHandle={() => this.setState({isEditIntroduction: true})}/>
                     }
                 </div>
                 <div className="user-stats">
@@ -252,13 +367,98 @@ export default class AccountSettings extends Component {
                         </ul>
                     </Collapse>
                 </div>
-
                 {
-                    this.state.isShowEditProfilePic
+                    this.state.isEditProfilePic
                         ? this.renderEditProfilePicOvelay()
+                        : null
+                }
+                {
+                    this.state.isEditDisplayName
+                        ? this.renderEditDisplayNameOvelay()
+                        : null
+                }
+                {
+                    this.state.isEditPseudonym
+                        ? this.renderEditPseudonymOvelay()
+                        : null
+                }
+                {
+                    this.state.isEditIntroduction
+                        ? this.renderEditIntroductionOvelay()
                         : null
                 }
             </div>
         );
-    }
+    };
+
+    handleProfilePicUpload = (files) => {
+        let error = "";
+        if(files.length > 1)
+            error = "Bạn chỉ có thể upload 1 file";
+        const file = files[0];
+        if (!file.type.includes("image"))
+            error = "File này không phải file ảnh";
+        if (file.size > 5242880)
+            error = "File ảnh quá lớn! Bạn hãy chọn file ảnh dưới 5mb nhé!";
+        if (error !== "") {
+            AppToaster.show({ message: error, intent: "danger" });
+            return;
+        }
+        this.resizeAndUploadImage(file).then(() => {
+            AppToaster.show({ message: "Thay đổi ảnh đại diện thành công", intent: "success" });
+            this.setState({isEditProfilePic: false}, () => window.location.reload());
+        }).catch((error) => {
+            AppToaster.show({ message: error, intent: "danger" });
+        });
+    };
+
+    handleDisplayNameChange = (e) => {
+        e.preventDefault();
+        const attribute = "display_name";
+        let value = "";
+        for (let i of e.target) {
+            if (i.type === "text")
+                value = i.value;
+        }
+        if (!this.state.isDisplayNameValid) return;
+        this.updateUserMetadata(attribute, slugify(value)).then(() => {
+            AppToaster.show({ message: "Thay đổi tên tài khoản thành công", intent: "success" });
+            this.setState({isEditDisplayName: false}, () => this.props.reloadUserMetadata());
+        }).catch((error) => {
+            AppToaster.show({ message: error, intent: "danger" });
+        });
+    };
+
+    handlePseudonymChange = (e) => {
+        e.preventDefault();
+        const attribute = "pseudonym";
+        let value = "";
+        for (let i of e.target) {
+            if (i.type === "text")
+                value = i.value;
+        }
+        if (!this.state.isPseudonymValid) return;
+        this.updateUserMetadata(attribute, value).then(() => {
+            AppToaster.show({ message: "Thay đổi bút danh thành công", intent: "success" });
+            this.setState({isEditPseudonym: false}, () => this.props.reloadUserMetadata());
+        }).catch((error) => {
+            AppToaster.show({ message: error, intent: "danger" });
+        });
+    };
+
+    handleIntroductionChange = (e) => {
+        e.preventDefault();
+        const attribute = "introduction";
+        let value = "";
+        for (let i of e.target) {
+            if (i.type === "text")
+                value = i.value;
+        }
+        this.updateUserMetadata(attribute, value).then(() => {
+            AppToaster.show({ message: "Thay đổi lời giới thiệu thành công", intent: "success" });
+            this.setState({isEditIntroduction: false}, () => this.props.reloadUserMetadata());
+        }).catch((error) => {
+            AppToaster.show({ message: error, intent: "danger" });
+        });
+    };
 }

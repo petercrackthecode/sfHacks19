@@ -70,6 +70,10 @@
     padding: 0;
 }
 
+.account-settings .user-stats {
+    margin: 15px;
+}
+
 .user-blogs .blog {
     width: 500px;
     margin: 0 auto;
@@ -89,4 +93,9 @@
 
 .user-blogs .blog .blog-sneakpeak{
     margin-top: 15px;
+}
+
+.edit-profile-pic-overlay .bp3-card, .edit-display-name-overlay .bp3-card {
+    min-width: 300px;
+    min-height: 200px;
 }
