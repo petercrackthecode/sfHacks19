@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Spinner, Card, Button, Intent} from "@blueprintjs/core";
 import resizeImage from "resize-image";
 import AppToaster from "../Toaster.js";
-
+import FileDropUpload from "../FileDropUpload.js";
 import slugify from "slugify";
 
 import firebase from "../firebase.js";
@@ -71,43 +71,6 @@ export default class SiteMediaBrowser extends Component {
 
     renderSpinner = () => { return( <Spinner/> ); };
 
-    addDragOver = (e) => {
-        e.preventDefault();
-        e.target.setAttribute("is-dragged-over", "true");
-    };
-
-    removeDragOver = (e) => {
-        e.preventDefault();
-        e.target.setAttribute("is-dragged-over", "false");
-    };
-
-    handleFileDrop = (e) => {
-        e.preventDefault();
-        e.target.setAttribute("is-dragged-over", "false");
-        const files = e.dataTransfer.files;
-        let error = "";
-        for (let file of files) {
-            console.log(file);
-            if (!file.type.includes("image")) {
-                error = "File này không phải file ảnh";
-                break;
-            }
-            if (file.size > 5242880) {
-                error = "File ảnh quá lớn! Bạn hãy chọn file ảnh dưới 5mb nhé!";
-                break;
-            }
-            console.log("resizing img");
-            this.setState({isOperationUnderway: true});
-            this.resizeAndUploadImage(file);
-        }
-        if (error !== "") {
-            AppToaster.show({
-                message: error,
-                intent: Intent.DANGER
-            });
-        }
-    };
-
     resizeAndUploadImage = (file) => {
         const img = new Image();
         img.src = URL.createObjectURL(file);
@@ -159,17 +122,35 @@ export default class SiteMediaBrowser extends Component {
         });
     };
 
+    handleFileDrop = (files) => {
+        let error = "";
+        for (let file of files) {
+            console.log(file);
+            if (!file.type.includes("image")) {
+                error = "File này không phải file ảnh";
+                break;
+            }
+            if (file.size > 5242880) {
+                error = "File ảnh quá lớn! Bạn hãy chọn file ảnh dưới 5mb nhé!";
+                break;
+            }
+            console.log("resizing img");
+            this.setState({isOperationUnderway: true});
+            this.resizeAndUploadImage(file);
+        }
+        if (error !== "") {
+            AppToaster.show({
+                message: error,
+                intent: Intent.DANGER
+            });
+        }
+    };
+
+
     render() {
         return(
             <div className="site-media-browser">
-                <div className="file-drop"
-                     onDragOver={this.addDragOver}
-                     onDragEnter={this.addDragOver}
-                     onDragLeave={this.removeDragOver}
-                     onDragEnd={this.removeDragOver}
-                     onDrop={this.handleFileDrop}>
-                    <h3>Click or Drag file here to upload...</h3>
-                </div>
+                    <FileDropUpload handleFileDrop={this.handleFileDrop}/>
                 <div>
                 { this.state.isOperationUnderway ? this.renderSpinner() : null }
                 </div>
