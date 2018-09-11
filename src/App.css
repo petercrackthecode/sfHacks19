@@ -40,6 +40,8 @@
         width: 100%;
     }
 
+    .menu-bar-mobile { display: none }
+
     .menuOptions {
         width: calc((100% - 40px) / 6);
     }
@@ -74,9 +76,7 @@
     }
 
     .menu-bar-desktop {
-        position: absolute;
-        bottom: 5px;
-        width: 100%;
+        display: none;
     }
 
     .menuOptions {
@@ -108,9 +108,7 @@
     }
 
     .menu-bar-desktop {
-        position: absolute;
-        bottom: 5px;
-        width: 100%;
+        display: none;
     }
 
     .menuOptions {
@@ -142,9 +140,7 @@
     }
 
     .menu-bar-desktop {
-        position: absolute;
-        bottom: 5px;
-        width: 100%;
+        display: none;
     }
 
     .menuOptions {

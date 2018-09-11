@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import logo from "../Images/seedsvietnam.png";
 import fb_logo from "../Images/fb_logo.png";
 import googleplus_logo from "../Images/ggp_logo.png";
-import { Button, Menu, MenuItem, Popover, Overlay } from "@blueprintjs/core";
+import { Button, Menu, MenuItem, Popover, Overlay, Classes } from "@blueprintjs/core";
 import { Position, PopoverInteractionKind } from "@blueprintjs/core";
 
 import SignInOverlay from "./UserAuth/SignInOverlay.js";
@@ -20,8 +20,15 @@ export default class Header extends Component {
             isUserAccClicked: false,
             userAccOverlayPos : {},
 			isSearchClicked: false,
+            isShowMobileMenu: false,
         };
 	}
+
+	componentDidMount() {
+	    document.body.addEventListener("click", event => {
+	        this.setState({isShowMobileMenu: false, isSearchClicked: false, isSignInClicked: false, isUserAccClicked: false});
+        });
+    }
 
     authenticated = (uid, isAdmin) => {
 	    this.props.authenticated(uid, isAdmin);
@@ -57,6 +64,41 @@ export default class Header extends Component {
 			</div>
 		);
 	};
+
+    renderMobileMenuOptions = (key) => {
+        return (
+            this.props.pageStructure[key].length > 0
+                ? <div className="mobile-menu-option" key={key}>
+                    <Popover content={
+                            <Menu>
+                                { this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
+                            </Menu>
+                        }
+                        position={Position.RIGHT} interactionKind={PopoverInteractionKind.HOVER}>
+                        <a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{width: "100%", color: "white", fontSize: "2em"}}>{key}</a>
+                    </Popover>
+                  </div>
+                : <div className="mobile-menu-option" key={key}>
+                    <a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{width: "100%", color: "white", fontSize: "2em"}}>{key}</a>
+                  </div>
+        );
+    };
+
+    renderMobileMenu = () => {
+        return(
+            <Overlay className="mobile-menu-overlay"
+                     isOpen={this.state.isShowMobileMenu}
+                     onClose={() => this.setState({isShowMobileMenu: false})}
+                     usePortal={false}>
+                <div style={{width: "100%"}}>
+                    <div style={{backgroundColor: "white", marginBottom: "50px"}}>
+                        <img id="seedsVietnam-logo" src={logo} alt="logo" style={{width: "200px"}}/>
+                    </div>
+                    { Object.keys(this.props.pageStructure).map(this.renderMobileMenuOptions) }
+                </div>
+            </Overlay>
+        );
+    };
 
     renderSignInOverlay = () => {
         return (
@@ -108,8 +150,14 @@ export default class Header extends Component {
 				<div className="menu-bar-desktop bp3-navbar-group">
 					{ Object.keys(this.props.pageStructure).map(this.renderDesktopMenuOptions) }
 				</div>
+                <div className="menu-bar-mobile bp3-navbar-group">
+                    <Button className="bp3-large menu-button" onClick={() => this.setState({isShowMobileMenu: !this.state.isShowMobileMenu})}>
+                        <span className="bp3-icon-large bp3-icon-menu-closed"/>
+                    </Button>
+                </div>
                 {!this.props.isLoggedIn && this.state.isSignInClicked ? this.renderSignInOverlay() : null}
                 {this.props.isLoggedIn && this.state.isUserAccClicked ? this.renderUserAccOverlay() : null}
+                {this.state.isShowMobileMenu ? this.renderMobileMenu() : null}
 			</nav>
 		);
 	};
