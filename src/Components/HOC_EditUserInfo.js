@@ -48,7 +48,7 @@ class HOC_UserAttribute extends Component {
 
     render() {
         return(
-            <div style={{boxShadow: "-2px 2px 19px 0px #888888", borderRadius: "5px", padding: "3px"}}>
+            <div style={{boxShadow: "-1px 1px 10px 0px #888888", borderRadius: "5px", padding: "3px"}}>
                 {this.props.text}
             </div>
         );

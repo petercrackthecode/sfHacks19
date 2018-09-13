@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import Immutable from "immutable";
 import Draft, {getDefaultKeyBinding, KeyBindingUtil} from "draft-js";
 
 import {ALIGNMENT_DATA_KEY} from "./ExtendedRichUtils";
@@ -100,15 +99,31 @@ export class IMAGE extends Component {
             <img ref={this.element} src={this.props.src} style={{width: "700px", boxSizing: "border-box"}}/>
         );
     }
-};
+}
+
+export const EMOJI = (props) => (
+    <span
+        className="emoji"
+        role="img"
+        aria-label={props.label ? props.label : ""}
+        aria-hidden={props.label ? "false" : "true"}
+        onClick={() => {props.handleEmojiClick ? props.handleEmojiClick(props.symbol) : null}}>
+        {props.symbol}
+    </span>
+);
 
 export const MEDIA = (props) => {
+    if (props.block.getEntityAt(0) === null) return null;
     const entity = props.contentState.getEntity(props.block.getEntityAt(0));
-    const { src } = entity.getData();
     const type = entity.getType();
 
     if (type === "image") {
-        return(<IMAGE src={src}/>);
+        const { src } = entity.getData();
+        return( <IMAGE src={src}/> );
+    }
+    if (type === "emoji") {
+        const { symbol, label } = entity.getData();
+        return( <EMOJI symbol={symbol} label={label}/> );
     }
 };
 
@@ -136,15 +151,6 @@ export const getBlockStyle = (block) => {
         default:
             return null;
     }
-};
-
-export const getBlockMap = () => {
-    const extended_map = Immutable.Map({
-        'code': {
-            element: 'div',
-        },
-    });
-    return Draft.DefaultDraftBlockRenderMap.merge(extended_map);
 };
 
 export const customKeyBindingFn = (event) => {

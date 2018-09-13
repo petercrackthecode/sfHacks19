@@ -267,7 +267,7 @@ export default class AccountSettings extends Component {
                             style={{position: "absolute", top: "0", right: "0"}}
                             onClick={() => this.setState({isEditIntroduction: false})}/>
                     <form onSubmit={this.handleIntroductionChange}>
-                        <h3>Thay đổi tên bút danh: </h3>
+                        <h3>Thay đổi lời giới thiệu của bạn: </h3>
                         <div className="bp3-input-group">
                             <span className="bp3-icon bp3-icon-edit"/>
                             <input className="bp3-input" type="text" defaultValue={this.props.user_metadata.introduction}/>
@@ -313,7 +313,8 @@ export default class AccountSettings extends Component {
                 <div className="user-introduction">
                     {
                         this.props.user_metadata.introduction == null || this.props.user_metadata.introduction === ""
-                            ? <p>I feel undefined...</p>
+                            ? <WrappedUserAttribute text="I feel undefined..."
+                                                    clickHandle={() => this.setState({isEditIntroduction: true})}/>
                             : <WrappedUserAttribute text={this.props.user_metadata.introduction}
                                                     clickHandle={() => this.setState({isEditIntroduction: true})}/>
                     }

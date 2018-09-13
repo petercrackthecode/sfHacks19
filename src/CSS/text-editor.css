@@ -274,3 +274,15 @@
     top: 0;
     right: 0;
 }
+
+.emotes-browser {
+    max-width: 50em;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: inset 1px 1px 10px 0 black;
+}
+
+.emoji {
+    margin: 5px;
+    cursor: pointer;
+}

@@ -25,7 +25,7 @@ export default class UserAccOverlay extends Component {
                                 : <img src={this.props.user_metadata.profile_pic} alt="profile_pic" style={{float: "left", width: "64px", borderRadius: "50%"}}/>
                         }
                         <div style={{width: "calc((100% - 70px))", float: "right", minHeight: "70px"}}>
-                            <h3 style={{lineHeight: "70px", margin: "0px"}}>{this.props.user_metadata.display_name}</h3>
+                            <h3 style={{lineHeight: "70px", margin: "0px"}}>@{this.props.user_metadata.display_name}</h3>
                         </div>
                     </div>
                     <div className="bp3-menu-divider"/>
@@ -35,9 +35,9 @@ export default class UserAccOverlay extends Component {
                         </a>
                         {
                             this.props.isAdmin
-                                ? <Button className="bp3-icon-briefcase bp3-fill bp3-minimal bp3-large">
-                                    Quản lý trang
-                                  </Button>
+                                ? <a href="/BlogCMS" role="button" className="bp3-button bp3-icon-briefcase bp3-fill bp3-minimal bp3-large">
+                                    Quản lý blog
+                                  </a>
                                 : null
                         }
                     </div>

@@ -69,7 +69,8 @@ export default class SignInOverlay extends Component {
 
     render() {
         return(
-            <Overlay isOpen={this.props.isVisible} hasBackdrop={false} autoFocus={false} className="sign-in-overlay">
+            <Overlay isOpen={this.props.isVisible} hasBackdrop={false} autoFocus={false}
+                     className="sign-in-overlay">
                 <div style={{
                     backgroundColor: "#D5DADF",
                     width: "240px",

@@ -45,3 +45,13 @@
     padding: 10px;
     border-bottom: 1px white groove;
 }
+
+.mobile-menu-button[show="true"] {
+    position: relative;
+    left: 300px;
+}
+
+.mobile-menu-button[show="false"] {
+    position: relative;
+    left: 0px;
+}

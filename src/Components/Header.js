@@ -24,12 +24,6 @@ export default class Header extends Component {
         };
 	}
 
-	componentDidMount() {
-	    document.body.addEventListener("click", event => {
-	        this.setState({isShowMobileMenu: false, isSearchClicked: false, isSignInClicked: false, isUserAccClicked: false});
-        });
-    }
-
     authenticated = (uid, isAdmin) => {
 	    this.props.authenticated(uid, isAdmin);
     };
@@ -88,7 +82,7 @@ export default class Header extends Component {
         return(
             <Overlay className="mobile-menu-overlay"
                      isOpen={this.state.isShowMobileMenu}
-                     onClose={() => this.setState({isShowMobileMenu: false})}
+                     onClose={() => {this.setState({isShowMobileMenu: false}); this.refs["mobile-menu-btn"].buttonRef.setAttribute("show", "false")}}
                      usePortal={false}>
                 <div style={{width: "100%"}}>
                     <div style={{backgroundColor: "white", marginBottom: "50px"}}>
@@ -151,8 +145,17 @@ export default class Header extends Component {
 					{ Object.keys(this.props.pageStructure).map(this.renderDesktopMenuOptions) }
 				</div>
                 <div className="menu-bar-mobile bp3-navbar-group">
-                    <Button className="bp3-large menu-button" onClick={() => this.setState({isShowMobileMenu: !this.state.isShowMobileMenu})}>
-                        <span className="bp3-icon-large bp3-icon-menu-closed"/>
+                    <Button ref="mobile-menu-btn" className="bp3-large mobile-menu-button" onClick={(e) => {
+                        const el = e.target.parentNode.parentNode;
+                        this.setState({isShowMobileMenu: !this.state.isShowMobileMenu}, () => {
+                            this.state.isShowMobileMenu ? el.setAttribute("show", "true") : el.setAttribute("show", "false")
+                        });
+                    }}>
+                        {
+                            this.state.isShowMobileMenu
+                                ? <span className="bp3-icon-large bp3-icon-menu-closed"/>
+                                : <span className="bp3-icon-large bp3-icon-menu-open"/>
+                        }
                     </Button>
                 </div>
                 {!this.props.isLoggedIn && this.state.isSignInClicked ? this.renderSignInOverlay() : null}

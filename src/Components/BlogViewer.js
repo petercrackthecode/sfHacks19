@@ -3,12 +3,11 @@ import {Spinner, Icon, Button} from "@blueprintjs/core";
 import firebase from "./firebase.js";
 
 import {Editor, EditorState, convertFromRaw} from "draft-js";
-import {mediaBlockRenderer} from "./BlockStyles/entities/MediaBlockRenderer.js";
+import {customBlockRenderer} from "./BlockStyles/entities/CustomBlockRenderer.js";
 import {hyperlinkDecorator} from "./BlockStyles/plugins/HyperLinkPlugin.js";
 
 import {customStyleMap,
-    getBlockStyle,
-    getBlockMap} from "./BlockStyles/HelperFn.js";
+    getBlockStyle} from "./BlockStyles/HelperFn.js";
 
 import "../CSS/blog-viewer.css";
 import "../CSS/custom-block-style.css";
@@ -96,8 +95,7 @@ export default class BlogViewer extends Component {
                         <Editor
                             editorState={this.state.editorState}
                             blockStyleFn={getBlockStyle}
-                            blockRendererFn={mediaBlockRenderer}
-                            blockRenderMap={getBlockMap()}
+                            blockRendererFn={customBlockRenderer}
                             customStyleMap={customStyleMap}
                             readOnly={true}
                         />

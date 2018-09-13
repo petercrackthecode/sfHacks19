@@ -7,6 +7,12 @@
     font-size: 1em;
 }
 
+.error-tooltip {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
 /* For desktop, tablets and ipads*/
 @media only screen and (min-device-width: 768px) {
     .App {
