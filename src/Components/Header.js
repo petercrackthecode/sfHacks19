@@ -37,7 +37,7 @@ export default class Header extends Component {
 	renderDesktopMenuOptions = (key) => {
 		return (
 			this.props.pageStructure[key].length > 0
-			? <div className="menuOptions" key={key}><Popover
+			? <div className="menu-options" key={key}><Popover
 					content={
 						<Menu>
 							{ this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
@@ -48,7 +48,7 @@ export default class Header extends Component {
 				</Popover>
 				<span className="bp3-navbar-divider" style={{float: "right"}}/>
 			</div>
-			: <div className="menuOptions" key={key}>
+			: <div className="menu-options" key={key}>
 				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				{
 					key !== "Blog"

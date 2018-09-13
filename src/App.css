@@ -22,10 +22,7 @@
         margin: 0 auto;
     }
 
-    .bp3-navbar {
-        min-width: 1100px;
-        max-width: 1300px;
-    }
+    .bp3-navbar { min-width: 1100px; max-width: 1300px; }
 
     .Main {
         min-width: 1100px;
@@ -36,40 +33,22 @@
         box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
     }
 
-    .lightBar {
-        min-width: 1100px;
-        max-width: 1300px;
-    }
+    .lightBar { min-width: 1100px; max-width: 1300px; }
 
-    .menu-bar-desktop {
-        position: absolute;
-        width: 100%;
-    }
+    .menu-bar-desktop { position: absolute; width: 100%; }
 
     .menu-bar-mobile { display: none }
 
-    .menuOptions {
-        width: calc((100% - 40px) / 6);
-    }
+    .menu-options { width: calc((100% - 40px) / 6); }
 
-    .bp3-navbar-divider {
-        height: 40px;
-    }
+    .bp3-navbar-divider { height: 40px; }
 
-    .bp3-portal, .bp3-overlay {
-        width: 100%;
-        height: 100%
-    }
+    .bp3-portal, .bp3-overlay { width: 100%; height: 100% }
 }
 
 /* For Galaxy S5/6/7/8, iPhone 6/7/8/X */
 @media only screen and (min-device-width: 330px) and (max-device-width: 410px) {
-    .App {
-        text-align: center;
-    }
-
-    .bp3-navbar {
-    }
+    .App { text-align: center; }
 
     .Main {
         background-color: rgb(255, 255, 255);
@@ -78,20 +57,20 @@
         box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
     }
 
-    .lightBar {
+    .menu-bar-desktop { display: none; }
+
+    .menu-options { width: calc((100% - 40px) / 6); }
+
+    .bp3-navbar-divider { height: 40px; }
+
+    .blog-content .content, .blog-footer {
+        padding-left: 3em !important;
+        padding-right: 3em !important;
     }
 
-    .menu-bar-desktop {
-        display: none;
-    }
+    .DraftEditor-root figure img { width: 100% !important; }
 
-    .menuOptions {
-        width: calc((100% - 40px) / 6);
-    }
-
-    .bp3-navbar-divider {
-        height: 40px;
-    }
+    .blog-viewer .blog-action-bar-vertical { width: 3em !important; }
 }
 
 /* For iPhone 6/7/8 PLUS, Pixel 2/2XL */
@@ -117,7 +96,7 @@
         display: none;
     }
 
-    .menuOptions {
+    .menu-options {
         width: calc((100% - 40px) / 6);
     }
 
@@ -149,7 +128,7 @@
         display: none;
     }
 
-    .menuOptions {
+    .menu-options {
         width: calc((100% - 40px) / 6);
     }
 

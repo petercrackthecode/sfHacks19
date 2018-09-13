@@ -2,9 +2,15 @@
     overflow: auto;
 }
 
+.DraftEditor-root figure img:first-of-type { width: 100% !important; }
+
+.DraftEditor-root figure {
+    margin: 0;
+}
+
 .author-info-wrapper {
     width: 100%;
-    z-index: 10;
+    z-index: 2;
     background-color: white;
     position: relative;
     box-shadow: 0 0 9px 2px #0a6640;
@@ -43,10 +49,12 @@
 .blog-content .content {
     padding-left: 200px;
     padding-right: 200px;
+    font-size: 1.2em;
 }
 .blog-content .content .title {
-    padding-top: 10px;
-    font-size: 3em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 2.6em;
     font-weight: 700;
 }
 

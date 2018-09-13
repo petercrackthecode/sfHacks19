@@ -175,10 +175,13 @@ export default class AccountSettings extends Component {
     renderUserBlogs = (key) => {
         return(
             <li key={key.id}>
-                <Card className="blog" interactive={true} elevation="two" onClick={() => {window.location.href="/Blog/" + key.id + "/" + key.title}}>
-                    <Button className="bp3-icon-edit bp3-minimal bp3-small"
-                            style={{position: "absolute", top: "0", right: "0"}}
-                            onClick={() => {window.location.href="/Blog/" + key.id}}/>
+                <Card className="blog" interactive={true} elevation="two"
+                      style={{position: "relative"}}
+                      onClick={() => {window.location.href="/Blog/" + key.id + "/" + key.title}}>
+                    <a className="bp3-button bp3-icon-edit bp3-minimal bp3-small" role="button"
+                            style={{position: "absolute", top: "0", right: "0", width: "20px"}}
+                            onClick={(e) => e.stopPropagation()}
+                            href={"/editBlog/" + key.id}/>
                     <div className="blog-title">{key.title}</div>
                     <div className="blog-time-stamp">{new Date(key.createTimeStamp).toUTCString()}</div>
                     <div className="blog-sneakpeak"><p>{key.data.sneakpeak}</p></div>
