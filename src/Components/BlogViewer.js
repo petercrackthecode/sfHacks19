@@ -72,15 +72,19 @@ export default class BlogViewer extends Component {
         });
     };
 
+    redirectToAuthorPage = () => {
+        window.location.href = "/user/" + this.state.blog.author + "/@" + this.state.author.display_name;
+    };
+
     renderBlogContent = () => {
         return(
             this.state.content === ""
-                ? <Spinner />
+                ? <div className="blog-content bp3-skeleton"/>
                 : <div className="blog-content">
                     <div className="author-info-wrapper">
-                        <div className="author-info">
+                        <div className="author-info bp3-card bp3-interactive bp3-elevation-2" onClick={this.redirectToAuthorPage}>
                             <div className="profile-pic">
-                                <img src={this.state.author.profile_pic} alt="profile_pic"/>
+                                <img className="bp3-skeleton" src={this.state.author.profile_pic}/>
                             </div>
                             <div className="summary-info">
                                 <div><h4>{this.state.author.pseudonym}</h4></div>

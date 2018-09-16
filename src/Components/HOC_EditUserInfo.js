@@ -16,7 +16,7 @@ const HOC_EditUserInfo = (WrappedComponent) => {
                      onMouseOver={() => this.setState({isHovered: true})}
                      onMouseLeave={() => this.setState({isHovered: false})}>
                     {
-                        this.state.isHovered
+                        this.state.isHovered && this.props.clickHandle
                             ? <Button className="bp3-icon-edit bp3-minimal bp3-small"
                                       style={{position: "absolute", top: "0", right: "0"}}
                                       onClick={this.props.clickHandle}/>
@@ -48,7 +48,7 @@ class HOC_UserAttribute extends Component {
 
     render() {
         return(
-            <div style={{boxShadow: "-1px 1px 10px 0px #888888", borderRadius: "5px", padding: "3px"}}>
+            <div className="bp3-card bp3-interactive bp3-elevation-2" style={{padding: "3px"}}>
                 {this.props.text}
             </div>
         );

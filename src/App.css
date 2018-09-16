@@ -3,14 +3,22 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 
 #root {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Open Sans;
+    font-style: normal;
+    font-variant: normal;
     font-size: 1em;
+    font-weight: 400;
+    color: black;
 }
+
+blockquote { font-family: "Open Sans"; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+pre { font-family: "Open Sans"; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
 
 .error-tooltip {
     color: red;
-    font-size: 0.9em;
+    font-size: 0.8em;
     margin-top: 2px;
+    font-weight: 600;
 }
 
 /* For desktop, tablets and ipads*/
@@ -75,12 +83,7 @@
 
 /* For iPhone 6/7/8 PLUS, Pixel 2/2XL */
 @media only screen and (min-device-width: 410px) and (max-device-width: 767px) {
-    .App {
-        text-align: center;
-    }
-
-    .bp3-navbar {
-    }
+    .App { text-align: center; }
 
     .Main {
         background-color: rgb(255, 255, 255);
@@ -89,30 +92,25 @@
         box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
     }
 
-    .lightBar {
+    .menu-bar-desktop { display: none; }
+
+    .menu-options { width: calc((100% - 40px) / 6); }
+
+    .bp3-navbar-divider { height: 40px; }
+
+    .blog-content .content, .blog-footer {
+        padding-left: 3em !important;
+        padding-right: 3em !important;
     }
 
-    .menu-bar-desktop {
-        display: none;
-    }
+    .DraftEditor-root figure img { width: 100% !important; }
 
-    .menu-options {
-        width: calc((100% - 40px) / 6);
-    }
-
-    .bp3-navbar-divider {
-        height: 40px;
-    }
+    .blog-viewer .blog-action-bar-vertical { width: 3em !important; }
 }
 
 /* For iPhone 5S and all other smaller screen devices */
 @media only screen and (max-device-width: 320px) {
-    .App {
-        text-align: center;
-    }
-
-    .bp3-navbar {
-    }
+    .App { text-align: center; }
 
     .Main {
         background-color: rgb(255, 255, 255);
@@ -121,18 +119,18 @@
         box-shadow: 1px 1px 1px 1px rgb(172, 172, 172);
     }
 
-    .lightBar {
+    .menu-bar-desktop { display: none; }
+
+    .menu-options { width: calc((100% - 40px) / 6); }
+
+    .bp3-navbar-divider { height: 40px; }
+
+    .blog-content .content, .blog-footer {
+        padding-left: 3em !important;
+        padding-right: 3em !important;
     }
 
-    .menu-bar-desktop {
-        display: none;
-    }
+    .DraftEditor-root figure img { width: 100% !important; }
 
-    .menu-options {
-        width: calc((100% - 40px) / 6);
-    }
-
-    .bp3-navbar-divider {
-        height: 40px;
-    }
+    .blog-viewer .blog-action-bar-vertical { width: 3em !important; }
 }

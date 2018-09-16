@@ -43,7 +43,7 @@ export default class Header extends Component {
 							{ this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
 						</Menu>
 					}
-					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER}>
+					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER} usePortal={false}>
 					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				</Popover>
 				<span className="bp3-navbar-divider" style={{float: "right"}}/>

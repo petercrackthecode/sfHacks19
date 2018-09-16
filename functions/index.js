@@ -119,7 +119,7 @@ exports.updateDisplayName = functions.database.ref("user_metadata/{uid}/display_
     const new_value = snapshot.after.val();
     console.log("original: " + original + ", new: " + new_value);
     const usernameRef = admin.database().ref("display_name_pool");
-    return usernameRef.orderByChild("id").equalTo(original).on("value", snapshot => {
+    return usernameRef.orderByChild("id").equalTo(original).once("value").then(snapshot => {
         let key = Object.keys(snapshot.val())[0];
         return snapshot.ref.child(key).set({id: new_value});
     });

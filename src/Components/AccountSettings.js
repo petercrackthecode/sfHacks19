@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import firebase from "../firebase.js";
+import firebase from "./firebase.js";
 import {Card, Button, Collapse, Tag, Overlay} from "@blueprintjs/core";
-import {WrappedUserProfilePic, WrappedUserAttribute} from "../HOC_EditUserInfo.js";
-import FileDropUpload from "../FileDropUpload.js";
-import "../../CSS/account-settings.css"
-import AppToaster from "../Toaster";
+import {WrappedUserProfilePic, WrappedUserAttribute} from "./HOC_EditUserInfo.js";
+import FileDropUpload from "./FileDropUpload.js";
+import "../CSS/account-settings.css"
+import AppToaster from "./Toaster.js";
 import resizeImage from "resize-image";
 import slugify from "slugify";
 
@@ -40,7 +40,7 @@ export default class AccountSettings extends Component {
                 window.location.href="/404";
             }
 
-            if (attempt === 2) clearInterval(load);
+            if (attempt === 1) clearInterval(load);
 
             this.props.reloadUserMetadata();
             attempt += 1;
@@ -175,16 +175,30 @@ export default class AccountSettings extends Component {
     renderUserBlogs = (key) => {
         return(
             <li key={key.id}>
-                <Card className="blog" interactive={true} elevation="two"
+                <Card className="blog-summary-wrapper bp3-fill" interactive={true} elevation="two"
                       style={{position: "relative"}}
                       onClick={() => {window.location.href="/Blog/" + key.id + "/" + key.title}}>
                     <a className="bp3-button bp3-icon-edit bp3-minimal bp3-small" role="button"
-                            style={{position: "absolute", top: "0", right: "0", width: "20px"}}
-                            onClick={(e) => e.stopPropagation()}
-                            href={"/editBlog/" + key.id}/>
-                    <div className="blog-title">{key.title}</div>
-                    <div className="blog-time-stamp">{new Date(key.createTimeStamp).toUTCString()}</div>
-                    <div className="blog-sneakpeak"><p>{key.data.sneakpeak}</p></div>
+                       style={{position: "absolute", top: "0", right: "0", width: "20px"}}
+                       onClick={(e) => e.stopPropagation()}
+                       href={"/editBlog/" + key.id}/>
+                    <div className="blog">
+                        {
+                            key.thumbnail.length > 0
+                                ? <img className="blog-cover bp3-card" src={key.thumbnail}/>
+                                : <div className="blog-cover bp3-card bp3-non-ideal-state">
+                                    <div className="bp3-non-ideal-state-visual">
+                                        <span className="bp3-icon bp3-icon-unknown-vehicle"/>
+                                    </div>
+                                </div>
+                        }
+
+                        <div className="blog-info">
+                            <div className="blog-title">{key.title}</div>
+                            <div className="blog-time-stamp">{new Date(key.createTimeStamp).toUTCString()}</div>
+                            <div className="blog-sneakpeak"><p>{key.data.sneakpeak}</p></div>
+                        </div>
+                    </div>
                 </Card>
             </li>
         );

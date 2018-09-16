@@ -35,7 +35,6 @@ export default class TextEditor extends Component {
 
 	componentWillMount() {
 	    if (this.props.renderContent !== undefined) {
-            console.log(this.props.renderContent);
             this.setState({title: this.props.renderContent.title});
             const content = convertFromRaw(JSON.parse(this.props.renderContent.data.content));
             this.setState({editorState: EditorState.createWithContent(content)});
