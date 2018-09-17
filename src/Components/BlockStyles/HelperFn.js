@@ -73,6 +73,7 @@ export class IMAGE extends Component {
             inertia: true,
         })
         .on('resizemove', (event) => {
+            console.log(event);
             var target = event.target,
                 x = (parseFloat(target.getAttribute('data-x')) || 0),
                 y = (parseFloat(target.getAttribute('data-y')) || 0);

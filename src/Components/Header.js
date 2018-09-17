@@ -61,20 +61,16 @@ export default class Header extends Component {
 
     renderMobileMenuOptions = (key) => {
         return (
-            this.props.pageStructure[key].length > 0
-                ? <div className="mobile-menu-option" key={key}>
-                    <Popover content={
-                            <Menu>
-                                { this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
-                            </Menu>
-                        }
-                        position={Position.RIGHT} interactionKind={PopoverInteractionKind.HOVER}>
-                        <a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{width: "100%", color: "white", fontSize: "2em"}}>{key}</a>
-                    </Popover>
-                  </div>
-                : <div className="mobile-menu-option" key={key}>
-                    <a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{width: "100%", color: "white", fontSize: "2em"}}>{key}</a>
-                  </div>
+            <div className="mobile-menu-option" key={key}>
+                <Popover content={
+                        <Menu>
+                            { this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
+                        </Menu>
+                    }
+                    position={Position.RIGHT} interactionKind={PopoverInteractionKind.HOVER}>
+                    <a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{color: "white", fontSize: "1.7em"}}>{key}</a>
+                </Popover>
+            </div>
         );
     };
 
@@ -89,6 +85,11 @@ export default class Header extends Component {
                         <img id="seedsVietnam-logo" src={logo} alt="logo" style={{width: "200px"}}/>
                     </div>
                     { Object.keys(this.props.pageStructure).map(this.renderMobileMenuOptions) }
+                    <div className="mobile-menu-option">
+                        <a className="bp3-button bp3-minimal bp3-large bp3-fill"
+                           style={{color: "white", fontSize: "1.7em"}}
+                           onClick={() => {this.setState({isShowMobileMenu: false}); this.refs["mobile-menu-btn"].buttonRef.setAttribute("show", "false")}}>{"<--Giấu menu"}</a>
+                    </div>
                 </div>
             </Overlay>
         );
@@ -151,6 +152,11 @@ export default class Header extends Component {
                             this.state.isShowMobileMenu ? el.setAttribute("show", "true") : el.setAttribute("show", "false")
                         });
                     }}>
+                        {
+                            this.state.isShowMobileMenu
+                                ? "Đóng Menu "
+                                : "Hiện Menu "
+                        }
                         {
                             this.state.isShowMobileMenu
                                 ? <span className="bp3-icon-large bp3-icon-menu-closed"/>

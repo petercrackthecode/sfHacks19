@@ -27,6 +27,7 @@ export default class BlogViewer extends Component {
             this.getBlogContent().then(() => {
                 this.updateBlogView();
                 this.getBlogAuthor();
+                this.disableImageResize();
             });
         }, 500);
     }
@@ -70,6 +71,13 @@ export default class BlogViewer extends Component {
             like += 1;
             return like;
         });
+    };
+
+    disableImageResize = () => {
+        document.querySelectorAll("figure[data-block=true] img").forEach(el => {
+            const elClone = el.cloneNode(true);
+            el.parentNode.replaceChild(elClone, el);
+        })
     };
 
     redirectToAuthorPage = () => {
