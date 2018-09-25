@@ -3,12 +3,11 @@ import {Spinner, Icon, Button} from "@blueprintjs/core";
 import firebase from "./firebase.js";
 
 import {Editor, EditorState, convertFromRaw} from "draft-js";
-import {mediaBlockRenderer} from "./BlockStyles/entities/MediaBlockRenderer.js";
+import {customBlockRenderer} from "./BlockStyles/entities/CustomBlockRenderer.js";
 import {hyperlinkDecorator} from "./BlockStyles/plugins/HyperLinkPlugin.js";
 
 import {customStyleMap,
-    getBlockStyle,
-    getBlockMap} from "./BlockStyles/HelperFn.js";
+    getBlockStyle} from "./BlockStyles/HelperFn.js";
 
 import "../CSS/blog-viewer.css";
 import "../CSS/custom-block-style.css";
@@ -28,6 +27,7 @@ export default class BlogViewer extends Component {
             this.getBlogContent().then(() => {
                 this.updateBlogView();
                 this.getBlogAuthor();
+                this.disableImageResize();
             });
         }, 500);
     }
@@ -73,15 +73,26 @@ export default class BlogViewer extends Component {
         });
     };
 
+    disableImageResize = () => {
+        document.querySelectorAll("figure[data-block=true] img").forEach(el => {
+            const elClone = el.cloneNode(true);
+            el.parentNode.replaceChild(elClone, el);
+        })
+    };
+
+    redirectToAuthorPage = () => {
+        window.location.href = "/user/" + this.state.blog.author + "/@" + this.state.author.display_name;
+    };
+
     renderBlogContent = () => {
         return(
             this.state.content === ""
-                ? <Spinner />
+                ? <div className="blog-content bp3-skeleton"/>
                 : <div className="blog-content">
                     <div className="author-info-wrapper">
-                        <div className="author-info">
+                        <div className="author-info bp3-card bp3-interactive bp3-elevation-2" onClick={this.redirectToAuthorPage}>
                             <div className="profile-pic">
-                                <img src={this.state.author.profile_pic} alt="profile_pic"/>
+                                <img className="bp3-skeleton" src={this.state.author.profile_pic}/>
                             </div>
                             <div className="summary-info">
                                 <div><h4>{this.state.author.pseudonym}</h4></div>
@@ -96,8 +107,7 @@ export default class BlogViewer extends Component {
                         <Editor
                             editorState={this.state.editorState}
                             blockStyleFn={getBlockStyle}
-                            blockRendererFn={mediaBlockRenderer}
-                            blockRenderMap={getBlockMap()}
+                            blockRendererFn={customBlockRenderer}
                             customStyleMap={customStyleMap}
                             readOnly={true}
                         />

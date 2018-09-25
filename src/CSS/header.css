@@ -65,3 +65,32 @@
     background-color: #3399FF;
     box-shadow: 2px 2px 2px 2px #888888;
 }
+
+.mobile-menu-overlay {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 7px 0 0 0 #888888;
+}
+
+.mobile-menu-overlay .bp3-overlay-backdrop {
+    background-color: black;
+}
+
+.mobile-menu-option:not(:first-of-type) {
+    margin-top: 15px;
+    padding: 10px;
+    border-bottom: 1px white groove;
+}
+
+.mobile-menu-button[show="true"] {
+    position: relative;
+    left: 300px;
+}
+
+.mobile-menu-button[show="false"] {
+    position: relative;
+    left: 0px;
+}

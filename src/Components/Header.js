@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import logo from "../Images/seedsvietnam.png";
 import fb_logo from "../Images/fb_logo.png";
 import googleplus_logo from "../Images/ggp_logo.png";
-import { Button, Menu, MenuItem, Popover, Overlay } from "@blueprintjs/core";
+import { Button, Menu, MenuItem, Popover, Overlay, Classes } from "@blueprintjs/core";
 import { Position, PopoverInteractionKind } from "@blueprintjs/core";
 
 import SignInOverlay from "./UserAuth/SignInOverlay.js";
@@ -20,6 +20,7 @@ export default class Header extends Component {
             isUserAccClicked: false,
             userAccOverlayPos : {},
 			isSearchClicked: false,
+            isShowMobileMenu: false,
         };
 	}
 
@@ -36,18 +37,18 @@ export default class Header extends Component {
 	renderDesktopMenuOptions = (key) => {
 		return (
 			this.props.pageStructure[key].length > 0
-			? <div className="menuOptions" key={key}><Popover
+			? <div className="menu-options" key={key}><Popover
 					content={
 						<Menu>
 							{ this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
 						</Menu>
 					}
-					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER}>
+					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER} usePortal={false}>
 					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				</Popover>
 				<span className="bp3-navbar-divider" style={{float: "right"}}/>
 			</div>
-			: <div className="menuOptions" key={key}>
+			: <div className="menu-options" key={key}>
 				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				{
 					key !== "Blog"
@@ -57,6 +58,42 @@ export default class Header extends Component {
 			</div>
 		);
 	};
+
+    renderMobileMenuOptions = (key) => {
+        return (
+            <div className="mobile-menu-option" key={key}>
+                <Popover content={
+                        <Menu>
+                            { this.props.pageStructure[key].map((page) => this.renderMenuItems(key, page)) }
+                        </Menu>
+                    }
+                    position={Position.RIGHT} interactionKind={PopoverInteractionKind.HOVER}>
+                    <a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{color: "white", fontSize: "1.7em"}}>{key}</a>
+                </Popover>
+            </div>
+        );
+    };
+
+    renderMobileMenu = () => {
+        return(
+            <Overlay className="mobile-menu-overlay"
+                     isOpen={this.state.isShowMobileMenu}
+                     onClose={() => {this.setState({isShowMobileMenu: false}); this.refs["mobile-menu-btn"].buttonRef.setAttribute("show", "false")}}
+                     usePortal={false}>
+                <div style={{width: "100%"}}>
+                    <div style={{backgroundColor: "white", marginBottom: "50px"}}>
+                        <img id="seedsVietnam-logo" src={logo} alt="logo" style={{width: "200px"}}/>
+                    </div>
+                    { Object.keys(this.props.pageStructure).map(this.renderMobileMenuOptions) }
+                    <div className="mobile-menu-option">
+                        <a className="bp3-button bp3-minimal bp3-large bp3-fill"
+                           style={{color: "white", fontSize: "1.7em"}}
+                           onClick={() => {this.setState({isShowMobileMenu: false}); this.refs["mobile-menu-btn"].buttonRef.setAttribute("show", "false")}}>{"<--Giấu menu"}</a>
+                    </div>
+                </div>
+            </Overlay>
+        );
+    };
 
     renderSignInOverlay = () => {
         return (
@@ -117,8 +154,28 @@ export default class Header extends Component {
 				<div className="menu-bar-desktop bp3-navbar-group">
 					{ Object.keys(this.props.pageStructure).map(this.renderDesktopMenuOptions) }
 				</div>
+                <div className="menu-bar-mobile bp3-navbar-group">
+                    <Button ref="mobile-menu-btn" className="bp3-large mobile-menu-button" onClick={(e) => {
+                        const el = e.target.parentNode.parentNode;
+                        this.setState({isShowMobileMenu: !this.state.isShowMobileMenu}, () => {
+                            this.state.isShowMobileMenu ? el.setAttribute("show", "true") : el.setAttribute("show", "false")
+                        });
+                    }}>
+                        {
+                            this.state.isShowMobileMenu
+                                ? "Đóng Menu "
+                                : "Hiện Menu "
+                        }
+                        {
+                            this.state.isShowMobileMenu
+                                ? <span className="bp3-icon-large bp3-icon-menu-closed"/>
+                                : <span className="bp3-icon-large bp3-icon-menu-open"/>
+                        }
+                    </Button>
+                </div>
                 {!this.props.isLoggedIn && this.state.isSignInClicked ? this.renderSignInOverlay() : null}
                 {this.props.isLoggedIn && this.state.isUserAccClicked ? this.renderUserAccOverlay() : null}
+                {this.state.isShowMobileMenu ? this.renderMobileMenu() : null}
 			</nav>
 		);
 	};

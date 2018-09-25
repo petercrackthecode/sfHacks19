@@ -65,8 +65,11 @@ class App extends Component {
         const userRef = firebase.database().ref("user_metadata/" + uid);
         return new Promise((resolve, reject) => {
             userRef.on("value", snapshot => {
-                this.setState({user_metadata: snapshot.val()}, () => {return resolve()});
-            })
+                this.setState({user_metadata: snapshot.val()}, () => {
+                    localStorage.setItem("appState", JSON.stringify(this.state));
+                    return resolve();
+                });
+            });
         });
     };
 

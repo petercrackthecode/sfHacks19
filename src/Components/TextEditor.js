@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {Button, ButtonGroup, Overlay} from "@blueprintjs/core";
+import {Button, ButtonGroup, Overlay, Collapse} from "@blueprintjs/core";
 import {Card, Tab, Tabs} from "@blueprintjs/core";
 import {Editor, EditorState, RichUtils, AtomicBlockUtils, Modifier, convertToRaw, convertFromRaw} from "draft-js";
 
@@ -9,13 +9,15 @@ import GoogleImageBrowser from "./SiteMediaManager/GoogleImageBrowser.js";
 
 import BlockStyleToolbar from "./BlockStyles/BlockStyleToolbar.js";
 import ExtendedRichUtils from "./BlockStyles/ExtendedRichUtils.js";
-import {mediaBlockRenderer} from "./BlockStyles/entities/MediaBlockRenderer.js";
+import {customBlockRenderer} from "./BlockStyles/entities/CustomBlockRenderer.js";
 import {hyperlinkDecorator} from "./BlockStyles/plugins/HyperLinkPlugin.js";
 
 import {customStyleMap,
         getBlockStyle,
-        getBlockMap,
-        customKeyBindingFn} from "./BlockStyles/HelperFn.js";
+        customKeyBindingFn,
+        EMOJI} from "./BlockStyles/HelperFn.js";
+
+import {EmoteList} from "../Constants/constants";
 
 import "../CSS/text-editor.css";
 import "../CSS/custom-block-style.css";
@@ -27,12 +29,12 @@ export default class TextEditor extends Component {
             title: "",
             editorState: EditorState.createEmpty(),
             addMediaOverlay: false,
+            addEmojiOverlay: false,
         };
 	}
 
 	componentWillMount() {
 	    if (this.props.renderContent !== undefined) {
-            console.log(this.props.renderContent);
             this.setState({title: this.props.renderContent.title});
             const content = convertFromRaw(JSON.parse(this.props.renderContent.data.content));
             this.setState({editorState: EditorState.createWithContent(content)});
@@ -96,13 +98,14 @@ export default class TextEditor extends Component {
             this.onChange(RichUtils.toggleLink(editorState, selection, null));
             return "handled";
         }
-        const content = editorState.getCurrentContent();
-        const contentWithEntity = content.createEntity("LINK", "MUTABLE", { url: link });
+        const contentState = editorState.getCurrentContent();
+        const contentStateWithEntity = contentState.createEntity("LINK", "MUTABLE", { url: link });
         let newEditorState = EditorState.createEmpty(hyperlinkDecorator);
-        newEditorState = EditorState.push(newEditorState, contentWithEntity, "create-entity");
-        const entityKey = contentWithEntity.getLastCreatedEntityKey();
+        newEditorState = EditorState.push(newEditorState, contentStateWithEntity, "create-entity");
+        const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
         this.onChange(RichUtils.toggleLink(newEditorState, selection, entityKey))
     };
+
     renderAddMediaOverlay = () => {
         return(
             <Overlay
@@ -133,15 +136,25 @@ export default class TextEditor extends Component {
             { src: url }
         );
         const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-        const newEditorState = EditorState.set(
+        const newEditorState = EditorState.push(
             editorState,
             { currentContent: contentStateWithEntity },
-            "create-entity"
+            "insert-fragment"
         );
         this.setState({editorState: AtomicBlockUtils.insertAtomicBlock(
                                         newEditorState,
                                         entityKey,
                                         " ")});
+    };
+
+    insertEmoji = (emote) => {
+        const editorState = this.state.editorState;
+        const selection = editorState.getSelection();
+        if (!selection.isCollapsed()) return;
+        const contentState = editorState.getCurrentContent();
+        const newContentState = Modifier.insertText(contentState, selection, emote);
+        const newEditorState = EditorState.push(editorState, newContentState, 'insert-fragment');
+        this.onChange(newEditorState);
     };
 
     handleTab = (e) => {
@@ -201,8 +214,20 @@ export default class TextEditor extends Component {
                     <ButtonGroup>
                         <Button className="bp3-icon-link bp3-large" tabIndex="-1" onClick={this.handleHyperLinkClick}/>
                         <Button className="bp3-icon-media bp3-large" tabIndex="-1" onClick={() => this.setState({addMediaOverlay: true})}/>
+                        <Button className="bp3-large" tabIndex="-1" onClick={() => this.setState({addEmojiOverlay: !this.state.addEmojiOverlay})}>
+                            <span role="img" aria-label="lmao">😎</span>
+                        </Button>
                     </ButtonGroup>
                 </div>
+                <Collapse isOpen={this.state.addEmojiOverlay}>
+                    <div className="emotes-browser">
+                        {
+                            EmoteList.map(emote => {
+                                return ( <EMOJI key={emote} symbol={emote} handleEmojiClick={this.insertEmoji}/> );
+                            })
+                        }
+                    </div>
+                </Collapse>
                 <div className="text-editor-block-style">
                     <BlockStyleToolbar
                         editorState={this.state.editorState}
@@ -223,8 +248,7 @@ export default class TextEditor extends Component {
                         onChange={this.onChange}
                         handleKeyCommand={this.handleKeyCommand}
                         blockStyleFn={getBlockStyle}
-                        blockRendererFn={mediaBlockRenderer}
-                        blockRenderMap={getBlockMap()}
+                        blockRendererFn={customBlockRenderer}
                         onTab={this.handleTab}
                         customStyleMap={customStyleMap}
                         keyBindingFn={customKeyBindingFn}

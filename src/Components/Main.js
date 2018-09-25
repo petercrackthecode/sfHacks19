@@ -9,9 +9,11 @@ import BlogViewer from "./BlogViewer.js";
 import BlogBrowser from "./BlogBrowser.js";
 import CreateNewPost from "./CreateNewPost.js";
 import EditDraft from "./EditDraft.js";
+import EditBlog from "./EditBlog.js";
 import BlogCMS from "./BlogCMS.js";
 import UserRegistration from "./UserAuth/UserRegistration.js";
-import AccountSettings from "./UserAuth/AccountSettings.js";
+import AccountSettings from "./AccountSettings.js";
+import AccountViewer from "./AccountViewer.js";
 import Four0Four from "./Four0Four.js";
 
 export default class Main extends Component {
@@ -44,9 +46,16 @@ export default class Main extends Component {
                                                                                              isAdmin={this.props.isAdmin}/>} />
                     <Route exact path="/editDraft/:id" render={(props) => <EditDraft {...props}
                                                                                      reloadUserMetadata={this.reloadUserMetadata}
+                                                                                     user_metadata={this.props.user_metadata}
                                                                                      uid={this.props.uid}
                                                                                      isLoggedIn={this.props.isLoggedIn}
                                                                                      isAdmin={this.props.isAdmin}/>} />
+                    <Route exact path="/editBlog/:id" render={(props) => <EditBlog {...props}
+                                                                                   reloadUserMetadata={this.reloadUserMetadata}
+                                                                                   user_metadata={this.props.user_metadata}
+                                                                                   uid={this.props.uid}
+                                                                                   isLoggedIn={this.props.isLoggedIn}
+                                                                                   isAdmin={this.props.isAdmin}/>} />
                     <Route path="/BlogCMS" component={BlogCMS} />
                     <Route path="/registration" render={() => <UserRegistration isLoggedIn={this.props.isLoggedIn}/>} />
                     <Route exact path="/user/settings/:id" render={(props) => <AccountSettings {...props}
@@ -55,6 +64,7 @@ export default class Main extends Component {
                                                                                                user_metadata={this.props.user_metadata}
                                                                                                isLoggedIn={this.props.isLoggedIn}
                                                                                                isAdmin={this.props.isAdmin}/>} />
+                    <Route exact path="/user/:id/:ref" render={(props) => <AccountViewer {...props}/>}/>
                     <Route exact path="*" component={Four0Four} />
                 </Switch>
 			</div>

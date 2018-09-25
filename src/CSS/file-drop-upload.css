@@ -1,0 +1,24 @@
+.file-drop {
+    height: 80px;
+    background-color: #d8e1e8;
+    margin-bottom: 10px;
+    color: #8a9ba8;
+    text-align: center;
+    border-radius: 7px;
+    border: 2px #3dcc91 dotted;
+    cursor: pointer;
+}
+
+.file-drop > * {
+    cursor: pointer;
+}
+
+.file-drop[is-dragged-over="true"] {
+    background-color: white;
+    color: #10161a;
+}
+
+.file-drop h3 {
+    position: relative;
+    top: 10px;
+}
