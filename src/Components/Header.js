@@ -85,7 +85,16 @@ export default class Header extends Component {
 				<div className="top-bar">
                     <img id="seedsVietnam-logo" src={logo} alt="logo"/>
 					<div className="subscribe" style={{float: "left"}}>
-                        <Button className="subscribe-btn bp3-minimal" text="Subscribe!" style={{marginRight: "10px"}}/>
+                        <div id="subscribe-dropdown">
+                            <Button className="subscribe-btn bp3-minimal" text="Subscribe!" style={{marginRight: "10px"}}/>
+                            {/* This dummy-box background-color is white so it won't appear, 
+                            just to make the subscribe-box spacing from the subscribe-btn */}
+                            <div name="dummy-box" style={{backgroundColor: 'white', height: '7px', width: '350px', position: 'absolute', padding: '5px'}}></div> 
+                            <form id="subscribe-box">
+                                <input className='subscribe-input' type="email" placeholder="Email" required/>
+                                <button className='subscribe-submit'>Đăng ký</button>
+                            </form>
+                        </div>
                         <a role="button" style={{marginRight: "10px"}}><img src={fb_logo} alt="fb_logo"/></a>
                         <a role="button"><img src={googleplus_logo} alt="googleplus_logo"/></a>
 					</div>
