@@ -56,7 +56,6 @@ class App extends Component {
     };
 
     reloadUserMetadata = () => {
-        console.log("reload user metadata");
         this.getUserMetadata(this.state.uid);
     };
 
@@ -89,6 +88,19 @@ class App extends Component {
         });
     };
 
+    subscribe = () => {
+        const userRef = firebase.database().ref("user_metadata/" + this.state.uid);
+        return new Promise((resolve, reject) => {
+            userRef.child("subscribe_state").set(true)
+                .then(() => {
+                    this.reloadUserMetadata();
+                    return resolve();
+                }).catch(() => {
+                    return reject();
+                });
+        });
+    };
+
 	render() {
 		return (
             <div className="App">
@@ -97,9 +109,10 @@ class App extends Component {
                         isLoggedIn={this.state.isLoggedIn}
                         uid={this.state.uid}
                         isAdmin={this.state.isAdmin}
-                        user_metadata={this.state.user_metadata} signOut={this.signOut}/>
+                        user_metadata={this.state.user_metadata}
+                        signOut={this.signOut} subscribe={this.subscribe}/>
 
-                <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "3px", marginBottom: "7px"}}></div>
+                <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "3px", marginBottom: "7px"}}/>
 
                 <Main isLoggedIn={this.state.isLoggedIn}
                       reloadUserMetadata={this.reloadUserMetadata}

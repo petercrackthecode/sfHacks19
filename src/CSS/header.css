@@ -18,8 +18,8 @@
 
 .top-bar .subscribe, .top-bar .user-account {
     height: 90px;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
 }
 
 .subscribe-btn, .sign-in-btn {
@@ -27,75 +27,67 @@
     padding: 9px;
 }
 
-.overlay-subscription  {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: rgba(0,0,0,0.5);
+.overlay-subscription {
+
+    overflow: hidden;
 }
 
-.overlay-subscription-content  {
-  background-color: #f4f4f4;
-  margin: 20% auto;
-  width: 70%;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-  border: 1px solid green;
-  border-radius: 5px;
-  animation-name: overlay-isOpen;
-  animation-duration: 1.5s;
+.overlay-subscription-content {
+    background-color: #f4f4f4;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    border: 1px solid green;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 50%;
 }
 
 .overlay-header {
-  background: Green;
-  padding: 15px;
-  color: #fff;
+    background: Green;
+    padding: 15px;
+    color: #fff;
 }
 
 .closeBtn {
-  float: right;
-  color: #ccc;
-  font-size: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ccc;
+    font-size: 30px;
 }
 
 .closeBtn:hover {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .overlay-header h2, .overlay-body h3 {
-  text-align: center;
-  margin: 0;
+    text-align: center;
+    margin: 0;
 }
 
 .overlay-body {
-  padding: 10px 20px;
+    padding: 10px 20px;
 }
 
 .overlay-footer {
-  background: Green;
-  padding: 10px;
-  color: #fff;
-  text-align: center;
+    background: Green;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
 }
 
 .overlay-footer > .subscribe-btn {
-  border-radius: 5px;
-  background-color: white;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .overlay-footer > .subscribe-btn:hover {
-  background-color: white;
-  opacity: 0.6;
-}
-
-.keyframes overlay-isOpen {
-  from {opacity: 0}
-  to {opacity: 1}
+    background-color: white;
+    opacity: 0.6;
 }
 
 .mobile-menu-overlay {
@@ -124,5 +116,5 @@
 
 .mobile-menu-button[show="false"] {
     position: relative;
-    left: 0px;
+    left: 0;
 }
