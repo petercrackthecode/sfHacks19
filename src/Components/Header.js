@@ -4,12 +4,108 @@ import logo from "../Images/seedsvietnam.png";
 import fb_logo from "../Images/fb_logo.png";
 import googleplus_logo from "../Images/ggp_logo.png";
 import { Button, Menu, MenuItem, Popover, Overlay, Classes } from "@blueprintjs/core";
-import { Position, PopoverInteractionKind } from "@blueprintjs/core";
+import { Position, PopoverInteractionKind, Intent} from "@blueprintjs/core";
+
+import AppToaster from "./Toaster.js";
+
 
 import SignInOverlay from "./UserAuth/SignInOverlay.js";
 import UserAccOverlay from "./UserAuth/UserAccOverlay.js";
 
 import "../CSS/header.css";
+
+class Benefit extends Component {
+	constructor(props)	{
+		super(props);
+		this.state = {
+			isDisplay: true,
+		};
+		this.toggleDisplay= this.toggleDisplay.bind(this);
+		this.handleSubscribe= this.handleSubscribe.bind(this);
+	}
+
+	toggleDisplay()	{
+		this.setState({isDisplay: !this.state.isDisplay});
+	}
+
+	handleSubscribe(e)	{
+		this.props.isSubcribe(e.target.value);
+	}
+
+	render()	{
+		return (
+			<div className="overlay-subscription" style={this.state.isDisplay ? {display: 'block'} : {display: 'none'}}>
+				<div className='overlay-subscription-content'>
+					<div className='overlay-header'>
+						<span class="closeBtn" onClick={this.toggleDisplay}>&times;</span>
+						<h2>Quyền lợi</h2>
+					</div>
+					<div className='overlay-body'>
+						<h3>Content</h3> {/* place benefit here */}
+					</div>
+					<div className='overlay-footer'>
+						<Button className="subscribe-btn bp3-minimal" text="Đồng ý" onClick= {() =>
+							{
+								this.toggleDisplay;
+								this.handleSubscribe;
+							}
+						}/>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
+class Policy extends Component {
+	constructor(props)	{
+		super(props);
+		this.state = {
+			isDisplay: true,
+			isBenefitDisplay: false,
+		};
+		this.toggleDisplay= this.toggleDisplay.bind(this);
+		this.toggleBenefit= this.toggleBenefit.bind(this);
+		this.handleSubscribe= this.handleSubscribe.bind(this);
+	}
+
+	toggleDisplay()	{
+		this.setState({isDisplay: !this.state.isDisplay});
+	}
+
+	handleSubscribe(e)	{
+		this.props.isSubscribe(e.target.value);
+	}
+
+	toggleBenefit()	{
+		this.setState({
+			isDisplay: false,
+			isBenefitDisplay: true,
+		})
+	}
+
+	render()	{
+		return (
+			<div>
+			<div className="overlay-subscription" style={this.state.isDisplay ? {display: 'block'} : {display: 'none'}}>
+				<div className='overlay-subscription-content'>
+					<div className='overlay-header'>
+						<span class="closeBtn" onClick={this.toggleDisplay}>&times;</span>
+						<h2>Điều khoản</h2>
+					</div>
+					<div className='overlay-body'>
+						<h3>Content</h3> {/* place policy here */}
+					</div>
+					<div className='overlay-footer'>
+						<Button className="subscribe-btn bp3-minimal" text="Chấp nhận" onClick= {this.toggleBenefit}/>
+					</div>
+				</div>
+			</div>
+			{this.state.isBenefitDisplay ? <Benefit isSubscribe={this.handleSubscribe} /> : null}
+			</div>
+		);
+	}
+}
 
 export default class Header extends Component {
 	constructor(props) {
@@ -19,9 +115,12 @@ export default class Header extends Component {
             signInOverlayPos : {},
             isUserAccClicked: false,
             userAccOverlayPos : {},
-			isSearchClicked: false,
+						isSearchClicked: false,
             isShowMobileMenu: false,
+						isSubscriptionClicked: false,
+						isSubscribeSuccessful: false,
         };
+		this.handleSubscription= this.handleSubscription.bind(this);
 	}
 
     authenticated = (uid, isAdmin) => {
@@ -105,13 +204,15 @@ export default class Header extends Component {
     };
 
     renderUserAccOverlay = () => {
+				let User_metadata= this.props.user_metadata;
+				this.User_metadata.subscribe_state= this.state.isSubscribeSuccessful ? true : false;
         return (
             <UserAccOverlay isVisible={this.state.isUserAccClicked}
                             posx={this.state.userAccOverlayPos.x}
                             posy={this.state.userAccOverlayPos.y}
                             uid={this.props.uid}
                             isAdmin={this.props.isAdmin}
-                            user_metadata={this.props.user_metadata}
+                            user_metadata={this.User_metadata}
 							signOut={this.props.signOut}/>
         );
     };
@@ -122,10 +223,15 @@ export default class Header extends Component {
 				<div className="top-bar">
                     <img id="seedsVietnam-logo" src={logo} alt="logo"/>
 					<div className="subscribe" style={{float: "left"}}>
-                        <Button className="subscribe-btn bp3-minimal" text="Subscribe!" style={{marginRight: "10px"}}/>
-                        <a role="button" style={{marginRight: "10px"}}><img src={fb_logo} alt="fb_logo"/></a>
-                        <a role="button"><img src={googleplus_logo} alt="googleplus_logo"/></a>
+          	<Button className="subscribe-btn bp3-minimal" text="Subscribe!" style={{marginRight: "10px"}} onClick={() => {this.props.isLoggedIn
+							? this.setState({isSubscriptionClicked: true})
+							: AppToaster.show({message: "Bạn phải đăng nhập trước khi đăng ký nhận Newsletter", intent: Intent.WARNING});
+						}}/>
+						{this.state.isSubscriptionClicked ? <Policy isSubcribe={this.handleSubscription} /> : null}
+						<a role="button" style={{marginRight: "10px"}}><img src={fb_logo} alt="fb_logo"/></a>
+            <a role="button"><img src={googleplus_logo} alt="googleplus_logo"/></a>
 					</div>
+
 					<div className="user-account" style={{float: "right"}}>
                         <div className="bp3-input-group" style={{marginRight: "10px"}}>
                             {
@@ -170,6 +276,10 @@ export default class Header extends Component {
 			</nav>
 		);
 	};
+
+		handleSubscription(e) {
+			this.setState({isSubscribeSuccessful: true,});
+		}
 
     handleSignIn = (e) => {
         e.stopPropagation();
