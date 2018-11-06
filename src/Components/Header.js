@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import logo from "../Images/seedsvietnam.png";
 import fb_logo from "../Images/fb_logo.png";
 import googleplus_logo from "../Images/ggp_logo.png";
-import { Button, Menu, MenuItem, Popover, Overlay, Classes } from "@blueprintjs/core";
-import { Position, PopoverInteractionKind, Intent} from "@blueprintjs/core";
+import { Button, Menu, MenuItem, Popover, Overlay } from "@blueprintjs/core";
+import { Position, PopoverInteractionKind } from "@blueprintjs/core";
 
 import {Suggest} from '@blueprintjs/select';
 
@@ -15,21 +15,6 @@ import SignInOverlay from "./UserAuth/SignInOverlay.js";
 import UserAccOverlay from "./UserAuth/UserAccOverlay.js";
 
 import "../CSS/header.css";
-
-class DropDown extends Component	{
-	constructor(props)	{
-		super(props);
-		this.state= {
-
-		};
-	}
-
-	render()	{
-		return (
-
-		);
-	}
-}
 
 class Benefit extends Component {
 	constructor(props)	{
@@ -132,16 +117,29 @@ export default class Header extends Component {
             signInOverlayPos : {},
             isUserAccClicked: false,
             userAccOverlayPos : {},
-						isSearchClicked: false,
+            isSearchClicked: false,
             isShowMobileMenu: false,
-						isSubscriptionClicked: false,
-						isSubscribeSuccessful: false,
+            isShowSubscription: false,
         };
-		this.handleSubscription= this.handleSubscription.bind(this);
 	}
 
     authenticated = (uid, isAdmin) => {
 	    this.props.authenticated(uid, isAdmin);
+    };
+
+    subscribe = () => {
+        this.setState({isShowSubscription: false});
+        this.props.subscribe().then(() => {
+            AppToaster.show({
+                message: "Bạn đã subscribe Newsletter thành công!",
+                intent: "success"
+            });
+        }).catch(() => {
+            AppToaster.show({
+                message: "Subscribe Newsletter thất bại!",
+                intent: "danger"
+            });
+        });
     };
 
 	renderMenuItems = (page, key) => {
@@ -163,7 +161,7 @@ export default class Header extends Component {
 					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				</Popover>
 				<span className="bp3-navbar-divider" style={{float: "right"}}/>
-			</div>
+            </div>
 			: <div className="menu-options" key={key}>
 				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
 				{
@@ -171,7 +169,7 @@ export default class Header extends Component {
 					? <span className="bp3-navbar-divider" style={{float: "right"}}/>
 					: null
 				}
-			</div>
+            </div>
 		);
 	};
 
@@ -221,16 +219,48 @@ export default class Header extends Component {
     };
 
     renderUserAccOverlay = () => {
-				let User_metadata= this.props.user_metadata;
-				this.User_metadata.subscribe_state= this.state.isSubscribeSuccessful ? true : false;
         return (
             <UserAccOverlay isVisible={this.state.isUserAccClicked}
                             posx={this.state.userAccOverlayPos.x}
                             posy={this.state.userAccOverlayPos.y}
                             uid={this.props.uid}
                             isAdmin={this.props.isAdmin}
-                            user_metadata={this.User_metadata}
+                            user_metadata={this.props.user_metadata}
 							signOut={this.props.signOut}/>
+        );
+    };
+
+    renderSubscriptionMenu = () => {
+        return (
+            <Overlay className="overlay-subscription"
+                     isOpen={this.state.isShowSubscription}
+                     onClose={() => this.setState({isShowSubscription: false})}>
+                <div className='overlay-subscription-content'>
+                    <Button className="bp3-icon-cross closeBtn" onClick={() => this.setState({isShowSubscription: false})}/>
+                    <div className='overlay-header'>
+                        <h2>Điều khoản</h2>
+                    </div>
+                    <div className='overlay-body'>
+                        <h3>Content</h3>
+                        <div>...</div>
+                        <div>...</div>
+                        <div>...</div>
+                    </div>
+
+                    <div className='overlay-header'>
+                        <h2>Quyền lợi</h2>
+                    </div>
+                    <div className='overlay-body'>
+                        <h3>Content</h3>
+                        <div>...</div>
+                        <div>...</div>
+                        <div>...</div>
+                    </div>
+                    <div className='overlay-footer'>
+                        <Button className="subscribe-btn bp3-minimal" text="Đồng ý" onClick={this.subscribe}/>
+                    </div>
+                </div>
+            </Overlay>
         );
     };
 
@@ -240,13 +270,9 @@ export default class Header extends Component {
 				<div className="top-bar">
                     <img id="seedsVietnam-logo" src={logo} alt="logo"/>
 					<div className="subscribe" style={{float: "left"}}>
-          	<Button className="subscribe-btn bp3-minimal" text="Subscribe!" style={{marginRight: "10px"}} onClick={() => {this.props.isLoggedIn
-							? this.setState({isSubscriptionClicked: true})
-							: AppToaster.show({message: "Bạn phải đăng nhập trước khi đăng ký nhận Newsletter", intent: Intent.WARNING});
-						}}/>
-						{this.state.isSubscriptionClicked ? <Policy isSubcribe={this.handleSubscription} /> : null}
+          			<Button className="subscribe-btn bp3-minimal" text="Subscribe!" style={{marginRight: "10px"}} onClick={this.handleSubscriptionBtn}/>
 						<a role="button" style={{marginRight: "10px"}}><img src={fb_logo} alt="fb_logo"/></a>
-            <a role="button"><img src={googleplus_logo} alt="googleplus_logo"/></a>
+                        <a role="button"><img src={googleplus_logo} alt="googleplus_logo"/></a>
 					</div>
 
 					<div className="user-account" style={{float: "right"}}>
@@ -290,13 +316,23 @@ export default class Header extends Component {
                 {!this.props.isLoggedIn && this.state.isSignInClicked ? this.renderSignInOverlay() : null}
                 {this.props.isLoggedIn && this.state.isUserAccClicked ? this.renderUserAccOverlay() : null}
                 {this.state.isShowMobileMenu ? this.renderMobileMenu() : null}
+                {this.state.isShowSubscription ? this.renderSubscriptionMenu() : null}
 			</nav>
 		);
 	};
 
-		handleSubscription(e) {
-			this.setState({isSubscribeSuccessful: true,});
-		}
+    handleSubscriptionBtn = () => {
+        if (!this.props.isLoggedIn) {
+            AppToaster.show({message: "Bạn phải đăng nhập trước khi đăng ký nhận Newsletter", intent: "warning"});
+            return;
+        }
+        if (this.props.user_metadata.subscribe_state) {
+            AppToaster.show({message: "Bạn đã đăng kí Newsletter với chúng tôi. Cảm ơn bạn!", intent: "primary"});
+            return;
+        }
+        this.setState({isShowSubscription: true});
+
+    };
 
     handleSignIn = (e) => {
         e.stopPropagation();
