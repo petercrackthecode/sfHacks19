@@ -6,6 +6,8 @@ import googleplus_logo from "../Images/ggp_logo.png";
 import { Button, Menu, MenuItem, Popover, Overlay, Classes } from "@blueprintjs/core";
 import { Position, PopoverInteractionKind, Intent} from "@blueprintjs/core";
 
+import {Suggest} from '@blueprintjs/select';
+
 import AppToaster from "./Toaster.js";
 
 
@@ -13,6 +15,21 @@ import SignInOverlay from "./UserAuth/SignInOverlay.js";
 import UserAccOverlay from "./UserAuth/UserAccOverlay.js";
 
 import "../CSS/header.css";
+
+class DropDown extends Component	{
+	constructor(props)	{
+		super(props);
+		this.state= {
+
+		};
+	}
+
+	render()	{
+		return (
+
+		);
+	}
+}
 
 class Benefit extends Component {
 	constructor(props)	{
@@ -236,7 +253,7 @@ export default class Header extends Component {
                         <div className="bp3-input-group" style={{marginRight: "10px"}}>
                             {
                                 this.state.isSearchClicked
-                                    ? <input type="search" className="bp3-input bp3-minimal" />
+                                    ? <Suggest/>
                                     : null
                             }
                         </div>
