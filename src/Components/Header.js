@@ -279,7 +279,9 @@ export default class Header extends Component {
                         <div className="bp3-input-group" style={{marginRight: "10px"}}>
                             {
                                 this.state.isSearchClicked
-                                    ? <Suggest/>
+                                    ? <Suggest>
+                                    	<DatabaseSearch querry=''/>
+                                    </Suggest>
                                     : null
                             }
                         </div>
