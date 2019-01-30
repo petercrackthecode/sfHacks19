@@ -34,9 +34,9 @@ export default class Home extends Component {
             this.fetchBlogs().then(() => {
                 this.state.blog_list.forEach((blog, index) => {
                     this.getAuthor(index);
-                })
+                });
             });
-        }, 300);
+        }, 1500);
     };
 
     fetchBlogs = () => {
@@ -83,18 +83,20 @@ export default class Home extends Component {
             <div className="homePage">
                 {
                     this.state.blog_list !== null
-                    ? this.renderBlogCrawler()
-                    : null
+                        ? this.renderBlogCrawler()
+                        : <div className="bp3-skeleton" style={{height: "110px", width: "100%"}}/>
                 }
 
                 <div className="pageGallery">
-                    <ImageGallery items={this.state.gallery}
-                                  showBullets={true}
-                                  autoPlay={true}
-                                  showGalleryPlayButton={false}
-                                  showThumbnails={false}
-                                  showNav={true}
-                    />
+                    {
+                        this.state.gallery.length > 0
+                            ? <ImageGallery items={this.state.gallery}
+                                            showBullets={true}
+                                            showGalleryPlayButton={true}
+                                            showThumbnails={false}
+                                            showNav={true}/>
+                            : <div className="bp3-skeleton" style={{height: "780px", width: "100%"}}/>
+                    }
                 </div>
 
                 <div id="Về-Seeds-Vietnam" className="pageSection" data-color="white">

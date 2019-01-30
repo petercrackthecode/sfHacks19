@@ -69,7 +69,8 @@ export default class SignInOverlay extends Component {
 
     render() {
         return(
-            <Overlay isOpen={this.props.isVisible} hasBackdrop={false} autoFocus={false} className="sign-in-overlay">
+            <Overlay isOpen={this.props.isVisible} hasBackdrop={false} autoFocus={false}
+                     className="sign-in-overlay">
                 <div style={{
                     backgroundColor: "#D5DADF",
                     width: "240px",
@@ -80,7 +81,7 @@ export default class SignInOverlay extends Component {
                     top: this.props.posy}}>
                     <form ref="sign-in-form" onSubmit={this.authenticateUser}>
                         <div style={{marginBottom: "10px"}}>
-                            <label htmlFor="username">Email/Tên Tài Khoản:</label><br/>
+                            <label htmlFor="username">Email:</label><br/>
                             <input className="pt-input" type="text"
                                    autoComplete="username"
                                    ref="username" style={{marginTop: "10px"}}/>

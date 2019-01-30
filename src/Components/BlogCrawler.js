@@ -10,8 +10,8 @@ export default class BlogCrawler extends Component {
             item_index: 0,
             imageList: [],
         };
-        this.default_delay = 5000;
-        this.delay = 5000;
+        this.default_delay = 7600;
+        this.delay = 7600;
         this.timeout = null;
     }
 
@@ -45,15 +45,15 @@ export default class BlogCrawler extends Component {
                      this.props.list[this.state.item_index].id +
                      "/" +
                      this.props.list[this.state.item_index].title}>
-                <div style={{float: "left", width: "10%", height: "100%", color: "red", textShadow: "1.5px 1.5px green"}}>
+                <div style={{width: "10%", height: "100%", color: "red", textShadow: "1.5px 1.5px green"}}>
                     <h1 style={{lineHeight: "98px", margin: "0px"}}>MỚI:</h1>
                 </div>
-                <div style={{float: "right", width: "90%"}}>
-                    <div className="blog-item" style={{display: "table"}}>
-                        <div style={{display: "table-cell"}}>
+                <div style={{width: "90%"}}>
+                    <div className="blog-item" style={{display: "flex"}}>
+                        <div>
                             <img src={this.props.list[this.state.item_index].thumbnail} style={{height: "98px"}}/>
                         </div>
-                        <div style={{display: "table-cell", position: "absolute", padding: "10px", minWidth: "200px"}}>
+                        <div style={{minWidth: "200px", marginLeft: "10px"}}>
                             <div>
                                 <h3 style={{margin: "4px"}}>{this.props.list[this.state.item_index].title}</h3>
                             </div>

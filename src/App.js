@@ -56,7 +56,6 @@ class App extends Component {
     };
 
     reloadUserMetadata = () => {
-        console.log("reload user metadata");
         this.getUserMetadata(this.state.uid);
     };
 
@@ -65,8 +64,11 @@ class App extends Component {
         const userRef = firebase.database().ref("user_metadata/" + uid);
         return new Promise((resolve, reject) => {
             userRef.on("value", snapshot => {
-                this.setState({user_metadata: snapshot.val()}, () => {return resolve()});
-            })
+                this.setState({user_metadata: snapshot.val()}, () => {
+                    localStorage.setItem("appState", JSON.stringify(this.state));
+                    return resolve();
+                });
+            });
         });
     };
 
@@ -86,6 +88,19 @@ class App extends Component {
         });
     };
 
+    subscribe = () => {
+        const userRef = firebase.database().ref("user_metadata/" + this.state.uid);
+        return new Promise((resolve, reject) => {
+            userRef.child("subscribe_state").set(true)
+                .then(() => {
+                    this.reloadUserMetadata();
+                    return resolve();
+                }).catch(() => {
+                    return reject();
+                });
+        });
+    };
+
 	render() {
 		return (
             <div className="App">
@@ -94,7 +109,8 @@ class App extends Component {
                         isLoggedIn={this.state.isLoggedIn}
                         uid={this.state.uid}
                         isAdmin={this.state.isAdmin}
-                        user_metadata={this.state.user_metadata} signOut={this.signOut}/>
+                        user_metadata={this.state.user_metadata}
+                        signOut={this.signOut} subscribe={this.subscribe}/>
 
                 <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "10px", marginBottom: "7px"}}></div>
 

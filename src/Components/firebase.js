@@ -13,6 +13,8 @@ const config = {
     storageBucket: "seeds-vietnam.appspot.com",
     messagingSenderId: "154989476440"
 };
+if (!firebase.apps.length)	{
+	firebase.initializeApp(config);
+}
 
-firebase.initializeApp(config);
 export default firebase;

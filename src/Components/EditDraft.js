@@ -32,13 +32,14 @@ export default class EditDraft extends Component {
 
     getDraftContent = () => {
         const id = this.props.match.params.id;
-        const draftRef = firebase.database().ref("drafts");
+        console.log(id);
+        const draftRef = firebase.database().ref("drafts/" + id);
         return new Promise((resolve, reject) => {
-            draftRef.orderByKey().equalTo(id).on("value", snapshot => {
+            draftRef.once("value", snapshot => {
                 if (snapshot.val() == null) {
                     return reject();
                 }
-                this.setState({draft: Object.values(snapshot.val())[0]}, () => {return resolve()});
+                this.setState({draft: snapshot.val()}, () => {return resolve()});
             });
         });
     };
@@ -66,13 +67,14 @@ export default class EditDraft extends Component {
     saveDraft = (content) => {
         const id = this.props.match.params.id;
         this.savePostData(content).then(() => {
-            const draftRef = firebase.database().ref().child("drafts/" + id);
+            const draftRef = firebase.database().ref("drafts/" + id);
             draftRef.update(this.state.draft)
                 .then(() => {
-                    AppToaster.show({message: "Update bản draft thành công!", intent: "success"})
+                    AppToaster.show({message: "Update bản draft thành công!", intent: "success"});
+                    window.location.href = "/user/settings/@" + this.props.user_metadata.display_name;
                 })
                 .catch((error) => {
-                    AppToaster.show({message: "Update bản draft thất bại. Lỗi: " + error.message, intent: "danger"})
+                    AppToaster.show({message: "Update bản draft thất bại. Lỗi: " + error.message, intent: "danger"});
                 });
         });
     };
@@ -82,16 +84,16 @@ export default class EditDraft extends Component {
         const id = this.props.match.params.id;
         const uid = this.props.uid;
         this.savePostData(content).then(() => {
-            const draftRef = firebase.database().ref().child("drafts/" + id);
+            const draftRef = firebase.database().ref("drafts/" + id);
             draftRef.update(this.state.draft)
                 .then(() => {
                     publishDraft({id: id, uid: uid}).then(result => {
-                        console.log(result);
-                        AppToaster.show({message: "Publish bản draft thành công!", intent: "success"})
+                        AppToaster.show({message: "Publish bản draft thành công!", intent: "success"});
+                        window.location.href = "/user/settings/@" + this.props.user_metadata.display_name;
                     });
                 })
                 .catch((error) => {
-                    AppToaster.show({message: "Publish bản draft thất bại. Lỗi: " + error.message, intent: "danger"})
+                    AppToaster.show({message: "Publish bản draft thất bại. Lỗi: " + error.message, intent: "danger"});
                 });
         });
     };

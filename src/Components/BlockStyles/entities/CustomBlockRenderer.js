@@ -1,6 +1,6 @@
 import {MEDIA} from "../HelperFn.js";
 
-export const mediaBlockRenderer = (block) => {
+export const customBlockRenderer = (block) => {
     if (block.getType() === "atomic") {
         return {
             component: MEDIA,

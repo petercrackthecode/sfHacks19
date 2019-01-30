@@ -1,12 +1,11 @@
 .blog-cms {
-    min-width: 1200px;
+    /*min-width: 1200px;*/
 }
 
 .blog-cms .bp3-tab-panel {
     margin: 0px;
     position: relative;
     padding: 10px;
-    min-width: 1170px;
     border: 1px #0f9960 solid;
 }
 
@@ -24,3 +23,13 @@
     border-top-right-radius: 7px;
     color: black;
 }
+
+.site-management .bp3-tab-panel {
+    width: calc(100% - 196px);
+    min-height: 600px;
+}
+
+.site-management .bp3-tab-panel .blog-summary-wrapper {
+    width: auto !important;
+}
+

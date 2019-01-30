@@ -70,23 +70,58 @@
     padding: 0;
 }
 
-.user-blogs .blog {
-    width: 500px;
-    margin: 0 auto;
-    overflow: auto;
-    text-align: initial;
+.account-settings .user-stats {
+    margin: 15px;
 }
 
-.user-blogs .blog .blog-title{
+.blog-summary-wrapper {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.blog {
+    overflow: auto;
+    text-align: initial;
+    display: flex;
+}
+
+.blog .blog-cover {
+    height: 150px;
+    padding: 3px;
+    margin: 3px 7px 3px 3px;
+}
+
+.blog .bp3-non-ideal-state {
+    height: 150px;
+    width: 250px;
+    padding: 3px;
+    margin-right: 3px 7px 3px 3px;
+}
+
+.blog .blog-info .blog-title{
     font-size: 1.4em;
     font-weight: 700;
 }
 
-.user-blogs .blog .blog-time-stamp{
+.blog .blog-info .blog-time-stamp{
     font-size: 1em;
+    font-weight: 200;
     font-style: italic;
+    color: #949292;
 }
 
-.user-blogs .blog .blog-sneakpeak{
+.blog .blog-info .blog-author{
+    font-size: 1em;
+    font-weight: 600;
+    font-style: italic;
+    color: #777676;
+}
+
+.blog .blog-info .blog-sneakpeak{
     margin-top: 15px;
+}
+
+.edit-profile-pic-overlay .bp3-card, .edit-display-name-overlay .bp3-card {
+    min-width: 300px;
+    min-height: 200px;
 }

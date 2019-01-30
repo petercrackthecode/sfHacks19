@@ -18,8 +18,8 @@
 
 .top-bar .subscribe, .top-bar .user-account {
     height: 90px;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
 }
 
 .subscribe-btn, .sign-in-btn {
