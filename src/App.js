@@ -21,7 +21,7 @@ class App extends Component {
             "Seeds ACT": ["Về Seeds ACT", "Đối tượng tham gia", "Cách hoạt động", "Đơn vị cộng tác", "Đăng ký"],
             "SheCodes": ["Về SheCodes", "Chi tiết chương trình", "Đơn vị cộng tác", "Đăng ký"],
             "Essay Editing": ["Về Essay Editing", "Quyền lợi", "Dịch vụ", "Counselor của Seeds Vietnam", "Đăng ký"],
-            "About & Contact": [],
+            'About & Contact': [],
             "Blog": [],
         };
     }
@@ -96,7 +96,7 @@ class App extends Component {
                         isAdmin={this.state.isAdmin}
                         user_metadata={this.state.user_metadata} signOut={this.signOut}/>
 
-                <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "3px", marginBottom: "7px"}}></div>
+                <div className="lightBar" style={{width: "100%", height: "3px", backgroundColor: "grey", marginTop: "10px", marginBottom: "7px"}}></div>
 
                 <Main isLoggedIn={this.state.isLoggedIn}
                       reloadUserMetadata={this.reloadUserMetadata}

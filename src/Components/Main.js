@@ -24,16 +24,17 @@ export default class Main extends Component {
     };
 
 	render() {
+		let amp= '&';
 		return(
 			<div className="Main">
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/Home" component={Home} />
-                    <Route path="/Seeds Vietnam" component={Home} />
-                    <Route path="/Seeds ACT" component={SeedsACT} />
+                    <Route path="/SeedsVietnam" component={Home} />
+                    <Route path="/SeedsACT" component={SeedsACT} />
                     <Route path="/SheCodes" component={SheCodes} />
-                    <Route path="/Essay Editing" component={EssayEditing} />
-                    <Route path="/About &amp; Contact" component={AboutContact} />
+                    <Route path="/EssayEditing" component={EssayEditing} />
+                    <Route path='/About&Contact' component={AboutContact} />
                     <Route exact path="/Blog" component={BlogBrowser} />
                     <Route exact path="/Blog/:id/:title" component={BlogViewer} />
                     <Route exact path="/:id/createNewPost" render={(props) => <CreateNewPost {...props}

@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 // import ReactDOM from "react-dom";
 import logo from "../Images/seedsvietnam.png";
@@ -9,7 +10,62 @@ import { Position, PopoverInteractionKind } from "@blueprintjs/core";
 import SignInOverlay from "./UserAuth/SignInOverlay.js";
 import UserAccOverlay from "./UserAuth/UserAccOverlay.js";
 
+
 import "../CSS/header.css";
+
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+function removeSpaceInKey(key)	{
+	return key.replace(/\s+/g, '');
+}
+
+function removeSpaceInKeyWithDash(key)	{
+	return key.replace(/\s+/g, '-');
+}
+
+class BlogSearch extends Component	{
+	constructor(props)	{
+		super(props);
+	}
+
+	render()	{
+		return (
+			<div className='BlogSearch'></div>
+		);
+	}
+}
+
+class UsernameSearch extends Component	{
+	constructor(props)	{
+		super(props);
+	}
+
+	render()	{
+		return (
+			<div className='UsernameSearch'></div>
+		);
+	}
+}
+
+class SearchBar extends Component	{
+	constructor(props)	{
+		super(props);
+	}
+
+	render()	{
+		return (
+			<div>
+				<div className='search-box'>
+					<input className='search-txt' type='text' name='' placeholder='Type to search'/>
+					<a href="#" className='search-btn'>
+						<FontAwesomeIcon icon={faSearch}/>
+					</a>
+				</div>
+			</div>
+		);
+	}
+}
 
 export default class Header extends Component {
 	constructor(props) {
@@ -19,7 +75,7 @@ export default class Header extends Component {
             signInOverlayPos : {},
             isUserAccClicked: false,
             userAccOverlayPos : {},
-			isSearchClicked: false,
+            searchQuery: ''
         };
 	}
 
@@ -29,7 +85,7 @@ export default class Header extends Component {
 
 	renderMenuItems = (page, key) => {
 		return (
-			<MenuItem key={key} text={key} href={"/" + page + "#" + key}/>
+			<MenuItem key={key} text={key} href={"/" + removeSpaceInKey(page) + "#" + removeSpaceInKeyWithDash(key)}/>
 		);
 	};
 
@@ -43,12 +99,12 @@ export default class Header extends Component {
 						</Menu>
 					}
 					position={Position.BOTTOM} interactionKind={PopoverInteractionKind.HOVER}>
-					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
+					<a className="bp3-button bp3-minimal bp3-large bp3-fill" href={"/" + removeSpaceInKey(key)} style={{minWidth: "120px"}}>{key}</a>
 				</Popover>
 				<span className="bp3-navbar-divider" style={{float: "right"}}/>
 			</div>
 			: <div className="menuOptions" key={key}>
-				<a className="bp3-button bp3-minimal bp3-large" href={"/" + key} style={{minWidth: "120px"}}>{key}</a>
+				<a className="bp3-button bp3-minimal bp3-large" href={"/" + removeSpaceInKey(key)} style={{minWidth: "120px"}}>{key}</a>
 				{
 					key !== "Blog"
 					? <span className="bp3-navbar-divider" style={{float: "right"}}/>
@@ -89,15 +145,8 @@ export default class Header extends Component {
                         <a role="button" style={{marginRight: "10px"}}><img src={fb_logo} alt="fb_logo"/></a>
                         <a role="button"><img src={googleplus_logo} alt="googleplus_logo"/></a>
 					</div>
+					<SearchBar/>
 					<div className="user-account" style={{float: "right"}}>
-                        <div className="bp3-input-group" style={{marginRight: "10px"}}>
-                            {
-                                this.state.isSearchClicked
-                                    ? <input type="search" className="bp3-input bp3-minimal" />
-                                    : null
-                            }
-                        </div>
-                        <Button className="bp3-minimal bp3-icon-search" onClick={() => this.setState({isSearchClicked: !this.state.isSearchClicked})}/>
                         {
                             !this.props.isLoggedIn
                                 ? <Button className="sign-in-btn bp3-minimal" text="Sign in" onClick={this.handleSignIn}/>

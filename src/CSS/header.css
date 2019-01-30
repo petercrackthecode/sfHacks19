@@ -26,3 +26,51 @@
     border: 1px #3dcc91 solid;
     padding: 9px;
 }
+
+/* Search-box styling starts here */
+
+.search-box {
+    box-sizing: content-box;
+    position: absolute;
+    top: 25px;
+    right: 70px;
+    height: 35px;
+    border: 1px solid green;
+    border-radius: 35px;
+    padding: 5px;
+}
+
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn {
+    color: white;
+    background: #4cd137;
+}
+
+.search-btn {
+    float: right;
+    color: black;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}

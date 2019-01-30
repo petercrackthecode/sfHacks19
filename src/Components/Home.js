@@ -97,7 +97,7 @@ export default class Home extends Component {
                     />
                 </div>
 
-                <div id="Về Seeds Vietnam" className="pageSection" data-color="white">
+                <div id="Về-Seeds-Vietnam" className="pageSection" data-color="white">
                     <div className="section-title"><h1 style={{marginTop: "0px"}}>SEEDS VIETNAM</h1></div>
                     <div className="section-content">
                         <p>SEEDS Vietnam được thành lập vào tháng 7/2017 với sứ mệnh truyền cảm hứng cho thế hệ trẻ Việt
@@ -113,7 +113,7 @@ export default class Home extends Component {
                 <div style={{position: "relative", height: "35px", overflow: "hidden"}} data-color="white">
                     <div className="page-divider" data-color="green"/>
                 </div>
-                <div id="Nội Dung" className="pageSection" data-color="green">
+                <div id="Nội-Dung" className="pageSection" data-color="green">
                     <div className="section-title"><h1 style={{marginTop: "0px"}}>CHƯƠNG TRÌNH</h1></div>
                     <div className="section-content">
                         <div style={{padding: "15px", display: "block", overflow: "hidden", borderBottom: "1px #0000006b dashed"}}>

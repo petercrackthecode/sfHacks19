@@ -33,7 +33,7 @@ export default class SheCodes extends Component {
 			<div className="she-codes">
 				<img src={sheCodesBanner} alt="sheCodesBanner" style={{width: "100%"}}/>
 
-                <div id="Về Seeds Vietnam" className="pageSection" data-color="white">
+                <div id="Về-SheCodes" className="pageSection" data-color="white">
                     <div className="section-title"><h1 style={{marginTop: "0px"}}>SHECODES</h1></div>
                     <div className="section-content">
                         <p>Hackathon đầu tiên dành cho nữ giới <i>không yêu cầu kinh nghiệm lập trình</i> tại Việt Nam!</p>
@@ -65,7 +65,7 @@ export default class SheCodes extends Component {
                     <div className="page-divider" data-color="green"/>
                 </div>
 
-                <div id="Về Seeds Vietnam" className="pageSection" data-color="green">
+                <div id="Chi-tiết-chương-trình" className="pageSection" data-color="green">
                     <div className="section-title"><h1 style={{marginTop: "0px"}}>CHI TIẾT CHƯƠNG TRÌNH NĂM 2018</h1></div>
                     <div className="section-content">
                         <SheCodesTable className='flex-box'/>
@@ -76,8 +76,8 @@ export default class SheCodes extends Component {
                     <div className="page-divider" data-color="white"/>
                 </div>
 
-                <div id="Về Seeds Vietnam" className="pageSection" data-color="white">
-                    <div className="section-title"><h1 style={{marginTop: "0px"}}>ĐƠN VỊ HỢP TÁC</h1></div>
+                <div id="Đơn-vị-cộng-tác" className="pageSection" data-color="white">
+                    <div className="section-title"><h1 style={{marginTop: "0px"}}>ĐƠN VỊ CỘNG TÁC</h1></div>
                     <div className="section-content">
                         <section className='flex-box'>
                             <a className='box' src='https://wisevietnam.org/'><img src={sheCodesSponsors1} title='WISE- Sáng kiến hỗ trợ phụ nữ khởi nghiệp và kinh doanh' alt='WISE'/></a>
@@ -100,7 +100,7 @@ export default class SheCodes extends Component {
                     <div className="page-divider" data-color="green"/>
                 </div>
 
-                <div id="Về Seeds Vietnam" className="pageSection" data-color="green">
+                <div id="Đăng-ký" className="pageSection" data-color="green">
                     <div className="section-title"><h1 style={{marginTop: "0px"}}>CÁCH ĐĂNG KÍ THAM GIA</h1></div>
                     <div className="section-content">
                         <p className='flex-box'>Sự kiện sẽ được tổ chức vào tháng 7 hằng năm. Đơn đăng kí tham dự chương trình sẽ được mở 1 tháng trước sự kiện chính. Để nhận được thông tin khi đơn đăng kí mở, bạn có thể điền thông tin tại đây: </p>
@@ -108,9 +108,9 @@ export default class SheCodes extends Component {
                             <p style={{width: '49.6vw', margin: '0 auto', fontSize: "1.5em", padding: "10px"}}>Đăng kí ngay để nhận thông tin tức thời</p><br/>
                             <span style={{display: 'inline'}}>
                                 <i className='fa fa-user icon'/>
-                                <input id='name-box' className='common-box' type='text' placeholder='Tên'/>
+                                <input id='name-box' className='common-box' type='text' placeholder='Tên' required/>
                                 <i className='fa fa-envelope icon'/>
-                                <input id='name-box' className='common-box' type='email' placeholder='Địa chỉ Email'/>
+                                <input id='name-box' className='common-box' type='email' placeholder='Địa chỉ Email' required/>
                                 <button className='button-decoration'>Đăng kí</button>
                             </span>
                         </form>
